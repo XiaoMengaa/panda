@@ -8,7 +8,7 @@
             <div class='container-fluid'>
                 <a class='brand' href='index.html'>
                     <i class='icon-heart-empty'></i>
-                    <span class='hidden-phone'>Flatty</span>
+                    <span class='hidden-phone'>熊猫滚滚</span>
                 </a>
                 <a class='toggle-nav btn pull-left' href='#'>
                     <i class='icon-reorder'></i>
@@ -203,7 +203,7 @@
 <nav class='' id='main-nav'>
 <div class='navigation'>
 <div class='search'>
-    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <form accept-charset="UTF-8" action="/admin" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
         <div class='search-wrapper'>
             <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
             <button class="btn btn-link icon-search" name="button" type="submit"></button>
@@ -220,13 +220,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/user/create'>
                 <i class='icon-caret-right'></i>
                 <span>用户添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/user'>
                 <i class='icon-caret-right'></i>
                 <span>用户列表</span>
             </a>
@@ -278,6 +278,7 @@
 </ul>
 </div>
 </nav>
-
+@section('content')
+@show
 <!-- / jquery -->
 @extends('default.admin_button')
