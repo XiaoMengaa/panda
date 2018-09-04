@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shiyan',function(){
+	return view('shiyan');
+});
 
 //后台路由
 Route::get('/admin','AdminController@index');

@@ -7,30 +7,35 @@
 <div class='span12'>
 <div class='row-fluid'>
     <div class='span12'>
+
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>分类列表</span>
+                <span>用户列表</span>
             </h1>
+
             <div class='pull-right'>
                 <ul class='breadcrumb'>
-                    <li>
-                        <a href="index.html"><i class='icon-bar-chart'></i>
-                        </a>
-                    </li>
-                    <li class='separator'>
-                        <i class='icon-angle-right'></i>
-                    </li>
-                    <li class='active'>分类</li>
+
+                <form accept-charset="UTF-8" action="" class="navbar-search pull-right hidden-phone" method="get" action="/admin/user"><div style="margin:50;padding:400;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <button class="btn btn-link icon-search" name="button" type="submit"></button>
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="username" placeholder="搜索" type="text" value="" />
+                </form>
+                        
+                    
+                    
+
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>分类列表</div>
+
+            <div class='title'>用户列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -42,45 +47,49 @@
             <div class='responsive-table'>
                 <div class='scrollable-area'>
                     <table class='table' style='margin-bottom:0;'>
-                        <thead>
+                       <thead>
                         <tr>
-                            <th>
-                                ID
+                            <th class="table-check">
+                                <input type="checkbox" class="tpl-table-fz-check">
                             </th>
-                            <th>
-                                分类名
-                            </th>
-                            <th>
-                                操作
-                            </th>
-                            <th></th>
+                            <th class="table-id">ID</th>
+                            <th class="table-title">用户名</th>
+                            <th class="table-set">操作</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($cate as $v)
+                    </thead>
+                    <tbody>
+                        @foreach($users as $v)
                         <tr>
-                            <td>{{$v['id']}}</td>
-                            <td>{{$v['cname']}}</td>
                             <td>
-                                <div class="am-btn-toolbar" >
+                                <input type="checkbox">
+                            </td>
+                            <td>{{$v['id']}}</td>
+                            <td class="am-hide-sm-only">{{$v['username']}}</td>
+                            <td>
+                                <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
-                                        <a href="/admin/cate/{{$v['id']}}/edit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o" style="float:right" ></span> <button type="button">编辑</button></a>
-                                        <form  action="/admin/cate/{{$v['id']}}" method="post" style="float:left">
+                                        
+                                        <a href="/admin/user/{{$v['id']}}/edit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span><button  type="button">编辑</button> </a>
+                                               
+
+                                        <form style="float:left" action="/admin/user/{{$v['id']}}" method="post">
                                             {{method_field('DELETE')}}
                                             {{csrf_field()}}
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除|</button>
+                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                                         </form>
 
+
                                     </div>
+
                                 </div>
                             </td>
                         </tr>
-                       @endforeach
-
-                    </table>
-                    <style>
+                        @endforeach
+                    </tbody>
+                   </table>
+                <style>
                     .pagination{
-                        padding-left: 0;
+                        padding-left:0;
                         margin: 1.5rem 0;
                         list-style: none;
                         color: #999;
@@ -90,6 +99,7 @@
 
                     .pagination li{
                         display: inline-block;
+                        
                     }
 
                     .pagination li a, .pagination li span{
@@ -126,7 +136,18 @@
                         padding: 6px 12px;
                     }
                 </style>
-                {{$cate->links()}}
+                <div class="am-cf">
+                    <div class="am-fr">
+                     {{ $users->appends(request()->all())->links() }}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="tpl-alert"></div>
+</div>
+
                 </div>
             </div>
         </div>

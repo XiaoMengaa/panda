@@ -1,5 +1,5 @@
-
 @extends('default.admin_top')
+                        
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body class='contrast-red '>
 <header>
@@ -8,7 +8,7 @@
             <div class='container-fluid'>
                 <a class='brand' href='index.html'>
                     <i class='icon-heart-empty'></i>
-                    <span class='hidden-phone'>Flatty</span>
+                    <span class='hidden-phone'>熊猫滚滚</span>
                 </a>
                 <a class='toggle-nav btn pull-left' href='#'>
                     <i class='icon-reorder'></i>
@@ -203,7 +203,7 @@
 <nav class='' id='main-nav'>
 <div class='navigation'>
 <div class='search'>
-    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <form accept-charset="UTF-8" action="/admin" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
         <div class='search-wrapper'>
             <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
             <button class="btn btn-link icon-search" name="button" type="submit"></button>
@@ -220,13 +220,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/user/create'>
                 <i class='icon-caret-right'></i>
                 <span>用户添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/user'>
                 <i class='icon-caret-right'></i>
                 <span>用户列表</span>
             </a>
@@ -271,6 +271,21 @@
             <a href='/admin/tag'>
                 <i class='icon-caret-right'></i>
                 <span>标签列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>问题管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='#'>
+                <i class='icon-caret-right'></i>
+                <span>问题列表</span>
             </a>
         </li>
     </ul>
