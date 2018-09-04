@@ -69,4 +69,3 @@
 
 
 @endsection
-@extends('default.admin_button')
