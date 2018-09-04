@@ -15,4 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//后台路由
+//用户资源路由
+Route::resource('/admin/user','AdminUserController');
+
+//问题分类资源路由
+Route::resource('/admin/cate','AdminCateController');
+
+//问题标签资源路由
+Route::resource('/admin/tag','AdminTagController');
 
