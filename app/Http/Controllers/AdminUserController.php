@@ -23,7 +23,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cate.create');
     }
 
     /**
@@ -34,7 +34,13 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cate = new Tag;
+        $cate -> cname = $request -> cname;
+        if($cate->save()){
+            return redirect('/cate')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**

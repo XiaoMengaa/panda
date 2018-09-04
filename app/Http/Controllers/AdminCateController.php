@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cate;
 use Illuminate\Http\Request;
 
 class AdminCateController extends Controller
@@ -13,7 +14,10 @@ class AdminCateController extends Controller
      */
     public function index()
     {
-        //
+        $cate = Cate::orderBy('id','desc')
+        ->where('cname','like','%'.request()->keywords.'%')
+        ->paginate(3);
+        return view('admin.cate.index',['cate'=>$cate]);
     }
 
     /**
@@ -23,7 +27,7 @@ class AdminCateController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cate.create');
     }
 
     /**
@@ -34,7 +38,13 @@ class AdminCateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cate = new Cate;
+        $cate -> cname = $request ->cname;
+        if($cate->save()){
+            return redirect('/admin/cate')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -56,7 +66,8 @@ class AdminCateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cate = Cate::findOrFail($id);
+        return view('admin.cate.edit',['cate'=> $cate]);
     }
 
     /**
@@ -68,7 +79,13 @@ class AdminCateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Cate::findOrFail($id);
+        $cate -> cname = $request ->cname;
+        if ($cate->save()){
+            return redirect('/admin/cate')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -79,6 +96,11 @@ class AdminCateController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $cate = Cate::findOrFail($id);
+      if($cate->delete()){
+        return redirect('/admin/cate')->with('success','删除成功');
+      }else{
+        return back()->with('error','删除成功');
+      }
     }
 }
