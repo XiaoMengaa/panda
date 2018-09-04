@@ -48,7 +48,7 @@
                             <form class='form form-horizontal validate-form' action="/admin/tag" style='margin-bottom: 0;' / method="post">
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>标签名:</label>
-                                    <div class='controls'">
+                                    <div class='controls'>
                                         <input data-rule-minlength='2' data-rule-required='true'  name='title' style="width:200px;height:30px" placeholder='请输入标签名' type='text' />
                                     </div>
                                 </div>
