@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 //后台路由
+Route::get('/admin','AdminController@index');
 //用户资源路由
 Route::resource('/admin/user','AdminUserController');
 
