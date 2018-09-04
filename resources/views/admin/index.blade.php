@@ -275,6 +275,21 @@
         </li>
     </ul>
 </li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>问题管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='#'>
+                <i class='icon-caret-right'></i>
+                <span>问题列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
 </ul>
 </div>
 </nav>
