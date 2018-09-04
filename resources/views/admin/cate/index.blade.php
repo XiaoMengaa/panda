@@ -63,7 +63,7 @@
                             <td>{{$v['cname']}}</td>
                             <td>
                                 <div class="am-btn-toolbar" >
-                                    <div class="am-btn-group am-btn-group-xs"">
+                                    <div class="am-btn-group am-btn-group-xs">
                                         <a href="/admin/cate/{{$v['id']}}/edit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o" style="float:right" ></span> <button type="button">编辑</button></a>
                                         <form  action="/admin/cate/{{$v['id']}}" method="post" style="float:left">
                                             {{method_field('DELETE')}}
