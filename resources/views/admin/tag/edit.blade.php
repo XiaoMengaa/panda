@@ -48,7 +48,7 @@
                             <form class='form form-horizontal validate-form' action="/admin/tag/{{$tag['id']}}" style='margin-bottom: 0;' / method="post">
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>标签名:</label>
-                                    <div class='controls'">
+                                    <div class='controls'>
                                         <input data-rule-minlength='2' data-rule-required='true'  name='title' style="width:200px;height:30px" placeholder='请修改标签' value="{{$tag['title']}}" type='text' />
                                     </div>
                                 </div>
@@ -72,4 +72,3 @@
 @endsection
                                 
 <!-- / jquery -->
-@extends('default.admin_button')
