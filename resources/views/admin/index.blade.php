@@ -1,5 +1,5 @@
-
 @extends('default.admin_top')
+                        
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body class='contrast-red '>
 <header>
@@ -25,10 +25,10 @@
                                     Light
                                     <small>(default)</small>
                                 </a>
-                                <a data-change-to='assets/stylesheets/dark-theme.css' href='#'>
+                                <a data-change-to='/assets/stylesheets/dark-theme.css' href='#'>
                                     Dark
                                 </a>
-                                <a data-change-to='assets/stylesheets/dark-blue-theme.css' href='#'>
+                                <a data-change-to='/assets/stylesheets/dark-blue-theme.css' href='#'>
                                     Dark blue
                                 </a>
                             </li>
@@ -163,7 +163,7 @@
                     </li>
                     <li class='dropdown dark user-menu'>
                         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                            <img alt='Mila Kunis' height='23' src='assets/images/avatar.jpg' width='23' />
+                            <img alt='Mila Kunis' height='23' src='/assets/images/avatar.jpg' width='23' />
                             <span class='user-name hidden-phone'>Mila Kunis</span>
                             <b class='caret'></b>
                         </a>
@@ -241,13 +241,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/cate/create'>
                 <i class='icon-caret-right'></i>
                 <span>分类添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/cate'>
                 <i class='icon-caret-right'></i>
                 <span>分类列表</span>
             </a>
@@ -262,15 +262,30 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/tag/create'>
                 <i class='icon-caret-right'></i>
                 <span>标签添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/tag'>
                 <i class='icon-caret-right'></i>
                 <span>标签列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>问题管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='#'>
+                <i class='icon-caret-right'></i>
+                <span>问题列表</span>
             </a>
         </li>
     </ul>
@@ -278,7 +293,25 @@
 </ul>
 </div>
 </nav>
+ <div class="tpl-content-wrapper">
+            @if(Session::has('success'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat green">
+                        <div class="desc" style="font-size:30px; text-align: center;line-height:95px;color:green;background-color:#eee">{{Session::get('success')}} </div>
+                </div>
+            </div>
+            @endif
+
+            @if(Session::has('error'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat red">
+                        <div class="desc" style="text-align: center;line-height:95px;color:red">{{Session::get('error')}} </div>
+                </div>
+            </div>
+            @endif
+</div>
 @section('content')
 @show
+
 <!-- / jquery -->
 @extends('default.admin_button')

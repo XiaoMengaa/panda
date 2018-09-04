@@ -23,7 +23,7 @@ class ProblemController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.problem.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo 'aaaaaaaaaaaaa';
     }
 
     /**

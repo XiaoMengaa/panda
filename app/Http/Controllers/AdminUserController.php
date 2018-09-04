@@ -29,7 +29,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+
         return view('admin.user.create');
     }
 
@@ -41,6 +41,7 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
+
         $user = new User;
 
         $user -> username = $request->username;
