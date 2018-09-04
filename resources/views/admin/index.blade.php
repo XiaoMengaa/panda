@@ -1,5 +1,5 @@
-
 @extends('default.admin_top')
+                        
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body class='contrast-red '>
 <header>
@@ -25,10 +25,10 @@
                                     Light
                                     <small>(default)</small>
                                 </a>
-                                <a data-change-to='assets/stylesheets/dark-theme.css' href='#'>
+                                <a data-change-to='/assets/stylesheets/dark-theme.css' href='#'>
                                     Dark
                                 </a>
-                                <a data-change-to='assets/stylesheets/dark-blue-theme.css' href='#'>
+                                <a data-change-to='/assets/stylesheets/dark-blue-theme.css' href='#'>
                                     Dark blue
                                 </a>
                             </li>
@@ -278,6 +278,8 @@
 </ul>
 </div>
 </nav>
+@section('content')
+@show
 
 <!-- / jquery -->
 @extends('default.admin_button')
