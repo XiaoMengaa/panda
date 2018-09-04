@@ -278,6 +278,7 @@
 </ul>
 </div>
 </nav>
+
  <div class="tpl-content-wrapper">
             @if(Session::has('success'))
             <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
@@ -297,7 +298,6 @@
 </div>
 @section('content')
 @show
-
 
 <!-- / jquery -->
 @extends('default.admin_button')
