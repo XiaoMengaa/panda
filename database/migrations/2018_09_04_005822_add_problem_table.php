@@ -13,7 +13,7 @@ class AddProblemTable extends Migration
      */
     public function up()
     {
-        Schema::table('problem', function (Blueprint $table) {
+        Schema::create('problem', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('content');
