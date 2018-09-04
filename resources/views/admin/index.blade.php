@@ -262,13 +262,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/tag/create'>
                 <i class='icon-caret-right'></i>
                 <span>标签添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='#'>
+            <a href='/admin/tag'>
                 <i class='icon-caret-right'></i>
                 <span>标签列表</span>
             </a>
@@ -278,6 +278,8 @@
 </ul>
 </div>
 </nav>
+@section('content')
+@show
 
 <!-- / jquery -->
 @extends('default.admin_button')
