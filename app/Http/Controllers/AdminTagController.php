@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use Illuminate\Http\Request;
 
 class AdminTagController extends Controller
@@ -14,6 +15,8 @@ class AdminTagController extends Controller
     public function index()
     {
         //
+        $tag = Tag::orderBy('id','desc')->where('title','like','%'.request()->keywords.'%')->paginate(5);
+        return view('admin.tag.index',compact('tag'));        
     }
 
     /**
@@ -24,6 +27,7 @@ class AdminTagController extends Controller
     public function create()
     {
         //
+        return view('admin.tag.create');
     }
 
     /**
@@ -35,6 +39,13 @@ class AdminTagController extends Controller
     public function store(Request $request)
     {
         //
+        $res = new Tag;
+        $res -> title = $request->title;
+        if($res->save()){
+            return redirect('/admin/tag')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -57,6 +68,8 @@ class AdminTagController extends Controller
     public function edit($id)
     {
         //
+        $tag = Tag::findOrFail($id);
+        return view('admin.tag.edit',['tag'=>$tag]);
     }
 
     /**
@@ -69,6 +82,15 @@ class AdminTagController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($id);
+        $tag = Tag::findOrFail($id);
+        $tag ->title = $request ->title;
+        if($tag ->save()){
+            return redirect('/admin/tag')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
+
     }
 
     /**
@@ -80,5 +102,13 @@ class AdminTagController extends Controller
     public function destroy($id)
     {
         //
+        $res = Tag::findOrFail($id);
+        if($res->delete()){
+            return redirect('/admin/tag')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
+
+
     }
 }
