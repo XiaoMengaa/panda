@@ -73,4 +73,3 @@
 </section>
 </div>
 @endsection
-@extends('default.admin_button')

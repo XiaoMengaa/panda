@@ -72,4 +72,3 @@
 @endsection
                                 
 <!-- / jquery -->
-@extends('default.admin_button')
