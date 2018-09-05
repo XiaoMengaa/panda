@@ -49,6 +49,7 @@
                        <tr>
                            
                             <th class="table-id">ID</th>
+                            <th class="table-id">分类列表</th>
                             <th class="table-title">标签名</th>
                             <th class="table-set">操作</th>
                         </tr>
@@ -58,6 +59,7 @@
                         <tr>
                            
                             <td>{{$v['id']}}</td>
+                            <td>{{$v->cate['cname']}}</td>
                             <td class="am-hide-sm-only">{{$v['title']}}</td>
                             <td>
                                 <div class="am-btn-toolbar">

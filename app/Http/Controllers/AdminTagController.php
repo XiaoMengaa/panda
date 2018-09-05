@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cate;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,10 @@ class AdminTagController extends Controller
     public function create()
     {
         //
-        return view('admin.tag.create');
+        $cate = Cate::all();
+
+
+        return view('admin.tag.create',['cate'=>$cate]);
     }
 
     /**
@@ -40,6 +44,7 @@ class AdminTagController extends Controller
     {
         //
         $res = new Tag;
+        $res ->cate_id = $request ->cate_id;
         $res -> title = $request->title;
         if($res->save()){
             return redirect('/admin/tag')->with('success','添加成功');
@@ -68,8 +73,11 @@ class AdminTagController extends Controller
     public function edit($id)
     {
         //
+
         $tag = Tag::findOrFail($id);
-        return view('admin.tag.edit',['tag'=>$tag]);
+        $cate = Cate::all();
+         
+        return view('admin.tag.edit',['tag'=>$tag,'cate'=>$cate]);
     }
 
     /**
