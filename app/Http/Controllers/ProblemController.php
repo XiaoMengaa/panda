@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Problem;
+use App\Cate;
 use Illuminate\Http\Request;
 
 class ProblemController extends Controller
@@ -26,7 +27,8 @@ class ProblemController extends Controller
      */
     public function create()
     {
-        return view('home.problem.create');
+        $cate = Cate::all();
+        return view('home.problem.create',['cate'=>$cate]);
     }
 
     /**
@@ -37,10 +39,12 @@ class ProblemController extends Controller
      */
     public function store(Request $request)
     {
+
         $problem = new Problem;
+        
         $problem -> title = $request -> title;
         $problem -> user_id = 1;
-        $problem -> cate_id = 1;
+        $problem -> cate_id = $request -> cate_id;
         $problem -> state = 1;
         $problem -> browse = 0;
         $problem -> content = $request -> content;
