@@ -7,30 +7,39 @@
 <div class='span12'>
 <div class='row-fluid'>
     <div class='span12'>
+
+
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>分类列表</span>
+                <span>问题列表</span>
             </h1>
+
+
             <div class='pull-right'>
                 <ul class='breadcrumb'>
-                    <li>
-                        <a href="index.html"><i class='icon-bar-chart'></i>
-                        </a>
-                    </li>
-                    <li class='separator'>
-                        <i class='icon-angle-right'></i>
-                    </li>
-                    <li class='active'>分类</li>
+
+
+                <form accept-charset="UTF-8" action="" class="navbar-search pull-right hidden-phone" method="get" action="/problem"><div style="margin:50;padding:400;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <button class="btn btn-link icon-search" name="button" type="submit"></button>
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="title" placeholder="搜索" type="text" value="" />
+                </form>
+                        
+                    
+                    
+
+
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>分类列表</div>
+
+            <div class='title'>问题列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -42,45 +51,48 @@
             <div class='responsive-table'>
                 <div class='scrollable-area'>
                     <table class='table' style='margin-bottom:0;'>
-                        <thead>
+                       <thead>
                         <tr>
-                            <th>
-                                ID
+                            <th class="table-check">
+                                <input type="checkbox" class="tpl-table-fz-check">
                             </th>
-                            <th>
-                                分类名
-                            </th>
-                            <th>
-                                操作
-                            </th>
-                            <th></th>
+                            <th class="table-id">ID</th>
+                            <th class="table-title">问题</th>
+                            <th class="table-content">详细</th>
+                            <th class="table-image">附带图片</th>
+                            <th class="table-state">状态</th>
+                            <th class="table-browse">浏览次数</th>
+                            <th class="table-browse">操作</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($cate as $v)
+                    </thead>
+                    <tbody>
+                        @foreach($problem as $v)
                         <tr>
-                            <td>{{$v['id']}}</td>
-                            <td>{{$v['cname']}}</td>
                             <td>
-                                <div class="am-btn-toolbar" >
-                                    <div class="am-btn-group am-btn-group-xs">
-                                        <a href="/admin/cate/{{$v['id']}}/edit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o" style="float:right" ></span> <button type="button">编辑</button></a>
-                                        <form  action="/admin/cate/{{$v['id']}}" method="post" style="float:left">
-                                            {{method_field('DELETE')}}
-                                            {{csrf_field()}}
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                                        </form>
-
-                                    </div>
-                                </div>
+                                <input type="checkbox">
+                            </td>
+                            <td>{{$v['id']}}</td>
+                            <td class="am-hide-sm-only">{{$v['title']}}</td>
+                            <td class="am-hide-sm-only">{{$v['content']}}</td>
+                            <td><img src="{{$v['image']}}" width="80" ></td>
+                            <td class="am-hide-sm-only">{{$v['state']}}</td>
+                            <td class="am-hide-sm-only">{{$v['browse']}}</td>
+                            
+                            <td>
+                                <form style="float:left" action="/problem/{{$v['id']}}" method="post">
+                                {{method_field('DELETE')}}
+                                {{csrf_field()}}
+                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                </form>
                             </td>
                         </tr>
-                       @endforeach
 
-                    </table>
-                    <style>
+                        @endforeach
+                    </tbody>
+                   </table>
+                <style>
                     .pagination{
-                        padding-left: 0;
+                        padding-left:0;
                         margin: 1.5rem 0;
                         list-style: none;
                         color: #999;
@@ -90,6 +102,7 @@
 
                     .pagination li{
                         display: inline-block;
+                        
                     }
 
                     .pagination li a, .pagination li span{
@@ -126,7 +139,18 @@
                         padding: 6px 12px;
                     }
                 </style>
-                {{$cate->links()}}
+                <div class="am-cf">
+                    <div class="am-fr">
+                     {{ $problem->appends(request()->all())->links() }}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="tpl-alert"></div>
+</div>
+
                 </div>
             </div>
         </div>
