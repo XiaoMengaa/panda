@@ -35,7 +35,7 @@
                 <div class='row-fluid'>
                    
                         <div class='box-content'>
-                            <form action="/admin/user/{{$user['id']}}" method="post" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
+                            <form action="/admin/user/{{$user['id']}}" method="post" class='form form-horizontal validate-form' style='margin-bottom: 0;'enctype="multipart/form-data"/>
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>姓名</label>
                                     <div class='controls'>
@@ -52,8 +52,8 @@
                                 <div class='control-group'>
                                     <label class='control-label' data-rule-required='true' for='validation_name'>头像</label>
                                     <div class='controls'>
-                                        <input type="file" name="pic" id="file"  /><img src="@if($udetails) 
-                                        {{$udetails->pic}}@endif">
+                                    <img src="@if($udetails) 
+                                        {{$udetails->pic}}@endif"  width="79">    &nbsp; &nbsp;  &nbsp;<input type="file" name="pic" id="file"  />
                                     </div>
                                 </div>
                                 <div class='control-group'>
@@ -77,8 +77,8 @@
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>权限</label>
                                     <div class='controls'>
-                                        <input name="jurisdiction" type="radio" @if($udetails) @if($udetails->jurisdiction == "1") checked @endif @endif value="1" />管理员      
-                                        <input name="jurisdiction" type="radio"@if($udetails) @if($udetails->jurisdiction == "2") checked @endif @endif value="2" />普通用户
+                                        <input name="jurisdiction" type="radio" @if($udetails) @if($udetails->jurisdiction == "2") checked @endif @endif value="2" />管理员      
+                                        <input name="jurisdiction" type="radio"@if($udetails) @if($udetails->jurisdiction == "1") checked @endif @endif value="1" />普通用户
                                     </div>
                                 </div>
                                 
