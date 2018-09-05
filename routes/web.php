@@ -19,8 +19,15 @@ Route::get('/shiyan',function(){
 	return view('shiyan');
 });
 
+//前台问题列表
+Route::get('/home/problemlist','HomeProblemController@index');
+
+//前台问题展示
+Route::get('/home/problem/{id}','HomeProblemController@wtzs');
+
 //后台路由
 Route::get('/admin','AdminController@index');
+
 //用户资源路由
 Route::resource('/admin/user','AdminUserController');
 
