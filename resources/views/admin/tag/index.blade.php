@@ -28,6 +28,23 @@
         </div>
     </div>
 </div>
+<div class='pull-right'>
+                <ul class='breadcrumb'>
+
+                <form accept-charset="UTF-8" class="navbar-search pull-right hidden-phone" method="get" action="/admin/tag"><div style="margin:50;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <button class="btn btn-link icon-search" name="button" type="submit"></button>
+                    <select name="cate_id">
+                        @foreach($cate as $v)
+                        <option value="{{$v->id}}">{{$v->cname}}</option>
+                        @endforeach
+                    </select>
+                </form>
+                        
+                    
+                    
+
+                </ul>
+            </div>
 <div class="am-u-sm-12 am-u-md-6">
             </div>
 <div class='row-fluid'>
@@ -126,7 +143,7 @@
 					}
 				</style>
                     </table>
-                    {{$tag->links()}}
+                    {{$tag->appends('cate_id',request()->cate_id)->links()}}
                 </div>
             </div>
         </div>
