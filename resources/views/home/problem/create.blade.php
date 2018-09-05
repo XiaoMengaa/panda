@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">详细</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">分类</label>
     <div class="col-sm-5">
     <select name="cate_id">
         @foreach($cate as $v)
