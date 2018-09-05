@@ -7,7 +7,7 @@
         <div class='navbar-inner'>
             <div class='container-fluid'>
                 <a class='brand' href='index.html'>
-                    <i class='icon-heart-empty'></i>
+                    <image src="/image/panda.jpg" style="width:28px; border-radius: 100%;">
                     <span class='hidden-phone'>熊猫滚滚</span>
                 </a>
                 <a class='toggle-nav btn pull-left' href='#'>
@@ -82,10 +82,6 @@
                         </ul>
                     </li>
                     <li class='dropdown medium only-icon widget'>
-                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                            <i class='icon-rss'></i>
-                            <div class='label'>5</div>
-                        </a>
                         <ul class='dropdown-menu'>
                             <li>
                                 <a href='#'>
@@ -192,7 +188,6 @@
                 </ul>
                 <form accept-charset="UTF-8" action="search_results.html" class="navbar-search pull-right hidden-phone" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
-                    <input autocomplete="off" class="search-query span2" id="q_header" name="q" placeholder="Search..." type="text" value="" />
                 </form>
             </div>
         </div>
