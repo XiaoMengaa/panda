@@ -44,8 +44,20 @@
                                 </a>
                             </div>
                         </div>
-                        <div class='box-content'>
+                        <div class='control-group'>
                             <form class='form form-horizontal validate-form' action="/admin/tag" style='margin-bottom: 0;' / method="post">
+                                <br>
+                                <div class="am-form-group" style="margin-left:115px">
+                                    <label for="user-phone" class="am-u-sm-3 am-form-label" style="float:left">分类:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                        <div class='control-group'>
+                                            <select  name="cate_id" style="width:200px;height:30px">
+                                                @foreach($cate as $v)
+                                                <option value="{{$v['id']}}">{{$v['cname']}}</option>
+                                                @endforeach
+                                            </select>
+                                     </div>
+                                </div>
+
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>标签名:</label>
                                     <div class='controls'>

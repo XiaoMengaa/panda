@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Problem;
 use Illuminate\Http\Request;
 
 class ProblemController extends Controller
@@ -13,7 +13,10 @@ class ProblemController extends Controller
      */
     public function index()
     {
-        //
+        $problem = Problem::orderBy('id','desc')
+        ->where('title','like','%'.request()->title.'%')
+        ->paginate(3);
+        return view('home.problem.index',['problem'=>$problem]);
     }
 
     /**
@@ -34,7 +37,23 @@ class ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        echo 'aaaaaaaaaaaaa';
+        $problem = new Problem;
+        $problem -> title = $request -> title;
+        $problem -> user_id = 1;
+        $problem -> cate_id = 1;
+        $problem -> state = 1;
+        $problem -> browse = 0;
+        $problem -> content = $request -> content;
+
+        if ($request->hasFile('image')) {
+            $problem->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+
+        if($problem->save()){
+            return redirect('/problem/create')->with('success','保存成功');
+        }else{
+            return back()->with('error','保存失败');
+        }
     }
 
     /**
@@ -79,6 +98,11 @@ class ProblemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $problem = Problem::findOrFail($id);
+        if($problem->delete()){
+        return redirect('/problem')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除成功');
+        }
     }
 }

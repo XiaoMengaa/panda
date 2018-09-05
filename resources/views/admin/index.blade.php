@@ -283,7 +283,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='#'>
+            <a href='/problem'>
                 <i class='icon-caret-right'></i>
                 <span>问题列表</span>
             </a>
