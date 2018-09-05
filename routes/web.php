@@ -33,4 +33,10 @@ Route::resource('/admin/tag','AdminTagController');
 //提问问题管理资源路由
 Route::resource('/problem','ProblemController');
 
+//回答问题资源路由
+Route::resource('/reply','ReplyController');
+
+//问题追加资源路由
+Route::resource('/append','AppendController');
+
 

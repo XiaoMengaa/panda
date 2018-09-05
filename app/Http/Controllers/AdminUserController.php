@@ -121,7 +121,10 @@ class AdminUserController extends Controller
         $yhxq -> synopsis = $request->synopsis;
         $yhxq -> phone = $request->phone;
         $yhxq -> email = $request->email;
-        $yhxq -> jurisdiction = $request->jurisdiction;
+        if($request->jurisdiction){
+           $yhxq -> jurisdiction = $request->jurisdiction; 
+        }
+        
         
         $user -> username = $request->username;
          if($user->save()){
