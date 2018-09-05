@@ -25,6 +25,14 @@ Route::get('/home/problemlist','HomeProblemController@index');
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
+//退出登录
+Route::get('/admin/logout','AdminController@logout');
+//登录页面
+Route::get('/admin/login', 'AdminController@login');
+//登陆操作
+Route::post('/admin/login', 'AdminController@dologin');
+//后台路由组
+Route::group(['middleware'=>'admin'],function(){
 //后台路由
 Route::get('/admin','AdminController@index');
 
@@ -46,4 +54,4 @@ Route::resource('/reply','ReplyController');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
-
+});

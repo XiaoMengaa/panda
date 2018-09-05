@@ -20,7 +20,11 @@
                 <ul class='breadcrumb'>
 
 
+<<<<<<< HEAD
+                <form accept-charset="UTF-8" action="" class="navbar-search pull-right hidden-phone" method="get" action="/problem"><div style="margin:300;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+=======
                 <form accept-charset="UTF-8" action="" class="navbar-search pull-right hidden-phone" method="get" action="/problem"><div style="margin:350;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+>>>>>>> e5e889982706f2e21920787ddac2810440705cb9
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
                     <input autocomplete="off" class="search-query span2" id="q_header" name="title" placeholder="搜索" type="text" value="" />
                 </form>
