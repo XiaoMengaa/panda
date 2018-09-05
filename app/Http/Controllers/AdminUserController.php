@@ -110,7 +110,12 @@ class AdminUserController extends Controller
           $yhxq -> user_id =$user->id;
         $yhxq -> sex = $request->sex;
         //dd($yhxq);
-        $yhxq -> pic = $request->pic;
+
+        //dd($request->hasFile('pic'));
+       if ($request->hasFile('pic')) {
+            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
+        }
+        //dd($yhxq);
 
 
         $yhxq -> synopsis = $request->synopsis;

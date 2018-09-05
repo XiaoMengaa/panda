@@ -9,7 +9,7 @@
                         <div class='page-header'>
                             <h1 class='pull-left'>
                                 <i class='icon-ok'></i>
-                                <span>Validations</span>
+                                <span>用户分类</span>
                             </h1>
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -21,12 +21,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        Forms
+                                        分类
                                     </li>
                                     <li class='separator'>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>Validations</li>
+                                    <li class='active'>用户分类</li>
                                 </ul>
                             </div>
                         </div>
