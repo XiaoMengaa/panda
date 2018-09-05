@@ -21,10 +21,6 @@
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
                     <input autocomplete="off" class="search-query span2" id="q_header" name="username" placeholder="搜索" type="text" value="">
                 </form>
-                        
-                    
-                    
-
                 </ul>
             </div>
         </div>
