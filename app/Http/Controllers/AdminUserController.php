@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Udetails;
 use App\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -80,8 +82,12 @@ class AdminUserController extends Controller
     {
         //
         $user = User::findOrFail($id);
+        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
+    
+           return view('admin.user.edit', ['user'=>$user ,'udetails'=>$udetails]); 
+
         //解析模板显示数据
-        return view('admin.user.edit', ['user'=>$user]);
+        
     }
 
     /**
@@ -95,15 +101,39 @@ class AdminUserController extends Controller
     {
         
         $user = User::findOrFail($id);
+         
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if(!$yhxq){
+            $yhxq = new Udetails;
+             
+        }
+          $yhxq -> user_id =$user->id;
+        $yhxq -> sex = $request->sex;
+        //dd($yhxq);
+        $yhxq -> pic = $request->pic;
 
-        //更新
+
+        $yhxq -> synopsis = $request->synopsis;
+        $yhxq -> phone = $request->phone;
+        $yhxq -> email = $request->email;
+        $yhxq -> jurisdiction = $request->jurisdiction;
+        
         $user -> username = $request->username;
-
-        if($user->save()){
-            return redirect('/admin/user')->with('success','更新成功');
+         if($user->save()){
+            if($yhxq->save()){
+                return back()->with('success','更新成功');
+            }else{
+                return back()->with('error','更新失败');
+            }
         }else{
             return back()->with('error','更新失败');
-        }
+        } 
+        
+         
+
+        //更新
+       
+        
     }
 
     /**

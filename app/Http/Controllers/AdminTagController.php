@@ -16,8 +16,13 @@ class AdminTagController extends Controller
     public function index()
     {
         //
-        $tag = Tag::orderBy('id','desc')->where('title','like','%'.request()->keywords.'%')->paginate(5);
-        return view('admin.tag.index',compact('tag'));        
+        $tag = Tag::orderBy('id','desc')->paginate(5);
+        $cate = Cate::all();
+        if(request()->cate_id){
+            $mm = Cate::findOrFail(request()->cate_id);
+            $tag = $mm->tag()->paginate(5);
+        }
+        return view('admin.tag.index',compact('tag','cate'));        
     }
 
     /**
