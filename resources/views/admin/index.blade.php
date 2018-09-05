@@ -158,29 +158,25 @@
                         </ul>
                     </li>
                     <li class='dropdown dark user-menu'>
+                        
                         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                            <img alt='Mila Kunis' height='23' src='/assets/images/avatar.jpg' width='23' />
-                            <span class='user-name hidden-phone'>Mila Kunis</span>
+                            <img alt='Mila Kunis' height='23' src='{{Session::get('pic')}}' width='23' />
+                            <span class='user-name hidden-phone'>{{Session::get('username')}}</span>
                             <b class='caret'></b>
+                        
                         </a>
                         <ul class='dropdown-menu'>
                             <li>
-                                <a href='user_profile.html'>
+                                <a href='/admin/user/{{Session::get('id')}}/edit'>
                                     <i class='icon-user'></i>
-                                    Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href='user_profile.html'>
-                                    <i class='icon-cog'></i>
-                                    Settings
+                                    个人中心
                                 </a>
                             </li>
                             <li class='divider'></li>
                             <li>
-                                <a href='sign_in.html'>
+                                <a href='/admin/logout'>
                                     <i class='icon-signout'></i>
-                                    Sign out
+                                    退出
                                 </a>
                             </li>
                         </ul>

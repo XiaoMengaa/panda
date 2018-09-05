@@ -18,7 +18,14 @@ Route::get('/', function () {
 Route::get('/shiyan',function(){
 	return view('shiyan');
 });
-
+//退出登录
+Route::get('/admin/logout','AdminController@logout');
+//登录页面
+Route::get('/admin/login', 'AdminController@login');
+//登陆操作
+Route::post('/admin/login', 'AdminController@dologin');
+//后台路由组
+Route::group(['middleware'=>'admin'],function(){
 //后台路由
 Route::get('/admin','AdminController@index');
 //用户资源路由
@@ -39,4 +46,4 @@ Route::resource('/reply','ReplyController');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
-
+});
