@@ -22,7 +22,7 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        Forms
+                                        分类标签
                                     </li>
                                     <li class='separator'>
                                         <i class='icon-angle-right'></i>
@@ -44,7 +44,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class='control-group'>
+                        <div class='box-content'>
                             <form class='form form-horizontal validate-form' action="/admin/tag" style='margin-bottom: 0;' / method="post">
                                 <br>
                                 <div class="am-form-group" style="margin-left:115px">
