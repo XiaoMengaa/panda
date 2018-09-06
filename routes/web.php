@@ -26,7 +26,7 @@ Route::get('/home/problemlist','HomeProblemController@index');
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //前台提问问题
-Route::get('/hom/problem/create','HomeProblemController@create');
+Route::get('/hoe/problem/create','HomeProblemController@create');
 
 //前台回答回复
 Route::get('/home/append/create','HomeProblemController@createreply');

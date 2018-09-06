@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cate;
 use App\Problem;
 use App\Tag;
-use App\Cate;
 use App\Reply;
 use Illuminate\Http\Request;
 
@@ -33,9 +33,11 @@ class HomeProblemController extends Controller
         $cate = Cate::all();
         return view('home.problem.create',['cate'=>$cate]);
     }
+
     public function createreply()
     {
-        return view('home.append.create'); 
+
+        return view('home.append.create');
     }
 
 }
