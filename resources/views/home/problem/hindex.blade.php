@@ -14,13 +14,12 @@
                                         <div class="faqs clearfix">
                                                 @foreach($problem as $v)
                                                 <article class="faq-item active">
-                                                        <span class="faq-icon"></span>
-                                                        <h3 class="faq-question">
+                                                        <span class="faq-icon" style="float: left;margin-top: 10px"></span>
+                                                        <h3 style="padding: 0px;margin: 0px;">
                                                                 <a href="/home/problem/{{$v->id}}">{{$v->title}}</a>
                                                         </h3>
                                                         <div class="faq-answer">
                                                                 <p>{{$v->content}}</p>
-                                                                <p>For more information:</p>
                                                                 <ul>
                                                                         <li><a title="WordPress" href="http://codex.wordpress.org/WordPress">WordPress</a></li>
                                                                         <li><a title="WordPress Semantics" href="http://codex.wordpress.org/WordPress_Semantics">WordPress Semantics</a></li>
