@@ -71,7 +71,8 @@
 
             <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
 
-          
+
+
     </a>
 </p>
 
