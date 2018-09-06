@@ -14,6 +14,7 @@ class HomeProblemController extends Controller
     }
     public function wtzs($id)
     {
+        
     	$problem = Problem::findOrFail($id);
     	return view('home.problem.wtzs',compact('problem'));
     }
