@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Append;
 use Illuminate\Http\Request;
 
 class AppendController extends Controller
@@ -14,6 +15,8 @@ class AppendController extends Controller
     public function index()
     {
         //
+        $append = Append::orderBy('id','desc');
+        return view('admin.append.index',['append'=>$append]);
     }
 
     /**
@@ -24,6 +27,7 @@ class AppendController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
