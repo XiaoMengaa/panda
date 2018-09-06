@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Problem;
 use App\Tag;
+use App\Cate;
 use Illuminate\Http\Request;
 
 class HomeProblemController extends Controller
@@ -21,5 +22,15 @@ class HomeProblemController extends Controller
     	return view('home.problem.wtzs',compact('problem'));
     }
 
-    
+
+    public function create()
+    {
+        $cate = Cate::all();
+        return view('home.problem.create',['cate'=>$cate]);
+    }
+    public function createreply()
+    {
+        return view('home.append.create'); 
+    }
+
 }
