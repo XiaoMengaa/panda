@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Append;
 use App\Cate;
 use App\Problem;
+=======
+use App\Cate;
+use App\Problem;
+use App\Tag;
+>>>>>>> d8573fc4284ddc2c68dffa32897fef3b061934c0
 use App\Reply;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -34,11 +40,19 @@ class HomeProblemController extends Controller
         $cate = Cate::all();
         return view('home.problem.create',['cate'=>$cate]);
     }
+<<<<<<< HEAD
     public function createreply($id)
     {
         $pid = request() -> id;
         
         return view('home.append.create',compact('id','pid')); 
+=======
+
+    public function createreply()
+    {
+
+        return view('home.append.create');
+>>>>>>> d8573fc4284ddc2c68dffa32897fef3b061934c0
     }
 
 }
