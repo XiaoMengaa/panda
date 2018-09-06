@@ -76,7 +76,7 @@
                                 <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
                                         <input class="search-term required" type="text" id="s" name="s" placeholder="输入你想输入的问题" style="width:750px">
                                         <input class="search-btn" type="submit" value="搜索答案" />&nbsp;&nbsp;&nbsp;
-                                        <input class="search-btn" type="submit" value="我要提问" onclick='window.open("/home/problem/create")'>
+                                        <a href="/home/problem/create"><button class="search-btn" type="button" value="我要提问">我要提问</button></a>
                                         <div id="search-error-container"></div>
                                 </form>
                         </div>
