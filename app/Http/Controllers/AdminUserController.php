@@ -158,9 +158,9 @@ class AdminUserController extends Controller
         // var_dump($yhxq);
        // dd($user);;
          
-        if($yhxq = Udetails::where('user_id','=',$user->id)->delete()){
+        if($user->delete()){
 
-           if($user->delete()){
+           if($yhxq = Udetails::where('user_id','=',$user->id)->delete()){
               //dd($yhxq);
                 return back()->with('success','删除成功');
             }else{
