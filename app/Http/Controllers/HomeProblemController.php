@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Append;
 use App\Cate;
 use App\Problem;
 use App\Tag;
@@ -23,8 +25,8 @@ class HomeProblemController extends Controller
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
-        
-    	return view('home.problem.wtzs',compact('problem','id','reply'));
+        $append = Append::all();
+    	return view('home.problem.wtzs',compact('problem','id','reply','append'));
     }
 
 
@@ -34,10 +36,12 @@ class HomeProblemController extends Controller
         return view('home.problem.create',['cate'=>$cate]);
     }
 
-    public function createreply()
+    public function createreply($id)
     {
-
-        return view('home.append.create');
+        $pid = request() -> id;
+        
+        return view('home.append.create',compact('id','pid')); 
+  
     }
 
 }
