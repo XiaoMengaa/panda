@@ -34,7 +34,7 @@
                             </li>
                             <li class='divider'></li>
                             <li class='color-settings-contrast-color'>
-                                <div class='color-title'>Contrast color</div>
+                                <div class='color-title'>对比色</div>
                                 <a href="#" data-change-to="contrast-red"><i class='icon-adjust text-red'></i>
                                     Red
                                     <small>(default)</small>
@@ -49,7 +49,7 @@
                                     Purple
                                 </a>
                                 <a href="#" data-change-to="contrast-green"><i class='icon-adjust text-green'></i>
-                                    Green
+                                    绿
                                 </a>
                                 <a href="#" data-change-to="contrast-muted"><i class='icon-adjust text-muted'></i>
                                     Muted

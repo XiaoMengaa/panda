@@ -66,7 +66,7 @@
 
 <p class="date">
     <a href="#">
-            <time datetime="2013-02-26T13:18:47+00:00">February 26, 2013 at 1:18 pm</time>
+            <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
     </a>
 </p>
 
