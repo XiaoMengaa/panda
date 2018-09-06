@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Udetails;
 use App\User;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
@@ -154,20 +154,25 @@ class AdminUserController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        
+        DB::beginTransaction();
         // var_dump($yhxq);
        // dd($user);;
-         
-        if($yhxq = Udetails::where('user_id','=',$user->id)->delete()){
-
-           if($user->delete()){
-              //dd($yhxq);
+         $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if($user->delete()){
+        
+           if($yhxq){
+              if($yhxq->delete()){
+                DB::commit();
                 return back()->with('success','删除成功');
+                }
+                
             }else{
-                return back()->with('error','删除失败');
+                  DB::commit();
+                return back()->with('success','删除成功');
             }
-        }else{
-            return back()->with('error','删除失败');
+             }else{ 
+              DB::rollBack();
+               return back()->with('error','删除失败');
         }
     }
 }

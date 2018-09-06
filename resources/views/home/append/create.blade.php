@@ -51,78 +51,37 @@
     <section id="getintouch" class="bounceIn animated">
         <div class="container" style="border-bottom: 0;">
             <h1>
-                <span>请输入您要提交的问题</span>
+                <span>请回复您的评论</span>
             </h1>
         </div>
 
         <div class="container">
-            <form class="contact" action="#" method="post" id="form">
-            <div class="am-form-group">
-                        <div class="am-u-sm-9" style="float: right;height: 29px">
-                            <select data-am-selected="{searchBox: 1}" name="cate_id" style="height:29.6px;width: 100px">
-                                @foreach($cate as $v)
-                                <option value="{{$v['id']}}">{{$v['cname']}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <label for="user-phone" class="am-u-sm-3 am-form-label" style="float: right">问题分类:</label>
-                        
-            </div>
+            <form class="contact" action="/append" method="post" id="form">
+            
             <div style="height: 50px;float: both;"></div>
             <div class="row clearfix">
-                <div class="ctrl" style="float: right;width: 592px">
-                    <input type="text"  name="title" >
+                <div class="ctrl" style="float: right;width: 570px">
+                    <textarea name="content" cols="30" rows="10"></textarea>
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name">
-                        您的问题:</label>
-                </div>
-                
-            </div>
-            <div class="row clearfix">
-                <div class="ctrl" style="float: right;width: 592px">
-                    <textarea class="form-control" rows="8"></textarea>
-                </div>
-                <div class="lbl"  style="float:left;">
-                    <label for="name">
-                        问题介绍:</label>
+                        回复详情:</label>
                 </div>
                 
             </div>
 
-             
-          <div class="form-group" style="text-align: right;">
-            <a href="javascript:;" class="file">请上传问题相关图片
-                <input type="file" name="" id="">
-            </a>
-          </div>
-           
-          
-
+            
+        
             <div class="row  clearfix"  style="text-align: right;">
                 <div class="span10 offset2">
-                    <input type="submit" name="submit" class="submit" value="提交">
+                    <input type="submit" class="submit" value="提交">
                 </div>
             </div>
+            {{csrf_field()}}
             </form>
         </div>
     </section>
-    <script>
-        $(".a-upload").on("change","input[type='file']",function(){
-            var filePath=$(this).val();
-            if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1){
-                $(".fileerrorTip").html("").hide();
-                var arr=filePath.split('\\');
-                var fileName=arr[arr.length-1];
-                $(".showFileName").html(fileName);
-            }else{
-                $(".showFileName").html("");
-                $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
-                return false 
-            }
-        })
-    </script>
-
+    
 </body>
 </html>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Append;
+use App\User;
 use Illuminate\Http\Request;
 
 class AppendController extends Controller
@@ -14,6 +16,10 @@ class AppendController extends Controller
     public function index()
     {
         //
+        $append = Append::orderBy('id','desc')
+        ->where('content','like','%'.request()->content.'%')
+        ->get();;
+        return view('home.append.index',['append'=>$append]);
     }
 
     /**
@@ -24,6 +30,8 @@ class AppendController extends Controller
     public function create()
     {
         //
+
+      
     }
 
     /**
@@ -35,6 +43,16 @@ class AppendController extends Controller
     public function store(Request $request)
     {
         //
+        $append = new Append;
+
+        $append -> reply_id = 1;
+        $append -> content = $request->content;
+        $append -> user_id = 1;
+        if($append ->save()){
+            return redirect('/append/create')->with('success','评论成功');
+        }else{
+            return back()->with('error','评论失败');
+        }
     }
 
     /**
@@ -80,5 +98,11 @@ class AppendController extends Controller
     public function destroy($id)
     {
         //
+        $append = Append::findOrFail($id);
+        if($append->delete()){
+            return redirect('/append')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }

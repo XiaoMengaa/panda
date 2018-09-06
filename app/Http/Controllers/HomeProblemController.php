@@ -21,4 +21,5 @@ class HomeProblemController extends Controller
     	return view('home.problem.wtzs',compact('problem'));
     }
 
+    
 }
