@@ -284,6 +284,22 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
+
+        <span>回答管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+ <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/reply'>
+                <i class='icon-caret-right'></i>
+                <span>回答列表</span>
+                </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
         <span>追加评论管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
@@ -292,6 +308,7 @@
             <a href='/append'>
                 <i class='icon-caret-right'></i>
                 <span>追加列表</span>
+
             </a>
         </li>
     </ul>
