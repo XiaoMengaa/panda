@@ -5,54 +5,44 @@
 
                                         <div class="span3">
                                                 <section class="widget">
-                                                        <h3 class="title">How it works</h3>
+                                                        <h3 class="title">它是如何工作的?</h3>
                                                         <div class="textwidget">
-                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                                                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                                                                <p>们大多数人每天都用电脑鼠标，却从来没有停下来想想它是怎样工作的，直到有一天它变脏了，而我们又必须学会如何对它进行清洁。
+                                                                </p>
+                                                                <p>因为有梦，认真过，改变过，努力过,梦想是一个人奋斗的动力，梦想是一个人动力的源泉。幸福和欢乐在于奋斗，而最有价值的是为梦想而奋斗。有梦想，心就有了方向，有了梦想不在为过去而挣扎。 </p>
                                                         </div>
                                                 </section>
                                         </div>
 
                                         <div class="span3">
-                                                <section class="widget"><h3 class="title">Categories</h3>
+                                                <section class="widget"><h3 class="title">友情链接</h3>
                                                         <ul>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a> </li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">Designing in WordPress</a></li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a></li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a></li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a></li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress for Beginners</a></li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress Plugins</a></li>
+                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">1</a> </li>
+                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">2</a></li>
                                                         </ul>
                                                 </section>
                                         </div>
 
                                         <div class="span3">
                                                 <section class="widget">
-                                                        <h3 class="title">Latest Tweets</h3>
+                                                        <h3 class="title">开发者</h3>
                                                         <div id="twitter_update_list">
                                                                 <ul>
-                                                                        <li>No Tweets loaded !</li>
+                                                                        <li>Mr.Fan</li>
+                                                                        <li>Mr.Liu</li>
+                                                                        <li>Ms.Ding</li>
+                                                                        <li>Mr.Han</li>
+                                                                        <li>Mr.Jia</li>
                                                                 </ul>
                                                         </div>
-                                                        <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
-                                                        <script type="text/javascript" >
-                                                                getTwitters("twitter_update_list", {
-                                                                        id: "960development",
-                                                                        count: 3,
-                                                                        enableLinks: true,
-                                                                        ignoreReplies: true,
-                                                                        clearContents: true,
-                                                                        template: "%text% <span>%time%</span>"
-                                                                });
-                                                        </script>
                                                 </section>
                                         </div>
 
                                         <div class="span3">
                                                 <section class="widget">
-                                                        <h3 class="title">Flickr Photos</h3>
-                                                        <div class="flickr-photos" id="basicuse">
+                                                        <h3 class="title">请扫码关注我</h3>
+                                                        <div>
+                                                                <img src="/image/erweima.png" style="width:60%">
                                                         </div>
                                                 </section>
                                         </div>
@@ -67,7 +57,7 @@
                                         <div class="row">
                                                 <div class="span6">
                                                         <p class="copyright">
-                                                                Copyright © 2013. All Rights Reserved by KnowledgeBase.Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                                                                Copyright © 2013. All Rights Reserved by KnowledgeBase.Collect from
                                                         </p>
                                                 </div>
                                                 <div class="span6">

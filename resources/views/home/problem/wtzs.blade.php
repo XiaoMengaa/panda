@@ -59,14 +59,18 @@
 
 <h5 class="author">
     <cite class="fn">
-            <a href="#" rel="external nofollow" class="url">John Doe</a>
+            <a href="#" rel="external nofollow" class="url">回答问题的用户</a>
     </cite>
-    - <a class="comment-reply-link" href="#">Reply</a>
+    - <a class="comment-reply-link" href="/home/append/create/{{$v->id}}?id={{$id}}">回复</a>
 </h5>
 
 <p class="date">
     <a href="#">
+<<<<<<< HEAD
             <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
+=======
+            <time datetime="2013-02-26T13:18:47+00:00">2018年9月6号</time>
+>>>>>>> ff563398ccfb35d8c621e20fb67da11a4c7dbefa
     </a>
 </p>
 
@@ -77,7 +81,8 @@
 </div><!-- end of comment-body -->
 
 </article><!-- end of comment -->
-
+@foreach($append as $val)
+@if($v->id == $val->reply_id)
 <ul class="children">
 
 <li class="comment byuser comment-author-saqib-sarwar bypostauthor odd alt depth-2" id="li-comment-3">
@@ -90,28 +95,28 @@
     <div class="comment-meta">
 
             <h5 class="author">
-                    <cite class="fn">saqib sarwar</cite>
-                    - <a class="comment-reply-link" href="#">Reply</a>
+                    <cite class="fn">回复的用户名称</cite>
+                    - <a class="comment-reply-link" href="/home/append/create/{{$v->id}}?id={{$id}}">回复</a>
             </h5>
 
             <p class="date">
 <a href="#">
-<time datetime="2013-02-26T13:20:14+00:00">February 26, 2013 at 1:20 pm</time>
+<time datetime="2013-02-26T13:20:14+00:00">{{$v->created_at}}</time>
                     </a>
             </p>
 
     </div><!-- end .comment-meta -->
-
     <div class="comment-body">
-            <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <p>{{$val->content}}</p>
     </div><!-- end of comment-body -->
-
 </article><!-- end of comment -->
 
 </li>
 </ul>
 </li>
 </ol>
+@endif
+@endforeach
 @endforeach
 <div id="respond">
 
