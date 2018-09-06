@@ -29,7 +29,8 @@ class AdminController extends Controller
 		if(!$user){
 			return back()->with('error','登陆失败!');
 		}
-		$Udetails = Udetails::find($user->id)['jurisdiction'];
+		var_dump($user->id);
+		$Udetails = Udetails::where('user_id','=',25)->get()->first()->jurisdiction;
 
 		if(!$Udetails==2)
 		{
@@ -39,7 +40,7 @@ class AdminController extends Controller
 		//校验密码
 		if(Hash::check($request->password, $user->password)){
 			//写入session
-			session(['username'=>$user->username, 'id'=>$user->id]);
+			session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
 			return redirect('/admin')->with('success','登陆成功');
 		}else{
 			return back()->with('error','登陆失败!');

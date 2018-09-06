@@ -7,6 +7,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function udetails()
+    {
+        return $this->hasOne('App\Udetails');
+    }
     use Notifiable;
 
     /**
