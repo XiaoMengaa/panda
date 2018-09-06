@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Reply;
+use App\Udetails;
+use App\User;
 use Illuminate\Http\Request;
+
 
 class ReplyController extends Controller
 {
@@ -14,6 +18,10 @@ class ReplyController extends Controller
     public function index()
     {
         //
+         $reply = Reply::orderBy('id','desc')
+        ->where('content','like','%'.request()->content.'%')
+        ->paginate(3);
+        return view('home.reply.index',['reply'=>$reply]);
     }
 
     /**
@@ -24,17 +32,36 @@ class ReplyController extends Controller
     public function create()
     {
         //
-    }
 
+   }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+       public function store(Request $request)
+      {
+
         //
+      // $user = User::findOrFail($id);
+      // $reply = Udetails::where('user_id','=',$user->id)->get()->first();
+        //问题id
+          
+        $reply = new Reply;
+
+       $reply -> user_id =1;
+       $reply -> content = $request ->content;
+
+       $reply -> problem_id = $request ->id;
+       $reply -> state= '0';
+       $reply -> fabulous =0;
+       $reply -> tread =0;
+        if($reply -> save()){
+            return redirect('/home/problem/'.$request->id)->with('success', '同志,发言成功');
+        }else{
+            return back()->with('error','革命尚未成功,同志仍需努力');
+        }
     }
 
     /**
@@ -80,5 +107,13 @@ class ReplyController extends Controller
     public function destroy($id)
     {
         //
+         $reply = Reply::findOrFail($id);
+     if($reply->delete()){
+         return back()->with('success','删除成功');
+
+     }else{
+        return back()->with('error','删除失败');
+     }
+
     }
 }

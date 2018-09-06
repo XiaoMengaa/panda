@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Problem;
+use App\Reply;
 use Illuminate\Http\Request;
 
 class HomeProblemController extends Controller
@@ -14,9 +15,12 @@ class HomeProblemController extends Controller
     }
     public function wtzs($id)
     {
-        
+
     	$problem = Problem::findOrFail($id);
-    	return view('home.problem.wtzs',compact('problem'));
+       // $reply = Reply::all();
+        $reply = Reply::where('problem_id','=',$id)->get();
+        
+    	return view('home.problem.wtzs',compact('problem','id','reply'));
     }
     public function create()
     {
@@ -26,5 +30,7 @@ class HomeProblemController extends Controller
     public function createreply()
     {
         return view('home.append.create');
+
+        
     }
 }
