@@ -81,7 +81,7 @@
             </div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 592px">
-                    <textarea name="title" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" rows="8"></textarea>
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name">
