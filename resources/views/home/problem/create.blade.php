@@ -90,7 +90,6 @@
                 
             </div>
 
-            
              
           <div class="form-group" style="text-align: right;">
             <a href="javascript:;" class="file">请上传问题相关图片
@@ -102,7 +101,7 @@
 
             <div class="row  clearfix"  style="text-align: right;">
                 <div class="span10 offset2">
-                    <input type="submit" name="submit" id="submit" class="submit" value="提交">
+                    <input type="submit" name="submit" class="submit" value="提交">
                 </div>
             </div>
             </form>
