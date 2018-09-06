@@ -38,7 +38,6 @@ class ProblemController extends Controller
      */
     public function store(Request $request)
     {
-
         $problem = new Problem;
         
         $problem -> title = $request -> title;
@@ -53,7 +52,7 @@ class ProblemController extends Controller
         }
 
         if($problem->save()){
-            return redirect('/problem/create')->with('success','保存成功');
+            return redirect('/home/problem/create')->with('success','保存成功');
         }else{
             return back()->with('error','保存失败');
         }
