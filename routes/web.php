@@ -19,14 +19,14 @@ Route::get('/shiyan',function(){
 	return view('shiyan');
 });
 
+//前台提问问题
+Route::get('/home/problem/create','HomeProblemController@create');
+
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');
 
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
-
-//前台提问问题
-Route::get('/hoe/problem/create','HomeProblemController@create');
 
 //前台回答回复
 Route::get('/home/append/create/{id}','HomeProblemController@createreply');

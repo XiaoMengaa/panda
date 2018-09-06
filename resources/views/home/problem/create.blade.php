@@ -56,7 +56,7 @@
         </div>
 
         <div class="container">
-            <form class="contact" action="#" method="post" id="form">
+            <form class="contact" action="/problem" method="post" enctype="multipart/form-data">
             <div class="am-form-group">
                         <div class="am-u-sm-9" style="float: right;height: 29px">
                             <select data-am-selected="{searchBox: 1}" name="cate_id" style="height:29.6px;width: 100px">
@@ -71,7 +71,7 @@
             <div style="height: 50px;float: both;"></div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 592px">
-                    <input type="text"  name="title" >
+                    <input type="text" name="title">
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name">
@@ -81,10 +81,10 @@
             </div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 592px">
-                    <textarea class="form-control" rows="8"></textarea>
+                    <textarea class="form-control" rows="8" name="content"></textarea>
                 </div>
                 <div class="lbl"  style="float:left;">
-                    <label for="name">
+                    <label for="name" >
                         问题介绍:</label>
                 </div>
                 
@@ -93,7 +93,7 @@
              
           <div class="form-group" style="text-align: right;">
             <a href="javascript:;" class="file">请上传问题相关图片
-                <input type="file" name="" id="">
+                <input type="file" name="image" id="">
             </a>
           </div>
            
@@ -104,6 +104,7 @@
                     <input type="submit" name="submit" class="submit" value="提交">
                 </div>
             </div>
+            {{csrf_field()}}
             </form>
         </div>
     </section>
