@@ -97,7 +97,7 @@
 
             <p class="date">
 <a href="#">
-<time datetime="2013-02-26T13:20:14+00:00">2018年9月6号</time>
+<time datetime="2013-02-26T13:20:14+00:00">{{$v->created_at}}</time>
                     </a>
             </p>
 
