@@ -18,4 +18,9 @@ class HomeProblemController extends Controller
     	$problem = Problem::findOrFail($id);
     	return view('home.problem.wtzs',compact('problem'));
     }
+    public function create()
+    {
+        $cate = Cate::all();
+        return view('home.problem.create',['cate'=>$cate]);
+    }
 }
