@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/shiyan',function(){
-	return view('shiyan');
-});
+//前台提问问题
+Route::get('/home/problem/create','HomeProblemController@create');
 
 //前台提问问题
 Route::get('/home/problem/create','HomeProblemController@create');

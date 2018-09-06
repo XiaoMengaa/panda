@@ -68,7 +68,11 @@
 
 <p class="date">
     <a href="#">
+<<<<<<< HEAD
+            <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
+=======
             <time datetime="2013-02-26T13:18:47+00:00">2018年9月6号</time>
+>>>>>>> ff563398ccfb35d8c621e20fb67da11a4c7dbefa
     </a>
 </p>
 
@@ -99,7 +103,7 @@
 
             <p class="date">
 <a href="#">
-<time datetime="2013-02-26T13:20:14+00:00">2018年9月6号</time>
+<time datetime="2013-02-26T13:20:14+00:00">{{$v->created_at}}</time>
                     </a>
             </p>
 
