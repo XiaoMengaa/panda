@@ -29,7 +29,7 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 Route::get('/hom/problem/create','HomeProblemController@create');
 
 //前台回答回复
-Route::get('/home/append/create','HomeProblemController@createreply');
+Route::get('/home/append/create/{id}','HomeProblemController@createreply');
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
