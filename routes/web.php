@@ -26,10 +26,10 @@ Route::get('/home/problemlist','HomeProblemController@index');
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //前台提问问题
-Route::get('/problem/create','HomeProblemController@create');
+Route::get('/home/problem/create','HomeProblemController@create');
 
 //前台回答回复
-Route::get('/reply/create','HomeProblemController@createreply');
+Route::get('/home/append/create','HomeProblemController@createreply');
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');

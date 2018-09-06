@@ -31,7 +31,7 @@ class AppendController extends Controller
     {
         //
 
-        return view('home.append.create');
+      
     }
 
     /**

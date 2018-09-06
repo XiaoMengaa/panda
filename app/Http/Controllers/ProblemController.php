@@ -27,8 +27,7 @@ class ProblemController extends Controller
      */
     public function create()
     {
-        $cate = Cate::all();
-        return view('home.problem.create',['cate'=>$cate]);
+        
     }
 
     /**

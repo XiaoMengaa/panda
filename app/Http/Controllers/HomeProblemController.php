@@ -23,4 +23,8 @@ class HomeProblemController extends Controller
         $cate = Cate::all();
         return view('home.problem.create',['cate'=>$cate]);
     }
+    public function createreply()
+    {
+        return view('home.append.create');
+    }
 }
