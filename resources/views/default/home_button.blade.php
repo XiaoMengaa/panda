@@ -35,24 +35,14 @@
                                                                         <li>Mr.Jia</li>
                                                                 </ul>
                                                         </div>
-                                                        <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
-                                                        <script type="text/javascript" >
-                                                                getTwitters("twitter_update_list", {
-                                                                        id: "960development",
-                                                                        count: 3,
-                                                                        enableLinks: true,
-                                                                        ignoreReplies: true,
-                                                                        clearContents: true,
-                                                                        template: "%text% <span>%time%</span>"
-                                                                });
-                                                        </script>
                                                 </section>
                                         </div>
 
                                         <div class="span3">
                                                 <section class="widget">
                                                         <h3 class="title">请扫码关注我</h3>
-                                                        <div class="flickr-photos" id="basicuse"><img src="/image/erweima.png" style="width:60%">
+                                                        <div>
+                                                                <img src="/image/erweima.png" style="width:60%">
                                                         </div>
                                                 </section>
                                         </div>
