@@ -37,12 +37,13 @@ class HomeProblemController extends Controller
     }
 
 
+
+
     public function createreply($id)
     {
         $pid = request() -> id;
         
         return view('home.append.create',compact('id','pid')); 
-        
     }
 
 }
