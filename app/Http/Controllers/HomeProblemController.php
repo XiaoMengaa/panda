@@ -26,5 +26,7 @@ class HomeProblemController extends Controller
     public function createreply()
     {
         return view('home.append.create');
+
+        
     }
 }
