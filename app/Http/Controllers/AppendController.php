@@ -42,6 +42,7 @@ class AppendController extends Controller
      */
     public function store(Request $request)
     {
+        
         //
         $append = new Append;
 
@@ -49,7 +50,7 @@ class AppendController extends Controller
         $append -> content = $request->content;
         $append -> user_id = 1;
         if($append ->save()){
-            return redirect('/append/create')->with('success','评论成功');
+            return redirect('/home/append/create')->with('success','评论成功');
         }else{
             return back()->with('error','评论失败');
         }
