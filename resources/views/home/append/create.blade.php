@@ -74,6 +74,8 @@
         
             <div class="row  clearfix"  style="text-align: right;">
                 <div class="span10 offset2">
+                    <input type="hidden" name="id" value="{{$id}}">
+                    <input type="hidden" name="pid" value="{{$pid}}">
                     <input type="submit" class="submit" value="提交">
                 </div>
             </div>
