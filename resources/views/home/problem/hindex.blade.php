@@ -20,7 +20,6 @@
                                                         </h3>
                                                         <div class="faq-answer">
                                                                 <p>{{$v->content}}</p>
-                                                                <p>For more information:</p>
                                                                 <ul>
                                                                         <li><a title="WordPress" href="http://codex.wordpress.org/WordPress">WordPress</a></li>
                                                                         <li><a title="WordPress Semantics" href="http://codex.wordpress.org/WordPress_Semantics">WordPress Semantics</a></li>

@@ -52,7 +52,8 @@
                                         <div class="span3">
                                                 <section class="widget">
                                                         <h3 class="title">请扫码关注我</h3>
-                                                        <div class="flickr-photos" id="basicuse"><img src="/image/erweima.png" style="width:60%">
+                                                        <div>
+                                                                <img src="/image/erweima.png" style="width:60%">
                                                         </div>
                                                 </section>
                                         </div>
