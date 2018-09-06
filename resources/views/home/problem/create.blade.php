@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>jQuery Contact Form Plugin: FFForm</title>
+    <title>提问问题</title>
     <link href="/wenti/css/demo.css" rel="stylesheet" type="text/css">
     <script src="/wenti/js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!--Framework-->
