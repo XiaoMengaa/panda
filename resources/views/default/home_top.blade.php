@@ -8,7 +8,7 @@
                 <meta charset="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <title>Knowledge Base Theme</title>
+                <title>熊猫滚滚</title>
 
                 <link rel="shortcut icon" href="images/favicon.png" />
 
@@ -41,10 +41,7 @@
 
                                         <div class="logo-container">
                                                 <!-- Website Logo -->
-                                                <a href="index-2.html"  title="Knowledge Base Theme">
-                                                        <img src="/home/images/logo.png" alt="Knowledge Base Theme">
-                                                </a>
-                                                <span class="tag-line">Premium WordPress Theme</span>
+                                                <span class="tag-line" style="font-size:20px">熊猫问答欢迎您到来</span>
                                         </div>
 
 
@@ -52,27 +49,13 @@
                                         <nav class="main-nav">
                                                 <div class="menu-top-menu-container">
                                                         <ul id="menu-top-menu" class="clearfix">
-                                                                <li><a href="index-2.html">Home</a></li>
-                                                                <li><a href="home-categories-description.html">Home 2</a></li>
-                                                                <li><a href="home-categories-articles.html">Home 3</a></li>
-                                                                <li><a href="articles-list.html">Articles List</a></li>
-                                                                <li class="current-menu-item"><a href="faq.html">FAQs</a></li>
-                                                                <li><a href="#">Skins</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="blue-skin.html">Blue Skin</a></li>
-                                                                                <li><a href="green-skin.html">Green Skin</a></li>
-                                                                                <li><a href="red-skin.html">Red Skin</a></li>
-                                                                                <li><a href="index-2.html">Default Skin</a></li>
-                                                                        </ul>
+                                                                <li><a href="index-2.html">首页</a></li>
+                                                                <li><a href="articles-list.html">问题列表</a></li>
+                                                                <li><a href="#">登录</a>
                                                                 </li>
-                                                                <li><a href="#">More</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="full-width.html">Full Width</a></li>
-                                                                                <li><a href="elements.html">Elements</a></li>
-                                                                                <li><a href="page.html">Sample Page</a></li>
-                                                                        </ul>
+                                                                <li><a href="#">注册</a>
                                                                 </li>
-                                                                <li><a href="contact.html">Contact</a></li>
+                                                                <li><a href="contact.html">反馈</a></li>
                                                         </ul>
                                                 </div>
                                         </nav>
@@ -86,12 +69,13 @@
                 <!-- Start of Search Wrapper -->
                 <div class="search-area-wrapper">
                         <div class="search-area container">
-                                <h3 class="search-header">Have a Question?</h3>
-                                <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
+                                <h3 class="search-header">有问题吗?</h3>
+                                <p class="search-tag-line">如果你有任何问题，你可以问下面或输入你正在寻找的!</p>
 
                                 <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
-                                        <input class="search-term required" type="text" id="s" name="s" placeholder="Type your search terms here" title="* Please enter a search term!" />
-                                        <input class="search-btn" type="submit" value="Search" />
+                                        <input class="search-term required" type="text" id="s" name="s" placeholder="输入你想输入的问题" style="width:750px">
+                                        <input class="search-btn" type="submit" value="搜索答案" />&nbsp;&nbsp;&nbsp;
+                                        <input class="search-btn" type="submit" value="我要提问" onclick='window.open("/problem/create")'>
                                         <div id="search-error-container"></div>
                                 </form>
                         </div>
