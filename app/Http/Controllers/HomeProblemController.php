@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Udetails;
 use App\Append;
 use App\User;
 use App\Cate;
@@ -10,6 +10,7 @@ use App\Problem;
 use App\Tag;
 use App\Reply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeProblemController extends Controller
 {
@@ -47,10 +48,19 @@ class HomeProblemController extends Controller
         return view('home.append.create',compact('id','pid')); 
     }
 
-
-    public function login(Request $request)
+    /**
+    *前台登录
+    */
+    public function login()
     {
+        return view('home.login');
+    }
 
+    /**
+    *登录操作
+    */
+    public function dologin(Request $request)
+    {
         //获取用户的数据
         $user = User::where('username', $request->username)->first();
 
@@ -65,11 +75,18 @@ class HomeProblemController extends Controller
         if(Hash::check($request->password, $user->password)){
             //写入session
             session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
-            return redirect('/home/problemlist')->with('success','登陆成功');
+            return redirect('home/problemlist')->with('success','登录成功');
         }else{
-            return back()->with('error','登陆失败!');
+            return back()->with('error','登录失败!');
         }
     }
 
+
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/home/problemlist')->with('success','退出成功');
+    }
 
 }

@@ -10,17 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//前台路由组
+Route::group(['middleware'=>'home'],function(){
+	//前台提问问题
+	Route::get('/home/problem/create','HomeProblemController@create');
+
+	//前台回答回复
+	Route::get('/home/append/create/{id}','HomeProblemController@createreply');
+
+	//回答问题资源路由
+	Route::resource('/reply','ReplyController');
+});
+
+
+//前往用户个人中心
+Route::get('/home/center','HomeProblemController@center');
+
+//用户个人中心编辑
+Route::get('/home/{id}/update','HomeProblemController@update');
+
 //前台用户登录路由
-Route::get('/home/login/login','HomeProblemController@login');
+Route::get('/home/login','HomeProblemController@login');
+
+//前台用户登录操作
+Route::post('/home/dologin','HomeProblemController@dologin');
 
 //前台用户退出登录路由
 Route::get('/home/logout','HomeProblemController@logout');
-
-//前往用户个人中心路由
-Route::get('/home/center','HomeProblemController@center');
-
-//用户个人中心编辑路由
-Route::get('/home/{id}/update','HomeProblemController@update');
 
 //前台用户注册路由
 Route::get('/home/register','HomeController@register');
@@ -28,17 +45,11 @@ Route::get('/home/register','HomeController@register');
 //前台用户注册保存路由
 Route::get('/home/create','HomeController@create');
 
-//前台提问问题
-Route::get('/home/problem/create','HomeProblemController@create');
-
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');
 
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
-
-//前台回答回复
-Route::get('/home/append/create/{id}','HomeProblemController@createreply');
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
@@ -66,9 +77,6 @@ Route::resource('/admin/tag','AdminTagController');
 
 //提问问题管理资源路由
 Route::resource('/problem','ProblemController');
-
-//回答问题资源路由
-Route::resource('/reply','ReplyController');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
