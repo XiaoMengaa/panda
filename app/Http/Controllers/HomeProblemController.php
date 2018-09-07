@@ -3,20 +3,10 @@
 namespace App\Http\Controllers;
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 319071f28582f686cfc124cfc079ce0b67bf39dc
 use App\Append;
 use App\Cate;
 use App\Problem;
 use App\Tag;
-<<<<<<< HEAD
-
-=======
->>>>>>> 319071f28582f686cfc124cfc079ce0b67bf39dc
 use App\Reply;
 use Illuminate\Http\Request;
 

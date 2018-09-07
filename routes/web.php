@@ -26,7 +26,7 @@ Route::get('/home/{id}/update','HomeProblemController@update');
 Route::get('/home/register','HomeController@register');
 
 //前台用户注册保存路由
-Route::get('/home/create','HomeController@create');
+Route::post('/home/create','HomeController@create');
 
 //前台提问问题
 Route::get('/home/problem/create','HomeProblemController@create');

@@ -53,7 +53,7 @@
                                                                 <li><a href="articles-list.html">问题列表</a></li>
                                                                 <li><a href="#">登录</a>
                                                                 </li>
-                                                                <li><a href="#">注册</a>
+                                                                <li><a href="/home/register">注册</a>
                                                                 </li>
                                                                 <li><a href="contact.html">反馈</a></li>
                                                         </ul>
