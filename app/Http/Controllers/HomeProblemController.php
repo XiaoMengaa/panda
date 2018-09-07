@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Udetails;
 use App\Append;
-use App\User;
 use App\Cate;
 use App\Problem;
-use App\Tag;
 use App\Reply;
+use App\Tag;
+use App\Udetails;
+use App\User;
+use App\Wealth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,10 +25,28 @@ class HomeProblemController extends Controller
     public function wtzs($id)
     {
 
+       
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
         $append = Append::all();
+         if(\Session::has('id')){
+            if(!\Session::has('ckwt')){
+                \session(['ckwt' => 1]);
+            }else if(\session::get('ckwt') == 5){
+                $wealth = Wealth::where('user_id','=',\session::get('id'))->get()->first();
+                $wealth -> integral = $wealth -> integral + 5;
+                $wealth -> save();
+            }else{
+                \session(['ckwt'=>\session::get('ckwt') + 1]);
+            }
+            
+        }
+        if(\session::get('ckwt') == 5){
+            request()->session()->flash('success', '恭喜您获得五积分');
+            return view('home.problem.wtzs',compact('problem','id','reply','append'));
+        }
+
     	return view('home.problem.wtzs',compact('problem','id','reply','append'));
     }
 
@@ -74,6 +93,9 @@ class HomeProblemController extends Controller
         
 
 
+        if(Udetails::where('user_id','=',$user->id)->get()->first()){
+            $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
+        }
         //校验密码
         if(Hash::check($request->password, $user->password)){
             //写入session
