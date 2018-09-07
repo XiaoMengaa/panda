@@ -89,10 +89,15 @@ class HomeProblemController extends Controller
         return redirect('/home/problemlist')->with('success','退出成功');
     }
 
-    public function center()
+
+    public function center(Request $request)
     {
-    
-       return view('home.center.center');
+      
+       
+       $id = \Session::get('id');
+       $user = User::find($id);
+  
+       return view('home.center.center',['user'=>$user]);
 
     }
 

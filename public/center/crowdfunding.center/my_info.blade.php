@@ -37,10 +37,11 @@
 </div>
 <div class="my_info_content">
   <div class="my_info_content_care"> 以下信息都为必填项，请您认真填写 </div>
+  <form action="/home/center" method="post" enctype="multipart/form-data">
   <table class="my_info_content_care_table">
     <tbody>
       <tr>
-        <td width="90" align="right" class="color555">用户名：</td>
+        
         <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
 
@@ -96,6 +97,9 @@
       </tr>
     </tbody>
   </table>
+  {{csrf_field}}
+</form>
+
 </div>
 
 <!-- 结束 --> 

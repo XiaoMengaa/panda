@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="revised" content="Ningxia Seasons, 2015/8/13/" />
+<link href="/center/css/crowdfunding.center/my_info.css" rel="stylesheet">
 <!-- 定义页面的最新版本 -->
 <meta name="description" content="网站简介" />
 <!-- 网站简介 -->
@@ -73,14 +74,104 @@
     </div>
    
   </div>
-  <div class="col-lg-9">
-    <iframe name="left" id="crowdfunding_iframe" src="/center/crowdfunding.center/my_info.html" frameborder="false" scrolling="no" style="border:none;" width="100%" height="1045" allowtransparency="true"></iframe>
-  </div>
+  <div class="col-lg-9" style="display: both;" id='dbzl'>
+    <div class="my_info_title">我的资料<span>
+  <button type="button" class="but">签到</button>
+  <p>07月29日<br>
+    漏签1天</p>
+  </span></div>
+<div class="my_info_title_3">
+  <ul>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">基本资料</li>
+    
+  </ul>
 </div>
+<div class="my_info_content">
+  <div class="my_info_content_care"> 以下信息都为必填项，请您认真填写 </div>
+  <form action="/home/update/{$user.id}" method="post" enctype="multipart/form-data">
+  <table class="my_info_content_care_table">
+    <tbody>
+      <tr>
+        <td width="90" align="right" class="color555"> 用户名：{{$user['username']}}</td>
+        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
+      </tr>
+
+      <tr>
+        <td align="right" class="color555">手机号码：</td>
+        <td class="color555"></td>
+      </tr>
+     
+      <tr>
+        <td align="right" class="color555">性别：</td>
+        <td class="color555"><label>
+      
+          <label>
+            <input type="radio" name="sex" id="" value="男士" checked>
+            男士 </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" id="" value="女士">
+            女士 </label></td>
+      </tr>
+      
+      <tr>
+        <td align="right" class="color555">头像：</td>
+        <td class="color555"><label>
+      
+          <label>
+            <input type="file" name="pic"></label>
+        </td>
+      </tr>
+    
+      <tr>
+        <td align="right" class="color555">邮箱：</td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="" type="text">
+          <span class="color959595 margin_left10 font_size12">友好提示：请填写常用邮箱，您忘记密码时可用邮箱找回，有新项目动态时会发邮件给您</span></td>
+      </tr>
+
+      <tr>
+          <td align="right" class="color555">简介：</td>
+          <td class="color555"><textarea rows="8" cols="30" ></textarea></td>
+      </tr>
+
+       <tr>
+        <td width="90" align="right" class="color555">积分：</td>
+        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
+      </tr>
+
+       <tr>
+        <td width="90" align="right" class="color555">财富：</td>
+        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
+      </tr>
+    
+      <tr>
+        <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="保    存"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</div>
+</div>
+
+<div class="col-lg-9"  id="dingbo" style="display: none;">
+    <iframe name="left" id="crowdfunding_iframe" src="/center/crowdfunding.center/make_password.html" frameborder="false" scrolling="no" style="border:none;" width="100%" height="1045" allowtransparency="true"></iframe>
+</div>
+<script type="text/javascript">
+    function listClick(value){
+        if(value == 4){
+            $('#dbzl').css('display','none');
+            $('#dingbo').css('display','both');
+        }
+        if(value == 1){
+            $('#dbzl').css('display','both');
+            $('#dingbo').css('display','none');
+        }
+    }
+</script>
+
 <!-- 核心 结束 -->  
 
 <!-- 版权 开始 -->
-<div class="container-fluid cfh_bottom">
+<div class="container-fluid cfh_bottom" style="background:white;">
   <div class="container">
     <div class="cfh_bottom_qsss">
       <dl>
