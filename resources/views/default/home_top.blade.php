@@ -51,7 +51,7 @@
                                                         <ul id="menu-top-menu" class="clearfix">
                                                                 <li><a href="index-2.html">首页</a></li>
                                                                 <li><a href="articles-list.html">问题列表</a></li>
-                                                                <li><a href="#">登录</a>
+                                                                <li><a href="/home/login/login">登录</a>
                                                                 </li>
                                                                 <li><a href="#">注册</a>
                                                                 </li>
