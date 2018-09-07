@@ -41,7 +41,7 @@
 
                                         <div class="logo-container">
                                                 <!-- Website Logo -->
-                                                <span class="tag-line" style="font-size:20px">熊猫问答欢迎您到来</span>
+                                                <span class="tag-line" style="font-size:20px">熊猫问答一款高效的问答网站</span>
                                         </div>
 
 
@@ -69,8 +69,8 @@
                 <!-- Start of Search Wrapper -->
                 <div class="search-area-wrapper">
                         <div class="search-area container">
-                                <h3 class="search-header">有问题吗?</h3>
-                                <p class="search-tag-line">如果你有任何问题，你可以问下面或输入你正在寻找的!</p>
+                                <h3 class="search-header">有一个问题?</h3>
+                                <p class="search-tag-line">如果您有任何疑问，你可以在下面询问或输入您要找的内容!</p>
 
                                 <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
                                         <input class="search-term required" type="text" id="s" name="s" placeholder="输入你想输入的问题" style="width:750px">

@@ -10,7 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//前台用户登录路由
+Route::get('/home/login','HomeProblemController@login');
 
+//前台用户退出登录路由
+Route::get('/home/logout','HomeProblemController@logout');
+
+//前往用户个人中心路由
+Route::get('/home/center','HomeProblemController@center');
+
+//用户个人中心编辑路由
+Route::get('/home/{id}/update','HomeProblemController@update');
+
+//前台用户注册路由
+Route::get('/home/register','HomeController@register');
+
+//前台用户注册保存路由
+Route::get('/home/create','HomeController@create');
 
 //前台提问问题
 Route::get('/home/problem/create','HomeProblemController@create');
