@@ -21,10 +21,20 @@ class HomeController extends Controller
 	        $user -> username = $request->username;
 	       // dd($user);
 	        $user -> password = Hash::make($request->password);
-
+            DB::beginTransaction();
 	        if($user -> save()){
-	            return redirect('/home/login')->with('success', '添加成功');
+                 $w = new Wealth;
+                 $w -> user_id = $user -> id;
+                 if($w -> save()){
+                    DB::commit();
+                    return redirect('/home/login')->with('success', '添加成功');
+                }else{
+                    DB::rollBack();
+                    return back()->with('error','添加失败');
+                }
+	            
 	        }else{
+                DB::rollBack();
 	            return back()->with('error','添加失败');
     }
         }
