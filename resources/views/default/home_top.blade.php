@@ -49,9 +49,33 @@
                                         <nav class="main-nav">
                                                 <div class="menu-top-menu-container">
                                                         <ul id="menu-top-menu" class="clearfix">
-                                                                <li><a href="index-2.html">首页</a></li>
-                                                                <li><a href="articles-list.html">问题列表</a></li>
-                                                                <li><a href="#">登录</a>
+                                                                <li><a href="/home/problemlist">首页</a></li>
+                                                                <li><a href="/home/problemlist">问题列表</a></li>
+                                                                
+                                                                <li>@if(!Session::has('id'))<a href="/home/login">登录</a>@endif
+                                                                @if(Session::has('id'))<a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                                                                
+                            <img  height='23' src='{{Session::get('pic')}}' width='23' />
+                            <span class='user-name hidden-phone'>{{Session::get('username')}}</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        
+                            <li>
+                                <a href="">
+                                    <i class="icon-user"></i>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/home/logout">
+                                    <i class="icon-signout"></i>
+                                    退出
+                                </a>
+                            </li>
+                            
+                        </ul>@endif
                                                                 </li>
                                                                 <li><a href="#">注册</a>
                                                                 </li>
