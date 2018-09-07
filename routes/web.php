@@ -43,7 +43,7 @@ Route::get('/home/logout','HomeProblemController@logout');
 Route::get('/home/register','HomeController@register');
 
 //前台用户注册保存路由
-Route::get('/home/create','HomeController@create');
+Route::post('/home/create','HomeController@create');
 
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');

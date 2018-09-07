@@ -77,7 +77,7 @@
                             
                         </ul>@endif
                                                                 </li>
-                                                                <li><a href="#">注册</a>
+                                                                <li><a href="/home/register">注册</a>
                                                                 </li>
                                                                 <li><a href="contact.html">反馈</a></li>
                                                         </ul>
