@@ -43,13 +43,19 @@ Route::get('/home/logout','HomeProblemController@logout');
 Route::get('/home/register','HomeController@register');
 
 //前台用户注册保存路由
-Route::get('/home/create','HomeController@create');
+Route::post('/home/create','HomeController@create');
 
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');
 
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
+
+//回答问题资源路由
+Route::resource('/reply','ReplyController');
+
+//问题追加资源路由
+Route::resource('/append','AppendController');
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
@@ -82,3 +88,4 @@ Route::resource('/problem','ProblemController');
 Route::resource('/append','AppendController');
 
 });
+
