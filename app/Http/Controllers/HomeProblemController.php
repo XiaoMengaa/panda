@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Append;
+use App\User;
 use App\Cate;
 use App\Problem;
 use App\Tag;
@@ -45,5 +46,30 @@ class HomeProblemController extends Controller
         
         return view('home.append.create',compact('id','pid')); 
     }
+
+
+    public function login(Request $request)
+    {
+
+        //获取用户的数据
+        $user = User::where('username', $request->username)->first();
+
+        if(!$user){
+            return back()->with('error','登陆失败!');
+        }
+
+        $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
+
+
+        //校验密码
+        if(Hash::check($request->password, $user->password)){
+            //写入session
+            session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
+            return redirect('/home/problemlist')->with('success','登陆成功');
+        }else{
+            return back()->with('error','登陆失败!');
+        }
+    }
+
 
 }

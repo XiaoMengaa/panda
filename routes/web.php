@@ -11,7 +11,7 @@
 |
 */
 //前台用户登录路由
-Route::get('/home/login','HomeProblemController@login');
+Route::get('/home/login/login','HomeProblemController@login');
 
 //前台用户退出登录路由
 Route::get('/home/logout','HomeProblemController@logout');

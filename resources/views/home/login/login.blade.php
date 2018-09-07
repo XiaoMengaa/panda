@@ -10,9 +10,9 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="/home/assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/home/assets/css/form-elements.css">
-        <link rel="stylesheet" href="/home/assets/css/style.css">
+        <link rel="stylesheet" href="/home-login/assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/home-login/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/home-login/assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,11 +22,11 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="/home/assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/home/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/home/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/home/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/home/assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="/home-login/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/home-login/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/home-login/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/home-login/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/home-login/assets/ico/apple-touch-icon-57-precomposed.png">
 
     </head>
 
@@ -39,16 +39,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                        	<a class="logo" href="index.html"></a>
-                            <h1><strong>Bootstrap</strong> Modal Registration Form</h1>
-                            <div class="description">
-                            	<p>
-	                            	This is a free responsive modal registration form made with Bootstrap. 
-	                            	Download it on <a href="#"><strong>AZMIND</strong></a>, customize and use it as you like!
-                            	</p>
-                            </div>
                             <div class="top-big-link">
-                            	<a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-register">Launch modal</a>
+                            	<a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-register">点击登录</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +48,6 @@
             </div>
             
         </div>
-        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
         <!-- MODAL -->
         <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
         	<div class="modal-dialog">
@@ -64,33 +55,40 @@
         			
         			<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
-        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        					<span aria-hidden="true">&times;</span><span class="sr-only"></span>
         				</button>
-        				<h3 class="modal-title" id="modal-register-label">Sign up now</h3>
-        				<p>Fill in the form below to get instant access:</p>
+        				<h3 class="modal-title" id="modal-register-label">请先登录</h3>
+        				<p>填写以下信息,获得即时访问</p>
         			</div>
         			
         			<div class="modal-body">
         				
-	                    <form role="form" action="" method="post" class="registration-form">
+	                    <form role="form" action="/home/problemlist" method="post" class="registration-form">
+                            @if(Session::has('success'))
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                                <div class="dashboard-stat green">
+                                        <div class="desc" style="text-align: center;line-height:95px;color:red">{{Session::get('success')}} </div>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if(Session::has('error'))
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                                <div class="dashboard-stat red">
+                                        <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                                </div>
+                            </div>
+                            @endif
 	                    	<div class="form-group">
-	                    		<label class="sr-only" for="form-first-name">First name</label>
-	                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+	                    		<label class="sr-only" for="form-first-name">账号:</label>
+	                        	<input type="text" name="username" placeholder="账号" class="form-first-name form-control" id="form-first-name">
 	                        </div>
 	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-last-name">Last name</label>
-	                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+	                        	<label class="sr-only" for="form-last-name">密码:</label>
+	                        	<input type="text" name="password" placeholder="密码" class="form-last-name form-control" id="form-last-name">
 	                        </div>
-	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-email">Email</label>
-	                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
-	                        </div>
-	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-	                        	<textarea name="form-about-yourself" placeholder="About yourself..." 
-	                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
-	                        </div>
-	                        <button type="submit" class="btn">Sign me up!</button>
+	                        <button type="submit" class="btn">登录</button>
+                             {{csrf_field()}}
 	                    </form>
 	                    
         			</div>
@@ -101,13 +99,13 @@
 
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="/home-login/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/home-login/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/home-login/assets/js/jquery.backstretch.min.js"></script>
+        <script src="/home-login/assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
+            <script src="/home-login/assets/js/placeholder.js"></script>
         <![endif]-->
 
     </body>
