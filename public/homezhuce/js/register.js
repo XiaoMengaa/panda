@@ -46,7 +46,7 @@
 	$("#msg-btn").on("click", function() {
 		if($(this).prop("disabled") != "disabled") {
 			vailPhone();
-			if(!/^1[35789]\d{9}$/.test($("#phone").val())) {
+			if(!/^1[345789]\d{9}$/.test($("#phone").val())) {
 				layer.msg("请先输入正确的手机号", {
 					icon: 5
 				});
@@ -86,7 +86,7 @@
 		}
 	});
 
-	timer处理函数
+	// timer处理函数
 	function SetRemainTime() {
 		if(curCount == 0) {
 			clearInterval(InterValObj); // 停止计时器
@@ -160,7 +160,7 @@
 				layer.msg("请点击获取验证码");
 			} else {
 				$.ajax({
-					url: "/homezhuce/user/vailSMSCode.do",
+					url: "user/vailSMSCode.do",
 					type: "post",
 					async: false,
 					data: {
