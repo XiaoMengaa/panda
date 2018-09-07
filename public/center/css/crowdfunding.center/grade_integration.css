@@ -1,0 +1,83 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	}
+.my_info_title{
+	color: #555;
+	font-size: 26px;
+	line-height: 26px;
+	margin-top:10px;
+	width:100%;
+	height:50px;
+	border-bottom:1px solid #CCC;
+	}
+
+.but{
+	margin-top:0px;
+	margin-left:4px;
+	margin-right:0px;
+	margin-bottom:0px;
+	background-color: #F8526A;
+	color: #FFF;
+	float:left;
+	display:block;
+	padding: 6px 12px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.42857;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-moz-user-select: none;
+	background-image: none;
+	border: 0px solid transparent;
+	border-radius: 4px;
+	width:75px;
+	height:45px;
+	}
+.but:hover{
+	color: #FFF;
+	background-color: #F80000;
+	border-color: #204D74;
+	}
+	
+.grade_integration_content_title{
+	font-size:16px;
+	color:#2f6fba;
+	line-height:40px;
+	}
+.grade_integration_content_content{
+	font-size:14px;
+	color:#666;
+	line-height:22px;
+	margin-left:10px;
+	margin-right:10px;
+	}
+.grade_integration_content_table td{
+	vertical-align:middle !important;
+	}
+	
+
+.color555{
+	color:#555;
+	}
+.colorCCC{
+	color:#CCC;
+	}
+.color888{
+	color:#888;
+	}
+.colorCA1E37{
+	color:#CA1E37;
+	}
+.color959595{
+	color:#959595;
+	}
+.margin_left10{
+	margin-left:10px;
+	}
+.font_size12{
+	font-size:12px;
+	}

@@ -1,0 +1,62 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	}
+.my_info_title{
+	color: #555;
+	font-size: 26px;
+	line-height: 26px;
+	margin-top:10px;
+	width:100%;
+	height:66px;
+	border-bottom:1px solid #CCC;
+	}
+	
+.messages{
+	background-color:#f4f9ff;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	padding-right:10px;
+	}
+.messages_table{
+	border:0px;
+	width:100%;
+	}
+.messages_table td{
+	line-height:50px;
+	}
+.messages_table_submit{
+	border:0px;
+	border-radius:4px;
+	background-color:#f8526a;
+	color:#fff;
+	font-size:16px;
+	font-weight:600;
+	width:160px;
+	height:40px;
+	margin-left:-100px;
+	padding:0px;
+	line-height:40px !important;
+	}
+	
+
+.color555{
+	color:#555;
+	}
+.color888{
+	color:#888;
+	}
+.colorCA1E37{
+	color:#CA1E37;
+	}
+.color959595{
+	color:#959595;
+	}
+.margin_left10{
+	margin-left:10px;
+	}
+.font_size12{
+	font-size:12px;
+	}

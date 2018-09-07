@@ -44,4 +44,11 @@ class HomeProblemController extends Controller
 
     }
 
+    public function center()
+    {
+    
+       return view('home.center.center');
+
+    }
+
 }
