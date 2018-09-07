@@ -176,8 +176,8 @@
 <section class="widget">
 <div class="support-widget">
 
-    <h3 class="title">Support</h3>
-    <p class="intro">Need more support? If you did not found an answer, contact us for further help.</p>
+    <h3 class="title">个人中心</h3>
+    <p class="intro"></p>
 
 </div>
 </section>

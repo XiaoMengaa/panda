@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	}
+.make_head_title{
+	color: #555;
+	font-size: 26px;
+	line-height: 26px;
+	margin-top:10px;
+	width:100%;
+	height:66px;
+	}
+.make_head_content{
+	border-top:1px solid lightgrey;
+	}
+.make_head_content_pic{
+	margin-top:20px;
+	width:490px;
+	height:434px;
+	border-radius:5px; 
+	border:1px solid #ccc;
+	background-color:#F7FAFB;
+	float:left;
+	}
+.make_head_content_pic input{
+	background-image:url(../../img/member_center/upphoto.png);
+	width:227px;
+	height:64px;
+	border: 0 solid transparent;
+	margin-top:185px;
+	margin-left:131px;
+	}
+.make_head_content_sm_pic{
+	margin-top:20px;
+	margin-left:20px;
+	float:left;
+	text-align:center;
+	}
+.make_head_content_sm_pic img{
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 1px;
+	}

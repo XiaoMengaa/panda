@@ -36,8 +36,10 @@
 
                         <section class="widget">
                                 <div class="support-widget">
-                                        <h3 class="title">支持</h3>
-                                        <p class="intro">需要更多的支持吗？如果您没有找到答案，请与我们联系以获得进一步的帮助。</p>
+                                    <a href="/home/center">
+                                        <h3 class="title">个人中心</h3>
+                                    </a>
+                                        <p class="intro"></p>
                                 </div>
                         </section>
 
