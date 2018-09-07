@@ -56,7 +56,21 @@
         </div>
         <div class="container">
             <form class="contact" action="/append" method="post" id="form">
-            
+            @if(Session::has('success'))
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                                <div class="dashboard-stat green">
+                                        <div class="desc" style="text-align: center;line-height:95px;color:red">{{Session::get('success')}} </div>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if(Session::has('error'))
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                                <div class="dashboard-stat red">
+                                        <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                                </div>
+                            </div>
+                            @endif
             <div style="height: 50px;float: both;"></div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 570px">

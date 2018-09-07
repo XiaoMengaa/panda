@@ -57,6 +57,21 @@
 
         <div class="container">
             <form class="contact" action="/problem" method="post" enctype="multipart/form-data">
+                @if(Session::has('success'))
+                <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                    <div class="dashboard-stat green">
+                            <div class="desc" style="text-align: center;line-height:95px;color:red">{{Session::get('success')}} </div>
+                    </div>
+                </div>
+                @endif
+
+                @if(Session::has('error'))
+                <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                    <div class="dashboard-stat red">
+                            <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                    </div>
+                </div>
+                @endif
             <div class="am-form-group">
                         <div class="am-u-sm-9" style="float: right;height: 29px">
                             <select data-am-selected="{searchBox: 1}" name="cate_id" style="height:29.6px;width: 100px">
