@@ -6,11 +6,7 @@ namespace App\Http\Controllers;
 use App\Append;
 use App\Cate;
 use App\Problem;
-
-
-
 use App\Tag;
-
 use App\Reply;
 use Illuminate\Http\Request;
 
