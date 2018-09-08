@@ -77,7 +77,9 @@
                             
                         </ul>@endif
                                                                 </li>
-                                                                <li><a href="/home/register">注册</a>
+                                                                <li>
+                                                                        @if(!Session::has('id'))<a href="/home/register">注册</a>
+                                                                        @endif
                                                                 </li>
                                                                 <li><a href="contact.html">反馈</a></li>
                                                         </ul>
@@ -93,6 +95,13 @@
                 <!-- Start of Search Wrapper -->
                 <div class="search-area-wrapper">
                         <div class="search-area container">
+                                 @if(Session::has('success'))
+                                    <div class=" am-u-sm-9" style="padding:0px;margin:0px auto;" id="xiaoshi">
+                                        <div class="dashboard-stat green">
+                                                <div class="desc" style="font-size:30px; text-align: center;line-height:95px;color:green;background-color:#eee">{{Session::get('success')}} </div>
+                                        </div>
+                                    </div>
+                                    @endif
                                 <h3 class="search-header">有一个问题?</h3>
                                 <p class="search-tag-line">如果您有任何疑问，你可以在下面询问或输入您要找的内容!</p>
 
@@ -102,6 +111,12 @@
                                         <input class="search-btn" type="submit" value="我要提问" onclick='window.open("/home/problem/create")'>
                                         <div id="search-error-container"></div>
                                 </form>
+                                <script>
+                                  var a = document.getElementById('xiaoshi');
+                                  setTimeout(function(){
+                                      a.style.display = 'none';
+                                  },2000);
+                              </script>
                         </div>
                 </div>
                 <!-- End of Search Wrapper -->
