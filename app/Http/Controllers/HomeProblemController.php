@@ -68,13 +68,12 @@ class HomeProblemController extends Controller
             return back()->with('error','登陆失败!');
         }
 
-        $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
 
 
         //校验密码
         if(Hash::check($request->password, $user->password)){
             //写入session
-            session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
+            session(['username'=>$user->username, 'id'=>$user->id]);
             return redirect('home/problemlist')->with('success','登录成功');
         }else{
             return back()->with('error','登录失败!');
