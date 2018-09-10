@@ -15,6 +15,9 @@ Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
+	//提问问题管理资源路由
+	Route::resource('/problem','ProblemController');
+
 	//前台提问问题
 	Route::get('/home/problem/create','HomeProblemController@create');
 
@@ -86,8 +89,6 @@ Route::resource('/admin/cate','AdminCateController');
 //问题标签资源路由 
 Route::resource('/admin/tag','AdminTagController');
 
-//提问问题管理资源路由
-Route::resource('/problem','ProblemController');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
@@ -96,4 +97,5 @@ Route::resource('/append','AppendController');
 Route::get('/home/server','HomeProblemController@caina');
 
 });
+
 
