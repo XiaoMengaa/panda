@@ -22,6 +22,7 @@
                 <link rel='stylesheet' id='pretty-photo-css-css'  href='/home/js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
                 <link rel='stylesheet' id='main-css-css'  href='/home/css/main5152.css?ver=1.0' type='text/css' media='all' />
                 <link rel='stylesheet' id='custom-css-css'  href='/home/css/custom5152.html?ver=1.0' type='text/css' media='all' />
+                <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 
 
                 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -62,7 +63,7 @@
                         <ul class="dropdown-menu">
                         
                             <li>
-                                <a href="">
+                                <a href="/home/center">
                                     <i class="icon-user"></i>
                                     个人中心
                                 </a>
@@ -81,7 +82,7 @@
                                                                         @if(!Session::has('id'))<a href="/home/register">注册</a>
                                                                         @endif
                                                                 </li>
-                                                                <li><a href="contact.html">反馈</a></li>
+                                                                <li><a href="/fankui/create">反馈</a></li>
                                                         </ul>
                                                 </div>
                                         </nav>
@@ -96,12 +97,12 @@
                 <div class="search-area-wrapper">
                         <div class="search-area container">
                                  @if(Session::has('success'))
-                                    <div class=" am-u-sm-9" style="padding:0px;margin:0px auto;" id="xiaoshi">
-                                        <div class="dashboard-stat green">
-                                                <div class="desc" style="font-size:30px; text-align: center;line-height:95px;color:green;background-color:#eee">{{Session::get('success')}} </div>
-                                        </div>
-                                    </div>
-                                    @endif
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;" id="xiaoshi">
+                                <div class="dashboard-stat green">
+                                        <div class="desc" style="text-align: center;font-size:30px;line-height:80px;color:green">{{Session::get('success')}} </div>
+                                </div>
+                            </div>
+                            @endif
                                 <h3 class="search-header">有一个问题?</h3>
                                 <p class="search-tag-line">如果您有任何疑问，你可以在下面询问或输入您要找的内容!</p>
 

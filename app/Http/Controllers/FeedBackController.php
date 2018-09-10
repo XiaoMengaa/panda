@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Append;
+use App\Feedback;
 use App\User;
+
 use Illuminate\Http\Request;
 
-class AppendController extends Controller
+class FeedBackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class AppendController extends Controller
      */
     public function index()
     {
-        //
-        $append = Append::orderBy('id','desc')
+        // 
+         $fk = Feedback::orderBy('id','desc')
         ->where('content','like','%'.request()->content.'%')
         ->get();;
-        return view('home.append.index',['append'=>$append]);
+        return view('home.fankui.create',['fk'=>$fk]);
     }
 
     /**
@@ -30,8 +30,7 @@ class AppendController extends Controller
     public function create()
     {
         //
-
-      
+        return view('home.fankui.index');
     }
 
     /**
@@ -42,18 +41,21 @@ class AppendController extends Controller
      */
     public function store(Request $request)
     {
-
         //
-        $append = new Append;
+   
+   
+        $fk = new Feedback;
 
-        $append -> reply_id = $request -> id;
-        $append -> content = $request->content;
-        $append -> user_id = 1;
-        if($append ->save()){
-            return redirect('/home/problem/'.$request->pid)->with('success','评论成功');
+        $fk -> content = $request-> content;
+        $fk -> user_id = 1;
+       
+
+        if($fk -> save()){
+            return redirect('/home/problemlist')->with('success', '反馈成功,请耐心等待!');
         }else{
-            return back()->with('error','评论失败');
+            return back()->with('error','添加失败');
         }
+    
     }
 
     /**
@@ -99,12 +101,11 @@ class AppendController extends Controller
     public function destroy($id)
     {
         //
-        $append = Append::findOrFail($id);
-        if($append->delete()){
-            return redirect('/append')->with('success','删除成功');
-        }else{
+         $fk = Feedback::findOrFail($id);
+          if($fk->delete()){
+            return redirect('/fankui')->with('success','删除成功');
+          }else{
             return back()->with('error','删除失败');
-        }
+          }
     }
-   
 }
