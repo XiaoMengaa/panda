@@ -29,10 +29,14 @@ class AdminController extends Controller
 		if(!$user){
 			return back()->with('error','登陆失败!');
 		}
-		var_dump($user->id);
-		$Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
 
-		if(!$Udetails==2)
+		if(Udetails::where('user_id','=',$user->id)->get()->first()){
+            $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
+        }else{
+        	$Udetails = [];
+        }
+		
+		if(empty($Udetails))
 		{
 			return back()->with('error','您权限不足,请与管理员联系');
 		}
@@ -40,7 +44,7 @@ class AdminController extends Controller
 		//校验密码
 		if(Hash::check($request->password, $user->password)){
 			//写入session
-			session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
+			session(['username'=>$user->username, 'aid'=>$user->id,'pic'=>$user->udetails->pic]);
 			return redirect('/admin')->with('success','登陆成功');
 		}else{
 			return back()->with('error','登陆失败!');

@@ -58,8 +58,6 @@ Route::get('/home/problemlist','HomeProblemController@index');
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
-//回答问题资源路由
-Route::resource('/reply','ReplyController');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
