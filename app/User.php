@@ -11,6 +11,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Udetails');
     }
+
+    public function wealths()
+    {
+        return $this->hasOne('App\Wealth');
+    }
+
     use Notifiable;
 
     /**
