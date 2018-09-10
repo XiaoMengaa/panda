@@ -87,13 +87,6 @@ class HomeProblemController extends Controller
             return back()->with('error','登陆失败!');
         }
 
-<<<<<<< HEAD
-=======
-        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
-          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
-        }
-        
->>>>>>> b938e816aaae975ca0f2ce8df5a88ff4bd92608b
 
 
         if(Udetails::where('user_id','=',$user->id)->get()->first()){
@@ -144,11 +137,7 @@ class HomeProblemController extends Controller
         $yhxq -> sex = $request->sex;
         //dd($yhxq);
 
-        //dd($request->hasFile('pic'));
-       if ($request->hasFile('pic')) {
-            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
-        }
-        //dd($yhxq);
+      
 
 
         $yhxq -> synopsis = $request->synopsis;
@@ -177,18 +166,40 @@ class HomeProblemController extends Controller
     }
     public function xgmm(Request $request)
     {
-        $user = User::findOrFail(25); 
-       
+        $user = User::findOrFail(\Session::get('id')); 
+        
         if(Hash::check($request ->jiupass ,$user->password)){
             if($request->password == $request->pass){
                 $user->password = Hash::make($request->password);
                 $user->save();
-                return back()->with('success','修改密码成功');
+                return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
             }
         }else{
             return back()->with('error','原密码不对');
         }
 
+    }
+
+    public function touxiang(Request $request, $id)
+    {
+
+        $user = User::findOrFail($id);
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if ($request->hasFile('pic')) {
+            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
+        }
+      
+        if($yhxq->save()){
+            return back()->with('success','更新成功');
+        }else{
+            return back()->with('error','更新失败');
+        }
+
+        
+
+        
+
+      
     }
 
 }

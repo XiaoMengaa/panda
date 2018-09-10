@@ -10,8 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
+
+//修改头像
+Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
