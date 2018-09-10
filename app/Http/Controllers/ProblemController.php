@@ -39,7 +39,7 @@ class ProblemController extends Controller
     public function store(Request $request)
     {
         $problem = new Problem;
-        
+    
         $problem -> title = $request -> title;
         $problem -> user_id = \Session::get('id');
         $problem -> cate_id = $request -> cate_id;
