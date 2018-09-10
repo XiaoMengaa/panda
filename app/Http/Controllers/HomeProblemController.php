@@ -86,6 +86,16 @@ class HomeProblemController extends Controller
         if(!$user){
             return back()->with('error','登陆失败!');
         }
+
+<<<<<<< HEAD
+=======
+        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
+          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
+        }
+        
+>>>>>>> b938e816aaae975ca0f2ce8df5a88ff4bd92608b
+
+
         if(Udetails::where('user_id','=',$user->id)->get()->first()){
             $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
         }

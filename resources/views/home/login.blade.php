@@ -16,6 +16,7 @@
                 <div class="carousel_div1"></div>
                 <div class="carousel_div2"></div>
                 <div class="carousel_div3"></div>
+
             </div>
 
         <form role="form" action="/home/dologin" method="post" class="registration-form">
@@ -35,6 +36,9 @@
                     </div>
                     @endif
             <div class="login layui-anim layui-anim-up">
+                 <div class="layui-logo">
+                    <a href="#" target="_blank"><img src="/image/panda.jpg" width="80px" /></a>
+                </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend class="text-white">登录</legend>
                 </fieldset>
