@@ -113,14 +113,76 @@ class HomeProblemController extends Controller
     }
 
 
+//个人中心
     public function center(Request $request)
     {
       
        
        $id = \Session::get('id');
-       $user = User::find($id);
-  
-       return view('home.center.center',['user'=>$user]);
+       $user = User::findOrFail($id);
+       $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
+       return view('home.center.center',['user'=>$user,'udetails'=>$udetails]);
+
+    }
+       public function update(Request $request, $id)
+    {
+
+        
+        $user = User::findOrFail($id);
+         
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if(!$yhxq){
+            $yhxq = new Udetails;
+             
+        }
+        $yhxq -> user_id =$user->id;
+        $yhxq -> sex = $request->sex;
+        //dd($yhxq);
+
+        //dd($request->hasFile('pic'));
+       if ($request->hasFile('pic')) {
+            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
+        }
+        //dd($yhxq);
+
+
+        $yhxq -> synopsis = $request->synopsis;
+        $yhxq -> phone = $request->phone;
+        $yhxq -> email = $request->email;
+        if($request->jurisdiction){
+           $yhxq -> jurisdiction = $request->jurisdiction; 
+        }
+        
+         if($user->save()){
+            if($yhxq->save()){
+                return back()->with('success','更新成功');
+            }else{
+                return back()->with('error','更新失败');
+            }
+        }else{
+            return back()->with('error','更新失败');
+        } 
+        
+        
+         
+
+                                                                  
+       
+        
+    }
+    public function xgmm(Request $request)
+    {
+        $user = User::findOrFail(25); 
+       
+        if(Hash::check($request ->jiupass ,$user->password)){
+            if($request->password == $request->pass){
+                $user->password = Hash::make($request->password);
+                $user->save();
+                return back()->with('success','修改密码成功');
+            }
+        }else{
+            return back()->with('error','原密码不对');
+        }
 
     }
 

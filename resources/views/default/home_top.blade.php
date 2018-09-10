@@ -62,7 +62,7 @@
                         <ul class="dropdown-menu">
                         
                             <li>
-                                <a href="">
+                                <a href="/home/center">
                                     <i class="icon-user"></i>
                                     个人中心
                                 </a>
