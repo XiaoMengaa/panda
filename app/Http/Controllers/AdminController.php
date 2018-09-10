@@ -30,6 +30,7 @@ class AdminController extends Controller
 			return back()->with('error','登陆失败!');
 		}
 
+
 		if(Udetails::where('user_id','=',$user->id)->get()->first()){
             $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
         }else{
@@ -57,7 +58,7 @@ class AdminController extends Controller
 	public function logout(Request $request)
 	{
 		$request->session()->flush();
-		return redirect('/home/login')->with('success','退出成功');
+		return redirect('/admin/login')->with('success','退出成功');
 	}
 
 }

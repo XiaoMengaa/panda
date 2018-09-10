@@ -22,7 +22,7 @@
     <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
     <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
     <span class="like-count">{{$problem->browse}}</span>
-
+    <span class="btn btn-mini" style="background:yellow">财富值</span>
 </div><!-- end of post meta -->
 
 <p>{{$problem->content}}</p>
@@ -61,8 +61,9 @@
 
 <h5 class="author">
     <cite class="fn">
-            <a href="#" rel="external nofollow" class="url">回答问题的用户</a>
+            <a href="#" rel="external nofollow" class="url"></a>
     </cite>
+
     - <a class="comment-reply-link" href="/home/append/create/{{$v->id}}?id={{$id}}">回复</a>
 </h5>
 
@@ -81,7 +82,28 @@
 <div class="comment-body">
 <p>{{$v->content}}</p>
 </div><!-- end of comment-body -->
-
+@if(session::get('id')==$problem->user_id)
+@if($v->state==0)
+<button type="button"  class="btn btn-mini 1" id="w" status="{{$v->state}}" shuxing="1">采纳</button>
+@else
+<button type="button" class="btn btn-mini  2"  id="w" status="{{$v->state}}" style="background:#2bff66;" shuxing="0">已采纳</button>
+@endif
+@endif
+<script>
+$("#w").click(function(){
+    
+    var a = $(this).attr('shuxing');
+    $.ajax({
+        url:'/home/server',
+        type:'get',
+        data:{panduan:a,rid:{{$v->id}}},
+        success:function(dui){
+            console.log(dui);
+            // window.location.reload();
+        }
+    });
+});
+</script>
 </article><!-- end of comment -->
 @foreach($append as $val)
 @if($v->id == $val->reply_id)
@@ -97,7 +119,7 @@
     <div class="comment-meta">
 
             <h5 class="author">
-                    <cite class="fn">回复的用户名称</cite>
+                    <cite class="fn">{{$v -> username}}</cite>
                     - <a class="comment-reply-link" href="/home/append/create/{{$v->id}}?id={{$id}}">回复</a>
             </h5>
 
@@ -120,6 +142,7 @@
 @endif
 @endforeach
 @endforeach
+
 <div id="respond">
 
 <h3>立即回答</h3>
