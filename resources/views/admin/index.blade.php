@@ -321,7 +321,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/fankui/create'>
+            <a href='/fankui'>
                 <i class='icon-caret-right'></i>
                 <span>反馈列表</span>
 

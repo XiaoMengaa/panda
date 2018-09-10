@@ -100,7 +100,7 @@ class AdminCateController extends Controller
       if($cate->delete()){
         return redirect('/admin/cate')->with('success','删除成功');
       }else{
-        return back()->with('error','删除成功');
+        return back()->with('error','删除失败');
       }
     }
 }

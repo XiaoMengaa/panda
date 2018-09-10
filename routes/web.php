@@ -24,10 +24,8 @@ Route::group(['middleware'=>'home'],function(){
 	//回答问题资源路由
 	Route::resource('/reply','ReplyController');
 	
-	//反馈
-	Route::get('/home/fankui','HomeProblemController@fankui');
-	//反馈保存
-	Route::post('/home/fankui/create','HomeProblemController@fk');
+	//反馈后台资源
+	Route::resource('/fankui','FeedBackController');
 
 });
 
@@ -62,6 +60,7 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
+
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');

@@ -17,10 +17,10 @@
             <div class='pull-right'>
                 <ul class='breadcrumb'>
 
-                <form accept-charset="UTF-8" action="" class="navbar-search pull-right hidden-phone" method="post" action="/home/fankui/create"><div style="margin:350;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <form accept-charset="UTF-8" action="/fankui" class="navbar-search pull-right hidden-phone" method="post" ><div style="margin:350;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
-                    <input autocomplete="off" class="search-query span2" id="q_header" name="username" placeholder="搜索" type="text" value="">
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="content" placeholder="搜索" type="text" value="">
                 </form>
                 </ul>
             </div>
@@ -68,7 +68,7 @@
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">  
                                                
-                                        <form style="float:left" action="/admin/user/{{$v['id']}}" method="post">
+                                        <form style="float:left" action="/fankui/{{$v['id']}}" method="post">
                                             {{method_field('DELETE')}}
                                             {{csrf_field()}}
                                             <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
@@ -134,7 +134,6 @@
                 </style>
                 <div class="am-cf">
                     <div class="am-fr">
-                     {{ $users->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <hr>
