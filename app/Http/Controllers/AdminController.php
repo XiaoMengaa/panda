@@ -29,7 +29,7 @@ class AdminController extends Controller
 		if(!$user){
 			return back()->with('error','登陆失败!');
 		}
-		var_dump($user->id);
+
 		$Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
 
 		if(!$Udetails==2)
@@ -53,7 +53,7 @@ class AdminController extends Controller
 	public function logout(Request $request)
 	{
 		$request->session()->flush();
-		return redirect('/home/login')->with('success','退出成功');
+		return redirect('/admin/login')->with('success','退出成功');
 	}
 
 }

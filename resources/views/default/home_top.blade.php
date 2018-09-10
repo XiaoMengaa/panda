@@ -96,12 +96,12 @@
                 <div class="search-area-wrapper">
                         <div class="search-area container">
                                  @if(Session::has('success'))
-                                    <div class=" am-u-sm-9" style="padding:0px;margin:0px auto;" id="xiaoshi">
-                                        <div class="dashboard-stat green">
-                                                <div class="desc" style="font-size:30px; text-align: center;line-height:95px;color:green;background-color:#eee">{{Session::get('success')}} </div>
-                                        </div>
-                                    </div>
-                                    @endif
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;" id="xiaoshi">
+                                <div class="dashboard-stat green">
+                                        <div class="desc" style="text-align: center;font-size:30px;line-height:80px;color:green">{{Session::get('success')}} </div>
+                                </div>
+                            </div>
+                            @endif
                                 <h3 class="search-header">有一个问题?</h3>
                                 <p class="search-tag-line">如果您有任何疑问，你可以在下面询问或输入您要找的内容!</p>
 
