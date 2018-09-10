@@ -41,7 +41,7 @@ class ProblemController extends Controller
         $problem = new Problem;
         
         $problem -> title = $request -> title;
-        $problem -> user_id = 1;
+        $problem -> user_id = \Session::get('id');
         $problem -> cate_id = $request -> cate_id;
         $problem -> state = 1;
         $problem -> browse = 0;
@@ -52,9 +52,9 @@ class ProblemController extends Controller
         }
 
         if($problem->save()){
-            return redirect('/home/problem/create')->with('success','保存成功');
+            return redirect('/home/problemlist')->with('success','提问成功');
         }else{
-            return back()->with('error','保存失败');
+            return back()->with('error','提问失败');
         }
     }
 
