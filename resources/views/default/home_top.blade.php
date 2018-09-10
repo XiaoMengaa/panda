@@ -81,7 +81,7 @@
                                                                         @if(!Session::has('id'))<a href="/home/register">注册</a>
                                                                         @endif
                                                                 </li>
-                                                                <li><a href="contact.html">反馈</a></li>
+                                                                <li><a href="/home/fankui">反馈</a></li>
                                                         </ul>
                                                 </div>
                                         </nav>

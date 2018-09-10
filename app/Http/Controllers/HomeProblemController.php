@@ -10,6 +10,7 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
+use App\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -191,4 +192,25 @@ class HomeProblemController extends Controller
 
     }
 
+
+    public function fankui()
+    {
+        return view('home.fankui.index');
+    }
+
+
+    public function fk(Request $request)
+    {
+        $fk = new Feedback;
+
+        $fk -> content = $request-> content;
+        $fk -> user_id = $request-> user_id;
+       
+
+        if($fk -> save()){
+            return redirect('/home/fankui/index')->with('success', '添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+    }
 }

@@ -23,19 +23,20 @@ Route::group(['middleware'=>'home'],function(){
 
 	//回答问题资源路由
 	Route::resource('/reply','ReplyController');
+	
+	//反馈
+	Route::get('/home/fankui','HomeProblemController@fankui');
+	//反馈保存
+	Route::post('/home/fankui/create','HomeProblemController@fk');
+
 });
 
-//实验
-Route::get('/nihao',function(){
-	echo '123456';
-});
+
 //前往用户个人中心
 Route::get('/home/center','HomeProblemController@center');
 
 //用户个人中心编辑
 Route::post('/home/{id}/update','HomeProblemController@update');
-
-
 
 //前台用户登录路由
 Route::get('/home/login','HomeProblemController@login');
