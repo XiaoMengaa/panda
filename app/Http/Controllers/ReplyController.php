@@ -50,7 +50,7 @@ class ReplyController extends Controller
           
         $reply = new Reply;
 
-       $reply -> user_id =1;
+       $reply -> user_id =\Session::get('id');
        $reply -> content = $request ->content;
 
        $reply -> problem_id = $request ->id;

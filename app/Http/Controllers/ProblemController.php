@@ -41,7 +41,7 @@ class ProblemController extends Controller
         $problem = new Problem;
         
         $problem -> title = $request -> title;
-        $problem -> user_id = 1;
+        $problem -> user_id = \Session::get('id');
         $problem -> cate_id = $request -> cate_id;
         $problem -> state = 1;
         $problem -> browse = 0;
