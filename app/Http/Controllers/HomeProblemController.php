@@ -37,12 +37,13 @@ class HomeProblemController extends Controller
                 $wealth = Wealth::where('user_id','=',\session::get('id'))->get()->first();
                 $wealth -> integral = $wealth -> integral + 5;
                 $wealth -> save();
+                \session(['ckwt'=>\session::get('ckwt') + 1]);
             }else{
                 \session(['ckwt'=>\session::get('ckwt') + 1]);
             }
             
         }
-        if(\session::get('ckwt') == 5){
+        if(\session::get('ckwt') == 6){
             request()->session()->flash('success', '恭喜您获得五积分');
             return view('home.problem.wtzs',compact('problem','id','reply','append'));
         }
