@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//修改密码
+Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
@@ -23,12 +25,17 @@ Route::group(['middleware'=>'home'],function(){
 	Route::resource('/reply','ReplyController');
 });
 
-
+//实验
+Route::get('/nihao',function(){
+	echo '123456';
+});
 //前往用户个人中心
 Route::get('/home/center','HomeProblemController@center');
 
 //用户个人中心编辑
-Route::get('/home/{id}/update','HomeProblemController@update');
+Route::post('/home/{id}/update','HomeProblemController@update');
+
+
 
 //前台用户登录路由
 Route::get('/home/login','HomeProblemController@login');
