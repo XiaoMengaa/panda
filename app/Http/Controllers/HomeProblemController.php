@@ -10,6 +10,7 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
+use App\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -88,6 +89,12 @@ class HomeProblemController extends Controller
         if(!$user){
             return back()->with('error','登陆失败!');
         }
+
+
+        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
+          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
+        }
+        
 
 
 
