@@ -21,23 +21,29 @@ class HomeController extends Controller
          	$user = new User;
 
 	        $user -> username = $request->username;
-	       // dd($user);
+	       
 	        $user -> password = Hash::make($request->password);
+            // dd($request->password);
             DB::beginTransaction();
+            if(Hash::check($request->newpass,$user->password)){
 	        if($user -> save()){
                  $w = new Wealth;
                  $w -> user_id = $user -> id;
                  if($w -> save()){
                     DB::commit();
-                    return redirect('/home/login')->with('success', '添加成功');
+                    return redirect('/home/login')->with('success', '注册成功');
                 }else{
                     DB::rollBack();
-                    return back()->with('error','添加失败');
+                    return back()->with('error','注册失败');
                 }
 	            
 	        }else{
                 DB::rollBack();
-	            return back()->with('error','添加失败');
+	            return back()->with('error','注册失败');
+    }
+        }else{
+        return back()->with('error','抱歉,您的两次密码不同');
     }
         }
 }
+

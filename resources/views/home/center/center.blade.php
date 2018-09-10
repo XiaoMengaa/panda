@@ -11,7 +11,7 @@
 <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
 <!-- 搜索关键字 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>某经融公司股权众筹站点 - 个人中心</title>
+<title>熊猫滚滚 - 个人中心</title>
 
 
 <!-- CSS公共部分 开始 -->
@@ -24,6 +24,7 @@
 <!-- CSS公共部分 结束 -->
 
 <link href="/center/css/crowdfunding.css" rel="stylesheet">
+<link href="/center/css/crowdfunding.center/make_head.css" rel="stylesheet">
 
 </head>
 <body>
@@ -39,7 +40,7 @@
   </div>
 </div>
 <div class="container-fluid cfh_banner">
-  <div class="container"> <img src="/center/img/index/logo.png">
+  <div class="container"> <img src="/image/panda.jpg" width="80px">
   </div>
 </div>
 <!-- top + banner 结束 --> 
@@ -47,16 +48,16 @@
 <!-- 核心 开始 --> 
 <div class="container border1 nopadding margin10">
   <div id="vertical_navigation" class="col-lg-3 background831312 nopadding">
-    <div class="dead_pic"><img src="/center/img/member_center/nopic.jpg.png"><br>
-      <span class="username">用户名</span></div>
-    <div class="usertype"><br>
-      会员等级：<img style="margin-right:0px;" src="/center/img/member_center/star.png"></img> <img style="margin-right:0px;" src="/center/img/member_center/xx2.png"></img> <img style="margin-right:0px;" src="/center/img/member_center/xx2.png"></img> <img style="margin-right:0px;" src="/center/img/member_center/xx2.png"></img> <img style="margin-right:0px;" src="/center/img/member_center/xx2.png"></img> </div>
+    <div class="dead_pic"><img src="@if($udetails){{$udetails->pic}}@endif"><br>
+      <span class="username">{{$user['username']}}</span></div>
+  
     <div class="menu">
       <div class="menu_title"> 我的信息 </div>
       <div class="menu_list">
         <ul class="list-unstyled">
-          <li id="listClick1" class="menu_list_on" onClick="listClick(1);"><img src="/center/img/member_center/left_icon_1.png"> 基本信息</li>  
-          <li id="listClick4" class="" onClick="listClick(4)"> <img src="/center/img/member_center/left_icon_3.png"> 修改密码</li>
+          <li id="listClick1" class=""  onClick="listClick(1);"><img src="/center/img/member_center/left_icon_1.png"> 基本信息</li>  
+          <li id="listClick4" class=""  onClick="listClick(4)"> <img src="/center/img/member_center/left_icon_2.png">修改头像</li>
+          <li id="listClick2" class="" onClick="listClick(2)"> <img src="/center/img/member_center/left_icon_3.png">修改密码 </li>
           
         </ul>
       </div>
@@ -75,11 +76,7 @@
    
   </div>
   <div class="col-lg-9" style="display: both;" id='dbzl'>
-    <div class="my_info_title">我的资料<span>
-  <button type="button" class="but">签到</button>
-  <p>07月29日<br>
-    漏签1天</p>
-  </span></div>
+    <div class="my_info_title">我的资料</div>
 <div class="my_info_title_3">
   <ul>
     <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">基本资料</li>
@@ -88,17 +85,25 @@
 </div>
 <div class="my_info_content">
   <div class="my_info_content_care"> 以下信息都为必填项，请您认真填写 </div>
-  <form action="/home/update/{$user.id}" method="post" enctype="multipart/form-data">
+  <form action="/home/{{$user['id']}}/update" method="post" enctype="multipart/form-data">
   <table class="my_info_content_care_table">
     <tbody>
+
+
       <tr>
-        <td width="90" align="right" class="color555"> 用户名：{{$user['username']}}</td>
-        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
+        <td width="90" align="right" class="color555" > 用户名：{{$user['username']}}</td>
+        <td class="color555"><span class="colorCA1E37 smargin_left10 font_size12"></span></td>
       </tr>
 
       <tr>
-        <td align="right" class="color555">手机号码：</td>
-        <td class="color555"></td>
+        <td align="right" class="color555">手机号：</td>
+        <td class="color555"><label>
+      
+          <label>
+            <input type="text" name="phone" style="height: 27px" value="@if($udetails){{$udetails->phone}}@endif"> 
+             </label>
+          </td>
+        
       </tr>
      
       <tr>
@@ -106,69 +111,135 @@
         <td class="color555"><label>
       
           <label>
-            <input type="radio" name="sex" id="" value="男士" checked>
+            <input type="radio" name="sex" @if($udetails) @if($udetails->sex == "m") checked @endif @endif value="m"  >
             男士 </label>
           <label class="radio-inline">
-            <input type="radio" name="sex" id="" value="女士">
+            <input type="radio" name="sex" @if($udetails) @if($udetails->sex == "w") checked @endif @endif value="w">
             女士 </label></td>
       </tr>
       
       <tr>
-        <td align="right" class="color555">头像：</td>
-        <td class="color555"><label>
-      
-          <label>
-            <input type="file" name="pic"></label>
-        </td>
+        <div class="form-group" style="text-align: right;">
+            <a href="javascript:;" class="file">请上传问题相关图片
+                <input type="file" name="image" id="">
+            </a>
+          </div>
       </tr>
     
       <tr>
         <td align="right" class="color555">邮箱：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="" type="text">
-          <span class="color959595 margin_left10 font_size12">友好提示：请填写常用邮箱，您忘记密码时可用邮箱找回，有新项目动态时会发邮件给您</span></td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="email" type="text" value="@if($udetails){{$udetails->email}}@endif">
+        </td>
       </tr>
 
       <tr>
           <td align="right" class="color555">简介：</td>
-          <td class="color555"><textarea rows="8" cols="30" ></textarea></td>
+          <td class="color555"><textarea rows="3" cols="26" name="synopsis"> @if($udetails){{$udetails->synopsis}}@endif</textarea></td>
       </tr>
 
+      
        <tr>
-        <td width="90" align="right" class="color555">积分：</td>
+        <td width="90" align="right" class="color555">积分：{{$user->wealths->integral}}</td>
         <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
 
        <tr>
-        <td width="90" align="right" class="color555">财富：</td>
+        <td width="90" align="right" class="color555">财富：{{$user->wealths->riches}}</td>
         <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
     
       <tr>
         <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="保    存"></td>
       </tr>
+       {{csrf_field()}}
     </tbody>
   </table>
-</form>
+  </form>
 </div>
 </div>
 
-<div class="col-lg-9"  id="dingbo" style="display: none;">
-    <iframe name="left" id="crowdfunding_iframe" src="/center/crowdfunding.center/make_password.html" frameborder="false" scrolling="no" style="border:none;" width="100%" height="1045" allowtransparency="true"></iframe>
+
+
+<div class="col-lg-9"  id="ding" style="display:none ;">
+   <div class="my_info_title">修改密码</div>
+<div class="my_info_title_3">
+  <ul>
+     <li id="listClick_4" onClick="listClick(4)" style="border-bottom: 1px solid #C40521; color: #C40521;">修改密码</li>
+  </ul>
+</div>
+
+<form action="/xgmmaaw" method="post">
+<div class="my_info_content">
+  <div class="my_info_content_care"></div>
+  <table class="my_info_content_care_table">
+    <tbody>
+      <tr>
+        <td width="300" align="right" class="color555">旧密码：</td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="jiupass" type="text">
+          <span class="colorCA1E37 margin_left10 font_size12" >请输入旧密码</span></td>
+      </tr>
+      <tr>
+        <td align="right" class="color555">新密码：</td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="password" type="text">
+          <span class="colorCA1E37 margin_left10 font_size12">请输入新密码</span></td>
+      </tr>
+      <tr>
+        <td align="right" class="color555">确认新密码：</td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="pass" type="text">
+          <span class="colorCA1E37 margin_left10 font_size12">请再次输入</span></td>
+      </tr>
+     
+      <tr>
+        <td align="center" class="color555" colspan="2"><button class="my_info_content_care_table_submit">提交</button></td>
+      </tr> 
+    </tbody>
+  </table>
+  </div>
+  {{csrf_field()}}
+</form>
+</div>
+<div class="col-lg-9"  id="dingbo" style="display:none ;">
+  <div class="make_head_title">修改头像</div>
+  <div class="make_head_content">
+    <div class="make_head_content_pic"><input type="file" name="pic"></div>
+  </div>
 </div>
 <script type="text/javascript">
     function listClick(value){
         if(value == 4){
             $('#dbzl').css('display','none');
-            $('#dingbo').css('display','both');
+            $('#dingbo').css('display','');
+            $('#ding').css('display','none');
+            $('#listClick1').attr('class','');
+            $('#listClick2').attr('class','');
+            $('#listClick4').attr('class','menu_list_on');
+
         }
         if(value == 1){
-            $('#dbzl').css('display','both');
+            $('#dbzl').css('display','');
             $('#dingbo').css('display','none');
+            $('#ding').css('display','none');
+            $('#listClick1').attr('class','menu_list_on');
+            $('#listClick4').attr('class','');
+            $('#listClick2').attr('class','');
+        }
+        if(value == 2){
+            $('#dbzl').css('display','none');
+            $('#dingbo').css('display','none');
+            $('#ding').css('display','');
+            $('#listClick1').attr('class','');
+            $('#listClick4').attr('class','');
+            $('#listClick2').attr('class','menu_list_on');
         }
     }
 </script>
 
 <!-- 核心 结束 -->  
+
+<!-- 开始 -->
+
+
+<!-- 结束 --> 
 
 <!-- 版权 开始 -->
 <div class="container-fluid cfh_bottom" style="background:white;">
@@ -199,14 +270,12 @@
         <dd>公司地址：宁夏银川市兴庆区某某街道9527号</dd>
       </dl>
     </div>
-    <div class="cfh_bottom_QRcode"> <img src="/center/img/index/bottom_QRcode.png"> <div class="phone">
-    <span class="cfh_bottom_Iphone"><img src="/center/img/index/cfh_bottom_IphoneICO.png"><font>APP Store</font></span><img class="cfh_bottom_IphoneICO_last" src="/center/img/index/cfh_bottom_AndroidICO_1.png"><br>
-    <span class="cfh_bottom_Iphone"><img src="/center/img/index/cfh_bottom_AndroidICO.png"><font>Android</font></span><img class="cfh_bottom_AndroidICO_last" src="/center/img/index/cfh_bottom_IphoneICO_2.png"></div></div>
+   
   </div>
   <div class="box50"></div>
 </div>
 <div class="container-fluid background_color545454">
-  <div class="container text-center"> © 2015 某某某 All rights reserved | 宁夏某某某金融科技服务有限公司 | 宁ICP备14000922号-2 </div>
+  <div class="container text-center"></div>
 </div>
 <img id="back_top_jt" class="back_top" onMouseMove="float_call_me(7)" onMouseOut="float_call_me(8)" src="/center/img/index/back_top_jt.png">
 <span class="back_top_jt_span">返回顶部</span>

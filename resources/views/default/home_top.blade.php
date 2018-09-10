@@ -62,7 +62,7 @@
                         <ul class="dropdown-menu">
                         
                             <li>
-                                <a href="">
+                                <a href="/home/center">
                                     <i class="icon-user"></i>
                                     个人中心
                                 </a>
@@ -77,7 +77,9 @@
                             
                         </ul>@endif
                                                                 </li>
-                                                                <li><a href="/home/register">注册</a>
+                                                                <li>
+                                                                        @if(!Session::has('id'))<a href="/home/register">注册</a>
+                                                                        @endif
                                                                 </li>
                                                                 <li><a href="contact.html">反馈</a></li>
                                                         </ul>

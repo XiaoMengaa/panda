@@ -43,7 +43,7 @@ function listClick(value){
 		$("#listClick16").attr("class","");
 	}
 	if(value == 2){
-		$("#crowdfunding_iframe").attr("src","/center/crowdfunding.center/make_head.html");
+		$("#crowdfunding_iframe").attr("src","/center/crowdfunding.center/make_head.blade.php");
 		$("#crowdfunding_iframe").attr("height","1045");
 		$("#vertical_navigation").css("height","1050px");
 		
