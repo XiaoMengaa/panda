@@ -11,7 +11,7 @@
 <!-- 搜索关键字 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>某经融公司股权众筹站点</title>
-
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap -->
 <link href="../css/crowdfunding.center/my_info.css" rel="stylesheet">
 
@@ -33,35 +33,45 @@
     <li id="listClick_4" onClick="listClick(4)" style="border-bottom: 1px solid #C40521; color: #C40521;">修改密码</li>
   </ul>
 </div>
+<form action="/xiugaimm" method="post">
 <div class="my_info_content">
   <div class="my_info_content_care"></div>
   <table class="my_info_content_care_table">
     <tbody>
       <tr>
         <td width="300" align="right" class="color555">旧密码：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="" type="text">
-          <span class="colorCA1E37 margin_left10 font_size12">请输入旧密码</span></td>
+        <td class="color555"><input class="my_info_content_care_table_text" name="jiupass" type="text">
+          <span class="colorCA1E37 margin_left10 font_size12" >请输入旧密码</span></td>
       </tr>
       <tr>
         <td align="right" class="color555">新密码：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="" type="text">
+        <td class="color555"><input class="my_info_content_care_table_text" name="password" type="text">
           <span class="colorCA1E37 margin_left10 font_size12">请输入新密码</span></td>
       </tr>
       <tr>
         <td align="right" class="color555">确认新密码：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="" type="text">
+        <td class="color555"><input class="my_info_content_care_table_text" name="pass" type="text">
           <span class="colorCA1E37 margin_left10 font_size12">请再次输入</span></td>
       </tr>
      
       <tr>
-        <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="提交"></td>
-      </tr>
+        <td align="center" class="color555" colspan="2"><button class="my_info_content_care_table_submit">提交</button></td>
+      </tr> 
     </tbody>
   </table>
-</div>
+  </div>
+</form>
+    
+
 
 <!-- 结束 --> 
 <script src="../js/jquery-2.1.1.min.js"></script> 
+
 <script src="../js/my_info.js"></script>
+
+<script>
+  
+
+</script>
 </body>
 </html>
