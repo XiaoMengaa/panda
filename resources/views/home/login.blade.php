@@ -20,7 +20,15 @@
             </div>
 
         <form role="form" action="/home/dologin" method="post" class="registration-form">
-                    @if(Session::has('success'))
+                   
+            <div class="login layui-anim layui-anim-up">
+                 <div class="layui-logo">
+                    <a href="#" target="_blank"><img src="/image/panda.jpg" width="80px" /></a>
+                </div>
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend class="text-white">登录</legend>
+                </fieldset>
+                  @if(Session::has('success'))
                     <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
                         <div class="dashboard-stat green">
                                 <div class="desc" style="text-align: center;line-height:95px;color:red">{{Session::get('success')}} </div>
@@ -31,18 +39,10 @@
                     @if(Session::has('error'))
                     <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
                         <div class="dashboard-stat red">
-                                <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                                <div class="desc" style="text-align: center;line-height:35px;color:red">{{Session::get('error')}} </div>
                         </div>
                     </div>
                     @endif
-            <div class="login layui-anim layui-anim-up">
-                 <div class="layui-logo">
-                    <a href="#" target="_blank"><img src="/image/panda.jpg" width="80px" /></a>
-                </div>
-                <fieldset class="layui-elem-field layui-field-title">
-                    <legend class="text-white">登录</legend>
-                </fieldset>
-                 
                 <div class="layui-form">
                     <div class="layui-form-item">
                         <input type="text" id="account" maxlength="18" placeholder="请输入用户名或者账号" class="layui-input" name="username">

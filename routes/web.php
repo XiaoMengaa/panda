@@ -10,11 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
+//修改头像
+Route::post('/touxiang/{id}','HomeProblemController@touxiang');
+
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
+	//提问问题管理资源路由
+	Route::resource('/problem','ProblemController');
+
 	//前台提问问题
 	Route::get('/home/problem/create','HomeProblemController@create');
 
@@ -23,19 +30,18 @@ Route::group(['middleware'=>'home'],function(){
 
 	//回答问题资源路由
 	Route::resource('/reply','ReplyController');
+	
+	//反馈后台资源
+	Route::resource('/fankui','FeedBackController');
+
 });
 
-//实验
-Route::get('/nihao',function(){
-	echo '123456';
-});
+
 //前往用户个人中心
 Route::get('/home/center','HomeProblemController@center');
 
 //用户个人中心编辑
 Route::post('/home/{id}/update','HomeProblemController@update');
-
-
 
 //前台用户登录路由
 Route::get('/home/login','HomeProblemController@login');
@@ -62,6 +68,7 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
+
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
 
@@ -86,11 +93,13 @@ Route::resource('/admin/cate','AdminCateController');
 //问题标签资源路由 
 Route::resource('/admin/tag','AdminTagController');
 
-//提问问题管理资源路由
-Route::resource('/problem','ProblemController');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
+//采纳路由
+Route::get('/home/server','HomeProblemController@caina');
+
 });
+
 

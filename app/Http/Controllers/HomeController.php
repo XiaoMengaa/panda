@@ -16,6 +16,7 @@ class HomeController extends Controller
             return view('home.register');
         }
 
+        //前台注册
     public function create(Request $request)
         {
          	$user = new User;
@@ -25,7 +26,7 @@ class HomeController extends Controller
 	        $user -> password = Hash::make($request->password);
             // dd($request->password);
             DB::beginTransaction();
-            if(Hash::check($request->newpass,$user->password)){
+    
 	        if($user -> save()){
                  $w = new Wealth;
                  $w -> user_id = $user -> id;
@@ -41,9 +42,8 @@ class HomeController extends Controller
                 DB::rollBack();
 	            return back()->with('error','注册失败');
     }
-        }else{
-        return back()->with('error','抱歉,您的两次密码不同');
-    }
-        }
+     
+       
+}
 }
 

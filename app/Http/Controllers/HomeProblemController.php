@@ -10,7 +10,9 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
+use App\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeProblemController extends Controller
@@ -25,7 +27,7 @@ class HomeProblemController extends Controller
     public function wtzs($id)
     {
 
-       
+       // $user = User::where('username')->first();
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
@@ -45,10 +47,10 @@ class HomeProblemController extends Controller
         }
         if(\session::get('ckwt') == 6){
             request()->session()->flash('success', '恭喜您获得五积分');
-            return view('home.problem.wtzs',compact('problem','id','reply','append'));
+            return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
     }
 
 
@@ -113,20 +115,18 @@ class HomeProblemController extends Controller
     }
 
 
-//个人中心
     public function center(Request $request)
     {
       
        
        $id = \Session::get('id');
-       $user = User::findOrFail($id);
+       $user = User::find($id);
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
        return view('home.center.center',['user'=>$user,'udetails'=>$udetails]);
 
     }
-       public function update(Request $request, $id)
-    {
 
+    public function update(Request $request,$id){
         
         $user = User::findOrFail($id);
          
@@ -139,11 +139,7 @@ class HomeProblemController extends Controller
         $yhxq -> sex = $request->sex;
         //dd($yhxq);
 
-        //dd($request->hasFile('pic'));
-       if ($request->hasFile('pic')) {
-            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
-        }
-        //dd($yhxq);
+      
 
 
         $yhxq -> synopsis = $request->synopsis;
@@ -172,18 +168,57 @@ class HomeProblemController extends Controller
     }
     public function xgmm(Request $request)
     {
-        $user = User::findOrFail(25); 
-       
+        $user = User::findOrFail(\Session::get('id')); 
+        
         if(Hash::check($request ->jiupass ,$user->password)){
             if($request->password == $request->pass){
                 $user->password = Hash::make($request->password);
                 $user->save();
-                return back()->with('success','修改密码成功');
-            }
+                return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
+    }
+}
+}
+
+    //采纳判断
+    public function caina(Request $request)
+    {
+        DB::beginTransaction();
+         if($request->panduan == '1'){
+            $reply = Reply::findOrFail($request -> rid);
+            $reply -> state = 1;
+            if($reply -> save()){
+                $uid = $reply -> user_id;
+                $user = Wealth::where('user_id','=',$uid)->get()->first();
+                $user -> riches = $user -> riches + 10;
+                if($user -> save()){
+                    DB::commit();
+                }else{
+                    DB::rollBack();
+                }
+}
+}
+}
+
+    public function touxiang(Request $request, $id)
+    {
+
+        $user = User::findOrFail($id);
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if ($request->hasFile('pic')) {
+            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
+        }
+      
+        if($yhxq->save()){
+            return back()->with('success','更新成功');
         }else{
-            return back()->with('error','原密码不对');
+            return back()->with('error','更新失败');
         }
 
+        
+
+        
+
+      
     }
 
 }
