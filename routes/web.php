@@ -94,5 +94,8 @@ Route::resource('/problem','ProblemController');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
+//采纳路由
+Route::get('/home/server','HomeProblemController@caina');
+
 });
 

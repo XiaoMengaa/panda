@@ -11,6 +11,7 @@ use App\Udetails;
 use App\User;
 use App\Wealth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeProblemController extends Controller
@@ -25,7 +26,7 @@ class HomeProblemController extends Controller
     public function wtzs($id)
     {
 
-       
+       // $user = User::where('username')->first();
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
@@ -44,10 +45,10 @@ class HomeProblemController extends Controller
         }
         if(\session::get('ckwt') == 5){
             request()->session()->flash('success', '恭喜您获得五积分');
-            return view('home.problem.wtzs',compact('problem','id','reply','append'));
+            return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
     }
 
 
@@ -185,4 +186,26 @@ class HomeProblemController extends Controller
 
     }
 
+    //采纳判断
+    public function caina(Request $request)
+    {
+        DB::beginTransaction();
+         if($request->panduan == '1'){
+            $reply = Reply::findOrFail($request -> rid);
+            $reply -> state = 1;
+            if($reply -> save()){
+                $uid = $reply -> user_id;
+                $user = Wealth::where('user_id','=',$uid)->get()->first();
+                $user -> riches = $user -> riches + 10;
+                if($user -> save()){
+                    DB::commit();
+                }else{
+                    DB::rollBack();
+                }
+            }
+            
+         }else{
+            rollBack();
+         }
+    }
 }

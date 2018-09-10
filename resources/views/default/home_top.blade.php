@@ -22,6 +22,7 @@
                 <link rel='stylesheet' id='pretty-photo-css-css'  href='/home/js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
                 <link rel='stylesheet' id='main-css-css'  href='/home/css/main5152.css?ver=1.0' type='text/css' media='all' />
                 <link rel='stylesheet' id='custom-css-css'  href='/home/css/custom5152.html?ver=1.0' type='text/css' media='all' />
+                <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 
 
                 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

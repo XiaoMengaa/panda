@@ -52,9 +52,9 @@ class ProblemController extends Controller
         }
 
         if($problem->save()){
-            return redirect('/home/problem/create')->with('success','保存成功');
+            return redirect('/home/problemlist')->with('success','提问成功');
         }else{
-            return back()->with('error','保存失败');
+            return back()->with('error','提问失败');
         }
     }
 
