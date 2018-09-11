@@ -324,7 +324,27 @@
             <a href='/fankui'>
                 <i class='icon-caret-right'></i>
                 <span>反馈列表</span>
-
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>友情链接管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/link/create'>
+                <i class='icon-caret-right'></i>
+                <span>友情链接添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/link'>
+                <i class='icon-caret-right'></i>
+                <span>友情链接列表</span>
             </a>
         </li>
     </ul>
