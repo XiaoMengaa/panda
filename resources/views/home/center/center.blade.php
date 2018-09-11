@@ -29,22 +29,16 @@
 </head>
 <body>
 <!-- top + banner 开始 -->
-<div class="container-fluid cfh_top">
+<div class="container cfh_top">
   <div class="container">
-    <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:left;list-style-type: none" ><a href="/home/problemlist" target="_blank">首页</a></li>
+    <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:left;list-style-type: none;font-size: 18px" ><a href="/home/problemlist" target="_blank">首页</a></li>
     <ul class="list-inline">
-      <li><a href="index.html" target="_self"></a></li>
-      <li><a href="https://nxseason.taobao.com/" target="_blank"></a></li>
-       
-        <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)">&nbsp;{{$user['username']}}&nbsp;</li>
+      <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)">&nbsp;{{$user['username']}}&nbsp;</li>
       <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><img src="{{$udetails['pic']}}" style="width:40px;height:40px"></li>
-     
-     
-     
-    </ul>
+   </ul>
   </div>
 </div>
-<div class="container-fluid cfh_banner">
+
    @if(Session::has('success'))
             <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
                 <div class="dashboard-stat green">
@@ -60,7 +54,7 @@
                 </div>
             </div>
             @endif
-</div>
+
 </div>
 <!-- top + banner 结束 --> 
 <script src="/crowdfunding.js"></script>
@@ -229,7 +223,7 @@
   {{csrf_field()}}
   <div class="make_head_content">
     <div style="width:490px;height: 434px;background: #F7FAFB;">
-    <label><div style="background:url('/center/img/1.png');width: 230px;height:64px;margin-left:130px;margin-top: 130px;cursor:pointer;"><input type="file" style="opacity:0;" name="pic"></div></label>
+    <label><div style="background:url('/center/img/2.png');width: 230px;height:64px;margin-left:130px;margin-top: 130px;cursor:pointer;"><input type="file" style="opacity:0;" name="pic"></div></label>
     <div align="center" class="color555" colspan="2">
       <button class="my_info_content_care_table_submit">提交</button>
     

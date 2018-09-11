@@ -137,11 +137,6 @@ class HomeProblemController extends Controller
         }
         $yhxq -> user_id =$user->id;
         $yhxq -> sex = $request->sex;
-        //dd($yhxq);
-
-      
-
-
         $yhxq -> synopsis = $request->synopsis;
         $yhxq -> phone = $request->phone;
         $yhxq -> email = $request->email;
@@ -159,13 +154,8 @@ class HomeProblemController extends Controller
             return back()->with('error','更新失败');
         } 
         
-        
-         
-
-                                                                  
-       
-        
     }
+
     public function xgmm(Request $request)
     {
         $user = User::findOrFail(\Session::get('id')); 
@@ -175,9 +165,9 @@ class HomeProblemController extends Controller
                 $user->password = Hash::make($request->password);
                 $user->save();
                 return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
-    }
-}
-}
+                    }
+           }
+     }
 
     //采纳判断
     public function caina(Request $request)
@@ -195,9 +185,9 @@ class HomeProblemController extends Controller
                 }else{
                     DB::rollBack();
                 }
-}
-}
-}
+             }
+         }
+    }
 
     public function touxiang(Request $request, $id)
     {
@@ -213,12 +203,6 @@ class HomeProblemController extends Controller
         }else{
             return back()->with('error','更新失败');
         }
+      }
 
-        
-
-        
-
-      
     }
-
-}
