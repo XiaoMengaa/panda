@@ -137,11 +137,6 @@ class HomeProblemController extends Controller
         }
         $yhxq -> user_id =$user->id;
         $yhxq -> sex = $request->sex;
-        
-
-      
-
-
         $yhxq -> synopsis = $request->synopsis;
         $yhxq -> phone = $request->phone;
         $yhxq -> email = $request->email;
