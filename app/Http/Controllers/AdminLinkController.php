@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Link;
 use Illuminate\Http\Request;
 
 class AdminLinkController extends Controller
@@ -13,7 +13,10 @@ class AdminLinkController extends Controller
      */
     public function index()
     {
-        //
+        $link = Link::orderBy('id','desc') 
+        ->paginate(3);
+
+        return view('admin.link.index', ['link'=>$link]);
     }
 
     /**
@@ -23,7 +26,7 @@ class AdminLinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.link.create');
     }
 
     /**
@@ -34,7 +37,19 @@ class AdminLinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $link = new Link;
+
+        $link -> name = $request->name;
+        $link -> url = $request->url;
+        if ($request->hasFile('lpic')) {
+            $link->lpic = '/'.$request->lpic->store('uploads/'.date('Ymd'));
+        }
+
+        if($link -> save()){
+            return redirect('/admin/link')->with('success', '添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -56,7 +71,9 @@ class AdminLinkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $link = Link::findOrFail($id);
+         
+        return view('admin.link.edit',['link'=>$link]);
     }
 
     /**
@@ -68,7 +85,15 @@ class AdminLinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $link = Link::findOrFail($id);
+        $link -> name = $request->name;
+        $link -> url = $request->url;
+        $link -> lpic = $request->lpic;
+        if($link ->save()){
+            return redirect('/admin/link')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -79,6 +104,11 @@ class AdminLinkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $link = Link::findOrFail($id);
+        if($link->delete()){
+        return redirect('/admin/link')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除成功');
+        }
     }
 }

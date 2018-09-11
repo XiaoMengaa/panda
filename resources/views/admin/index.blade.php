@@ -336,13 +336,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag/create'>
+            <a href='/admin/link/create'>
                 <i class='icon-caret-right'></i>
                 <span>友情链接添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='/fankui'>
+            <a href='/admin/link'>
                 <i class='icon-caret-right'></i>
                 <span>友情链接列表</span>
             </a>
