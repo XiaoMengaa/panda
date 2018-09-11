@@ -10,8 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
+
+//修改头像
+Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
@@ -63,9 +67,13 @@ Route::get('/home/problemlist','HomeProblemController@index');
 //前台问题展示
 Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
-
 //问题追加资源路由
 Route::resource('/append','AppendController');
+
+
+
+
+
 
 
 //退出登录
@@ -77,11 +85,21 @@ Route::get('/admin/login', 'AdminController@login');
 //登陆操作
 Route::post('/admin/login', 'AdminController@dologin');
 
+
 //后台路由组
 Route::group(['middleware'=>'admin'],function(){
 
 //后台路由
 Route::get('/admin','AdminController@index');
+
+// 友情链接资源路由
+Route::resource('/admin/link','AdminLinkController');
+
+// 网站配置资源路由
+Route::resource('/admin/wzpz','AdminWzpzController');
+
+// 广告管理资源
+Route::resource('/admin/gggl','AdminGgglController');
 
 //用户资源路由
 Route::resource('/admin/user','AdminUserController');

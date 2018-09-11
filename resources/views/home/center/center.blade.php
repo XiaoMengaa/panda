@@ -29,25 +29,38 @@
 </head>
 <body>
 <!-- top + banner 开始 -->
-<div class="container-fluid cfh_top">
+<div class="container cfh_top">
   <div class="container">
+    <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:left;list-style-type: none;font-size: 18px" ><a href="/home/problemlist" target="_blank">首页</a></li>
     <ul class="list-inline">
-      <li><a href="index.html" target="_self"></a></li>
-      <li><a href="https://nxseason.taobao.com/" target="_blank"></a></li>
-      <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><a href="" target="_blank">&nbsp;注册&nbsp;</a></li>
-      <li id="login" onMouseMove="login_but_bg(3)" onMouseOut="login_but_bg(4)"><a href="member_center.html" target="_blank">&nbsp;登录&nbsp;</a></li>
-    </ul>
+      <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)">&nbsp;{{$user['username']}}&nbsp;</li>
+      <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><img src="{{$udetails['pic']}}" style="width:40px;height:40px"></li>
+   </ul>
   </div>
 </div>
-<div class="container-fluid cfh_banner">
-  <div class="container"> <img src="/image/panda.jpg" width="80px">
-  </div>
+
+   @if(Session::has('success'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat green">
+                        <div class="desc" style="font-size: 40px;text-align: center;line-height:95px;color:green">{{Session::get('success')}} </div>
+                </div>
+            </div>
+            @endif
+
+            @if(Session::has('error'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat red">
+                        <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                </div>
+            </div>
+            @endif
+
 </div>
 <!-- top + banner 结束 --> 
 <script src="/crowdfunding.js"></script>
 <!-- 核心 开始 --> 
 <div class="container border1 nopadding margin10">
-  <div id="vertical_navigation" class="col-lg-3 background831312 nopadding">
+  <div id="vertical_navigation" class="col-lg-3  nopadding">
     <div class="dead_pic"><img src="@if($udetails){{$udetails->pic}}@endif"><br>
       <span class="username">{{$user['username']}}</span></div>
   
@@ -73,26 +86,51 @@
         </ul>
       </div>
     </div>
+     <div class="menu">
+      <div class="menu_title">  </div>
+      <div class="menu_list">
+        <ul class="list-unstyled">
+          <li id="listClick11" class="" onClick="listClick(11)"></li>
+          <li id="listClick12" class="" onClick="listClick(12)"> </li>
+          <li id="listClick13" class="" onClick="listClick(13)"> </li>
+        </ul>
+      </div>
+    </div>
+     <div class="menu">
+      <div class="menu_title">  </div>
+      <div class="menu_list">
+        <ul class="list-unstyled">
+          <li id="listClick11" class="" onClick="listClick(11)"></li>
+          <li id="listClick12" class="" onClick="listClick(12)"> </li>
+          <li id="listClick13" class="" onClick="listClick(13)"> </li>
+        </ul>
+      </div>
+    </div>
+
    
   </div>
   <div class="col-lg-9" style="display: both;" id='dbzl'>
-    <div class="my_info_title">我的资料</div>
+    <div class="my_info_title">基本资料</div>
+
 <div class="my_info_title_3">
   <ul>
-    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">基本资料</li>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">我的资料</li>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">我的积分{{$user->wealths->integral}}</li>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">财富值{{$user->wealths->riches}}</li>
     
   </ul>
 </div>
 <div class="my_info_content">
   <div class="my_info_content_care"> 以下信息都为必填项，请您认真填写 </div>
   <form action="/home/{{$user['id']}}/update" method="post" enctype="multipart/form-data">
+
   <table class="my_info_content_care_table">
     <tbody>
 
 
       <tr>
-        <td width="90" align="right" class="color555" > 用户名：{{$user['username']}}</td>
-        <td class="color555"><span class="colorCA1E37 smargin_left10 font_size12"></span></td>
+        <td align="right" class="color555">用户名：</td>
+        <td class="color555" ><span class=" smargin_left10 font_size14">{{$user['username']}}</span></td>
       </tr>
 
       <tr>
@@ -117,18 +155,9 @@
             <input type="radio" name="sex" @if($udetails) @if($udetails->sex == "w") checked @endif @endif value="w">
             女士 </label></td>
       </tr>
-      
-      <tr>
-        <div class="form-group" style="text-align: right;">
-            <a href="javascript:;" class="file">请上传问题相关图片
-                <input type="file" name="image" id="">
-            </a>
-          </div>
-      </tr>
-    
       <tr>
         <td align="right" class="color555">邮箱：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="email" type="text" value="@if($udetails){{$udetails->email}}@endif">
+        <td class="color555"><input class="my_info_content_care_table_text" name="email" type="email" value="@if($udetails){{$udetails->email}}@endif">
         </td>
       </tr>
 
@@ -136,20 +165,8 @@
           <td align="right" class="color555">简介：</td>
           <td class="color555"><textarea rows="3" cols="26" name="synopsis"> @if($udetails){{$udetails->synopsis}}@endif</textarea></td>
       </tr>
-
-      
-       <tr>
-        <td width="90" align="right" class="color555">积分：{{$user->wealths->integral}}</td>
-        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
-      </tr>
-
-       <tr>
-        <td width="90" align="right" class="color555">财富：{{$user->wealths->riches}}</td>
-        <td class="color555"><span class="colorCA1E37 margin_left10 font_size12"></span></td>
-      </tr>
-    
       <tr>
-        <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="保    存"></td>
+        <td  class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="保    存" style="margin-left:200px;margin-top:20px" ></td>
       </tr>
        {{csrf_field()}}
     </tbody>
@@ -198,11 +215,25 @@
   {{csrf_field()}}
 </form>
 </div>
+
+
 <div class="col-lg-9"  id="dingbo" style="display:none ;">
+  <form action="/touxiang/{{session::get('id')}}" method="post" enctype="multipart/form-data">
   <div class="make_head_title">修改头像</div>
+  {{csrf_field()}}
   <div class="make_head_content">
-    <div class="make_head_content_pic"><input type="file" name="pic"></div>
+    <div style="width:490px;height: 434px;background: #F7FAFB;">
+    <label><div style="background:url('/center/img/2.png');width: 230px;height:64px;margin-left:130px;margin-top: 130px;cursor:pointer;"><input type="file" style="opacity:0;" name="pic"></div></label>
+    <div align="center" class="color555" colspan="2">
+      <button class="my_info_content_care_table_submit">提交</button>
+    
   </div>
+  </div>
+  </div>
+ 
+    
+ 
+  </form>
 </div>
 <script type="text/javascript">
     function listClick(value){
@@ -242,49 +273,15 @@
 <!-- 结束 --> 
 
 <!-- 版权 开始 -->
-<div class="container-fluid cfh_bottom" style="background:white;">
+<div class="container-fluid cfh_bottom" style="background:grey">
   <div class="container">
-    <div class="cfh_bottom_qsss">
-      <dl>
-        <dt>轻松上手</dt>
-        <dd><a href="" target="_blank">如何投资</a></dd>
-        <dd><a href="" target="_blank">如何融资</a></dd>
-        <dd><a href="" target="_blank">平台协议下载</a></dd>
-        <dd><a href="" target="_blank">关于我们</a></dd>
-      </dl>
-    </div>
-    <div class="cfh_bottom_aboutours">
-      <dl>
-        <dt>关于我们</dt>
-        <dd><a href="" target="_blank">股东背景</a></dd>
-        <dd><a href="" target="_blank">某某某财富团队</a></dd>
-        <dd><a href="" target="_blank">法律服务</a></dd>
-        <dd><a href="" target="_blank">招贤纳士</a></dd>
-      </dl>
-    </div>
-    <div class="cfh_bottom_callme">
-      <dl>
-        <dt class="cfh_bottom_call_me"><span class="glyphicon glyphicon-earphone"></span>&nbsp;***-***-****</a></dt>
-        <dd>投资人服务邮箱：<a href="mailto:38839364@qq.com" target="_blank">38839364@qq.com</a></dd>
-        <dd>创业者服务邮箱：<a href="mailto:38839364@qq.com" target="_blank">38839364@qq.com</a></dd>
-        <dd>公司地址：宁夏银川市兴庆区某某街道9527号</dd>
-      </dl>
-    </div>
-   
   </div>
   <div class="box50"></div>
 </div>
-<div class="container-fluid background_color545454">
-  <div class="container text-center"></div>
-</div>
-<img id="back_top_jt" class="back_top" onMouseMove="float_call_me(7)" onMouseOut="float_call_me(8)" src="/center/img/index/back_top_jt.png">
-<span class="back_top_jt_span">返回顶部</span>
-<img id="back_top_wx" class="back_top2" onMouseMove="float_call_me(5)" onMouseOut="float_call_me(6)" src="/center/img/index/back_top_wx.png">
-<span class="back_top_wx_span"><img src="/center/img/index/bottom_QRcode.png"></span>
-<a href="tencent://message/?uin=666666&Site=&Menu=yes"><img id="back_top_qq" class="back_top3" onMouseMove="float_call_me(3)" onMouseOut="float_call_me(4)" src="/center/img/index/back_top_qq.png"></a>
-<span class="back_top_qq_span"><font class="glyphicon glyphicon-hand-right">&nbsp;QQ咨询热线</font></span>
-<img id="back_top_call" class="back_top4" onMouseMove="float_call_me(1)" onMouseOut="float_call_me(2)" src="/center/img/index/back_top_call.png">
-<span class="back_top_call_span"><font class="glyphicon glyphicon-phone-alt">&nbsp;***-***-****</font></span>
+
+
+
+
 <!-- 版权 结束 --> 
 
 <!-- 结束 --> 

@@ -91,12 +91,6 @@ class HomeProblemController extends Controller
         }
 
 
-        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
-          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
-        }
-        
-
-
 
 
         if(Udetails::where('user_id','=',$user->id)->get()->first()){
@@ -127,10 +121,53 @@ class HomeProblemController extends Controller
        
        $id = \Session::get('id');
        $user = User::find($id);
-  
-       return view('home.center.center',['user'=>$user]);
+       $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
+       return view('home.center.center',['user'=>$user,'udetails'=>$udetails]);
 
     }
+
+    public function update(Request $request,$id){
+        
+        $user = User::findOrFail($id);
+         
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if(!$yhxq){
+            $yhxq = new Udetails;
+             
+        }
+        $yhxq -> user_id =$user->id;
+        $yhxq -> sex = $request->sex;
+        $yhxq -> synopsis = $request->synopsis;
+        $yhxq -> phone = $request->phone;
+        $yhxq -> email = $request->email;
+        if($request->jurisdiction){
+           $yhxq -> jurisdiction = $request->jurisdiction; 
+        }
+        
+         if($user->save()){
+            if($yhxq->save()){
+                return back()->with('success','更新成功');
+            }else{
+                return back()->with('error','更新失败');
+            }
+        }else{
+            return back()->with('error','更新失败');
+        } 
+        
+    }
+
+    public function xgmm(Request $request)
+    {
+        $user = User::findOrFail(\Session::get('id')); 
+        
+        if(Hash::check($request ->jiupass ,$user->password)){
+            if($request->password == $request->pass){
+                $user->password = Hash::make($request->password);
+                $user->save();
+                return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
+                    }
+           }
+     }
 
     //采纳判断
     public function caina(Request $request)
@@ -148,10 +185,24 @@ class HomeProblemController extends Controller
                 }else{
                     DB::rollBack();
                 }
-            }
-            
-         }else{
-            rollBack();
+             }
          }
     }
-}
+
+    public function touxiang(Request $request, $id)
+    {
+
+        $user = User::findOrFail($id);
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if ($request->hasFile('pic')) {
+            $yhxq->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
+        }
+      
+        if($yhxq->save()){
+            return back()->with('success','更新成功');
+        }else{
+            return back()->with('error','更新失败');
+        }
+      }
+
+    }
