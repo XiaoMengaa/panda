@@ -45,7 +45,21 @@
   </div>
 </div>
 <div class="container-fluid cfh_banner">
-   
+   @if(Session::has('success'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat green">
+                        <div class="desc" style="font-size: 40px;text-align: center;line-height:95px;color:green">{{Session::get('success')}} </div>
+                </div>
+            </div>
+            @endif
+
+            @if(Session::has('error'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat red">
+                        <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
+                </div>
+            </div>
+            @endif
 </div>
 </div>
 <!-- top + banner 结束 --> 
@@ -115,6 +129,7 @@
 <div class="my_info_content">
   <div class="my_info_content_care"> 以下信息都为必填项，请您认真填写 </div>
   <form action="/home/{{$user['id']}}/update" method="post" enctype="multipart/form-data">
+
   <table class="my_info_content_care_table">
     <tbody>
 
