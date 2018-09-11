@@ -14,6 +14,7 @@ class CreateConfiguresTable extends Migration
     public function up()
     {
         Schema::create('configures', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('logo');
             $table->text('jieshao');
             $table->text('jfjs');
