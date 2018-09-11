@@ -47,10 +47,10 @@ class HomeProblemController extends Controller
         }
         if(\session::get('ckwt') == 6){
             request()->session()->flash('success', '恭喜您获得五积分');
-            return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
+            return view('home.problem.wtzs',compact('problem','id','reply','append'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append','user'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append'));
     }
 
 

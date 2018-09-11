@@ -162,7 +162,7 @@ $("#w").click(function(){
 </div>
 
 <p class="allowed-tags"></p>
-<input type="hidden" name="id" value="{{$id}}">
+<input type="hidden" name="id"  value="{{$id}}">
 
 <div>
 <input class="btn" type="submit" id="submit"  value="立即回答">

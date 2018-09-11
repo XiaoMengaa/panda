@@ -29,6 +29,9 @@ Route::group(['middleware'=>'home'],function(){
 	
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
+	
+	//采纳路由
+	Route::get('/home/server','HomeProblemController@caina');
 
 });
 
@@ -93,8 +96,7 @@ Route::resource('/admin/tag','AdminTagController');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
-//采纳路由
-Route::get('/home/server','HomeProblemController@caina');
+
 
 });
 
