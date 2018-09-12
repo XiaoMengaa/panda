@@ -489,13 +489,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag/create'>
-                <i class='icon-caret-right'></i>
-                <span>商品网站设置添加</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='/admin/tag'>
+            <a href='/admin/wzpz'>
                 <i class='icon-caret-right'></i>
                 <span>商品网站设置列表</span>
             </a>
