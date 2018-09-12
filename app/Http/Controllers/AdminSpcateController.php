@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Spcate;
 use Illuminate\Http\Request;
 
 class AdminSpcateController extends Controller
@@ -14,6 +15,10 @@ class AdminSpcateController extends Controller
     public function index()
     {
         //
+       $spfl = Spcate::orderBy('id','desc')
+        ->where('sname','like','%'.request()->sname.'%')
+        ->paginate(3);
+        return view('admin.spcate.index',['spfl'=>$spfl]);
     }
 
     /**
@@ -24,6 +29,7 @@ class AdminSpcateController extends Controller
     public function create()
     {
         //
+        return view('admin.spcate.create');
     }
 
     /**
@@ -35,6 +41,13 @@ class AdminSpcateController extends Controller
     public function store(Request $request)
     {
         //
+        $spfl = new Spcate;
+        $spfl->sname = $request->sname;
+        if($spfl->save()){
+            return redirect('/admin/spcate')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -57,6 +70,8 @@ class AdminSpcateController extends Controller
     public function edit($id)
     {
         //
+        $spfl = Spcate::find($id);
+        return view('admin.spcate.edit',['spfl'=>$spfl]);
     }
 
     /**
@@ -69,6 +84,14 @@ class AdminSpcateController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($id);
+        $spfl = Spcate::find($id);
+        $spfl->sname = $request->sname;
+        if($spfl->save()){
+            return redirect('/admin/spcate')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -80,5 +103,11 @@ class AdminSpcateController extends Controller
     public function destroy($id)
     {
         //
+        $spfl = Spcate::find($id);
+        if($spfl->delete()){
+            return redirect('/admin/spcate')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }
