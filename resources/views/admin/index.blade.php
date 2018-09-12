@@ -396,13 +396,13 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag/create'>
+            <a href='/admin/shangpin/create'>
                 <i class='icon-caret-right'></i>
                 <span>商品--添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='/admin/tag'>
+            <a href='/admin/shangpin'>
                 <i class='icon-caret-right'></i>
                 <span>商品--列表</span>
             </a>

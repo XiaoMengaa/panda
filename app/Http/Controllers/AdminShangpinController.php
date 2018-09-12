@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Commodity;
 use Illuminate\Http\Request;
 
 class AdminShangpinController extends Controller
@@ -23,7 +24,7 @@ class AdminShangpinController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.shangpin.create');
     }
 
     /**
@@ -34,7 +35,21 @@ class AdminShangpinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shangpin = new Commodity;
+        $shangpin -> cname = $request->cname;
+        $shangpin -> spcate_id = 1;
+        $shangpin -> money = $request->money;
+        $shangpin -> cdetails = $request->cdetails;
+
+        if($request->hasFile('cpic')){
+            $shangpin->cpic= '/'.$request->cpic->store('uploads/'.date('Ymd'));
+        }
+        
+        if($shangpin->save()){
+            return redirect('/admin/shangpin')->with('success','添加成功');
+         }else{
+            return back()->with('error','添加失败');
+         }
     }
 
     /**
@@ -81,4 +96,5 @@ class AdminShangpinController extends Controller
     {
         //
     }
+        
 }
