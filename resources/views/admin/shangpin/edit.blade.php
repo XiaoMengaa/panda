@@ -44,31 +44,32 @@
                             </div>
                         </div>
                         <div class='box-content'>
-                            <form class='form form-horizontal validate-form' action="/admin/shangpin" method="post" style='margin-bottom: 0;' enctype="multipart/form-data" />
+                            <form class='form form-horizontal validate-form' action="/admin/shangpin/{{$shangpin['id']}}" method="post" style='margin-bottom: 0;' enctype="multipart/form-data" />
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品名称:</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cname' placeholder='输入商品名称' type='text' />
+                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cname' value="{{$shangpin->cname}}" placeholder='输入商品名称' type='text' />
                                     </div>
+                                </div>         
+                                 <div class="am-form-group" style="margin-left:115px">
+                                    <label for="user-phone" class="am-u-sm-3 am-form-label" style="float:left">商品分类:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                        <div class='control-group'>
+                                            <select  name="spcate_id"  value="spcate_id" style="width:200px;height:30px">
+                                               @foreach($spcate as $v)
+                                                <option value="{{$v['id']}}">{{$v['sname']}}</option>
+                                                @endforeach
+                                            </select>
+                                     </div>
                                 </div>
 
-
-
-                
-                                
-                                <div class='control-group'>
-                                    <label class='control-label' for='validation_name'>商品分类:</label>
-                                    <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='spcate_id' placeholder='输入分类名称' type='text' />
-                                    </div>
-                                </div>
                          
                                
 
                                <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品定价财富值:</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='money' type='text' />
+                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' value="{{$shangpin
+                                        ->money}}" name='money' type='text' />
                                     </div>
                                 </div>
 
@@ -76,7 +77,7 @@
                                  <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品详情:</label>
                                     <div class='controls'>
-                                        <textarea cols="3" rows="3" name="cdetails"></textarea>
+                                        <textarea cols="3" rows="3"  name="cdetails">{{$shangpin->cdetails}}</textarea>
                                     </div>
                                 </div>
 
@@ -84,26 +85,20 @@
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品图片:</label>
                                     <div class='controls'>
+                                        <img src="{{$shangpin->cpic}}" width="60px">
                                         <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cpic' type='file' />
                                     </div>
-                                </div>
-                               
-                                
-                             
-                                
+                                </div>                                                 
                         </div>
-
-
-
-                        
-
                                 <div class='form-actions' style='margin-bottom:0'>
                                     <button  class='btn btn-primary' type='submit'>
                                         <i class='icon-save'></i>
                                         提交
                                     </button>
                                 </div>
+                                
                                 {{csrf_field()}}
+                                {{method_field('PUT')}} 
                             </form>
                             
                         </div>
