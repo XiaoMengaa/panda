@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware'=>'wzkg'],function(){
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
@@ -33,8 +33,12 @@ Route::group(['middleware'=>'home'],function(){
 	
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
+	
+	//采纳路由
+	Route::get('/home/server','HomeProblemController@caina');
 
 });
+
 
 
 //前往用户个人中心
@@ -66,7 +70,10 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
-
+});
+Route::get('home/wzkg',function(){
+	return view('/home/wzkg');
+});
 
 
 
@@ -84,7 +91,7 @@ Route::post('/admin/login', 'AdminController@dologin');
 
 
 //后台路由组
-// Route::group(['middleware'=>'admin'],function(){
+Route::group(['middleware'=>'admin'],function(){
 
 //后台路由
 Route::get('/admin','AdminController@index');
@@ -107,13 +114,18 @@ Route::resource('/admin/cate','AdminCateController');
 //问题标签资源路由 
 Route::resource('/admin/tag','AdminTagController');
 
-
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
-//采纳路由
-Route::get('/home/server','HomeProblemController@caina');
+//商品分类支援路由
+Route::resource('/admin/spcate','AdminSpcateController');
 
-// });
+//商品列表资源路由
+Route::resource('/admin/shangpin','AdminShangpinController');
+
+//商品网站设置表支援路由
+Route::resource('/admin/spwzsz','AdminSpwzszController');
+
+});
 
 
