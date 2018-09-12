@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Scwzszb;
 use Illuminate\Http\Request;
 
-class AdminSpwzszController extends Controller
+class AdminShangchengController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,6 @@ class AdminSpwzszController extends Controller
     public function index()
     {
         //
-        $spwzsz = Scwzszb::get()->first();
-        return view('admin.wzpz.create',['spwzsz'=>$spwzsz]);
     }
 
     /**
@@ -27,7 +24,6 @@ class AdminSpwzszController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -39,23 +35,6 @@ class AdminSpwzszController extends Controller
     public function store(Request $request)
     {
         //
-         $spwzsz = Scwzszb::get()->first();
-        if(!$spwzsz){
-        $spwzsz = new Scwzszb;
-        }
-
-        $spwzsz->logo = $request->logo;
-        if($request->hasFile('logo')){
-            $spwzsz->logo = '/'.$request->logo->store('uploads/'.date('Ymd'));
-        }
-        $spwzsz->jieshao = $request->jieshao;
-        $spwzsz->title = $request->title;
-        $spwzsz->switch = $request->switch;   
-        if($spwzsz -> save()){
-            return back()->with('success', '提交成功');
-        }else{
-            return back()->with('error','提交失败');
-        }
     }
 
     /**
