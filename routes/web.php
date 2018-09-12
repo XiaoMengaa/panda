@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware'=>'wzkg'],function(){
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
@@ -35,6 +35,7 @@ Route::group(['middleware'=>'home'],function(){
 	Route::resource('/fankui','FeedBackController');
 
 });
+
 
 
 //前往用户个人中心
@@ -66,7 +67,10 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
-
+});
+Route::get('home/wzkg',function(){
+	return view('/home/wzkg');
+});
 
 
 

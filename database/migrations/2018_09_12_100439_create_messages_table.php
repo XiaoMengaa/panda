@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUdetailsTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateUdetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('udetails', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->enum('sex',['w','m'])->nullable();
-            $table->string('pic')->default('/image/1.jpg');
-            $table->string('synopsis')->nullable();
-            $table->string('phone',11)->nullable();
-            $table->string('email')->nullable();
-            $table->enum('jurisdiction',[1,2])->default(1);
+            $table->string('name');
+            $table->string('phone',11);
+            $table->string('bphone',11)->nullable();
+            $table->enum('addstate',[0,1])->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateUdetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('udetails');
+        Schema::dropIfExists('messages');
     }
 }

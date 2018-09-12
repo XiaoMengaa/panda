@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTagsZiduan extends Migration
+class CreateSpcatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddTagsZiduan extends Migration
      */
     public function up()
     {
-        Schema::table('tags', function (Blueprint $table) {
-            //
-            $table->integer('cate_id');
-
+        Schema::create('spcates', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('sname');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +27,6 @@ class AddTagsZiduan extends Migration
      */
     public function down()
     {
-        Schema::table('tags', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('spcates');
     }
 }
