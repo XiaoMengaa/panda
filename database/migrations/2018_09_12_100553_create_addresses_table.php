@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->string('sname')->nullable();
             $table->string('cname');
             $table->string('xname');
-            $table->string('sname');
+            $table->string('zname');
             $table->string('xxdz');
             $table->timestamps();
         });
