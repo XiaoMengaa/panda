@@ -353,21 +353,6 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>问答网站配置</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-        <a href='/admin/wzpz'>
-        <i class='icon-caret-right'></i>
-        <span>问答配置列表</span>
-    </a>
-    </li>
-</ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
         <span>问答广告管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
@@ -391,66 +376,25 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>商品--管理</span>
+        <span>商品分类</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag/create'>
+            <a href='/admin/spcate/create'>
                 <i class='icon-caret-right'></i>
-                <span>商品--添加</span>
+                <span>商品分类添加</span>
             </a>
         </li>
         <li class=''>
-            <a href='/admin/tag'>
+            <a href='/admin/spcate'>
                 <i class='icon-caret-right'></i>
-                <span>商品--列表</span>
+                <span>商品分类列表</span>
             </a>
         </li>
     </ul>
 </li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>商品--管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='/admin/tag/create'>
-                <i class='icon-caret-right'></i>
-                <span>商品--添加</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='/admin/tag'>
-                <i class='icon-caret-right'></i>
-                <span>商品--列表</span>
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>商品管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='/admin/tag/create'>
-                <i class='icon-caret-right'></i>
-                <span>商品添加</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='/admin/tag'>
-                <i class='icon-caret-right'></i>
-                <span>商品列表</span>
-            </a>
-        </li>
-    </ul>
-</li>
+
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
@@ -481,20 +425,27 @@
         </li>
     </ul>
 </li>
+
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>商品网站设置管理</span>
+        <span>网站配置</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/wzpz'>
-                <i class='icon-caret-right'></i>
-                <span>商品网站设置列表</span>
-            </a>
+        <a href='/admin/spwzsz'>
+        <i class='icon-caret-right'></i>
+        <span>商城配置列表</span>
+        </a>
         </li>
-    </ul>
+        <li class=''>
+        <a href='/admin/wzpz'>
+        <i class='icon-caret-right'></i>
+        <span>问答配置列表</span>
+    </a>
+    </li>
+</ul>
 </li>
 </ul>
 </div>
