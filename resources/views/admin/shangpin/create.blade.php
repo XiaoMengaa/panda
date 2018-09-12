@@ -9,7 +9,7 @@
                         <div class='page-header'>
                             <h1 class='pull-left'>
                                 <i class='icon-ok'></i>
-                                <span>商品管理</span>
+                                <span>商品添加</span>
                             </h1>
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -35,7 +35,7 @@
                 <div class='row-fluid'>
                     <div class='span12 box'>
                         <div class='box-header blue-background'>
-                            <div class='title'>商品管理</div>
+                            <div class='title'>商品添加</div>
                             <div class='actions'>
                                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                                 </a>
@@ -57,7 +57,7 @@
                 
                                 
                                  <div class="am-form-group" style="margin-left:115px">
-                                    <label for="user-phone" class="am-u-sm-3 am-form-label" style="float:left">商品分类:&nbsp;</label>
+                                    <label for="user-phone" class="am-u-sm-3 am-form-label" style="float:left">商品类别:&nbsp;</label>
                                         <div class='control-group'>
                                             <select  name="spcate_id" style="width:200px;height:30px">
                                                @foreach($spcate as $v)
