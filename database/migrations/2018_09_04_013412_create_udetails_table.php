@@ -16,11 +16,11 @@ class CreateUdetailsTable extends Migration
         Schema::create('udetails', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->enum('sex',['w','m']);
-            $table->string('pic');
-            $table->string('synopsis');
-            $table->integer('phone');
-            $table->string('email');
+            $table->enum('sex',['w','m'])->nullable();
+            $table->string('pic')->nullable();
+            $table->string('synopsis')->nullable();
+            $table->string('phone',11)->nullable();
+            $table->string('email')->nullable();
             $table->enum('jurisdiction',[1,2])->default(1);
             $table->timestamps();
         });
