@@ -17,6 +17,7 @@ class CreateCommoditiesTable extends Migration
             $table->increments('id');
             $table->string('cname');
             $table->integer('spcate_id');
+            $table->integer('money');
             $table->string('cpic')->default('/image/2.jpg');
             $table->text('cdetails')->nullable();
             $table->timestamps();

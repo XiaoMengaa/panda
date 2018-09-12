@@ -227,20 +227,20 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>分类管理</span>
+        <span>问答分类管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/admin/cate/create'>
                 <i class='icon-caret-right'></i>
-                <span>分类添加</span>
+                <span>问答分类添加</span>
             </a>
         </li>
         <li class=''>
             <a href='/admin/cate'>
                 <i class='icon-caret-right'></i>
-                <span>分类列表</span>
+                <span>问答分类列表</span>
             </a>
         </li>
     </ul>
@@ -248,20 +248,20 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>标签管理</span>
+        <span>问答标签管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/admin/tag/create'>
                 <i class='icon-caret-right'></i>
-                <span>标签添加</span>
+                <span>问答标签添加</span>
             </a>
         </li>
         <li class=''>
             <a href='/admin/tag'>
                 <i class='icon-caret-right'></i>
-                <span>标签列表</span>
+                <span>问答标签列表</span>
             </a>
         </li>
     </ul>
@@ -269,14 +269,14 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>问题管理</span>
+        <span>问答问题管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/problem'>
                 <i class='icon-caret-right'></i>
-                <span>问题列表</span>
+                <span>问答问题列表</span>
             </a>
         </li>
     </ul>
@@ -285,14 +285,14 @@
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
 
-        <span>回答管理</span>
+        <span>问答回答管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
  <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/reply'>
                 <i class='icon-caret-right'></i>
-                <span>回答列表</span>
+                <span>问答回答列表</span>
                 </a>
         </li>
     </ul>
@@ -300,14 +300,14 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>追加评论管理</span>
+        <span>问答追加评论管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/append'>
                 <i class='icon-caret-right'></i>
-                <span>追加列表</span>
+                <span>问答追加列表</span>
 
             </a>
         </li>
@@ -316,14 +316,14 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>反馈管理</span>
+        <span>问答反馈管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/fankui'>
                 <i class='icon-caret-right'></i>
-                <span>反馈列表</span>
+                <span>问答反馈列表</span>
             </a>
         </li>
     </ul>
@@ -331,20 +331,20 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>友情链接管理</span>
+        <span>问答友情链接管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
             <a href='/admin/link/create'>
                 <i class='icon-caret-right'></i>
-                <span>友情链接添加</span>
+                <span>问答友情链接添加</span>
             </a>
         </li>
         <li class=''>
             <a href='/admin/link'>
                 <i class='icon-caret-right'></i>
-                <span>友情链接列表</span>
+                <span>问答友情链接列表</span>
             </a>
         </li>
     </ul>
@@ -353,14 +353,14 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>网站配置</span>
+        <span>问答网站配置</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
         <a href='/admin/wzpz'>
         <i class='icon-caret-right'></i>
-        <span>配置列表</span>
+        <span>问答配置列表</span>
     </a>
     </li>
 </ul>
@@ -368,7 +368,7 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>广告管理</span>
+        <span>问答广告管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
@@ -376,19 +376,132 @@
            
             <a href='/admin/gggl/create'>
                 <i class='icon-caret-right'></i>
-                <span>广告添加</span>
+                <span>问答广告添加</span>
             </a>
         </li>
         <li class=''>
             <a href='/admin/gggl'>
                 <i class='icon-caret-right'></i>
-                <span>广告列表</span>
+                <span>问答广告列表</span>
 
             </a>
         </li>
     </ul>
-
-
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品--管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag/create'>
+                <i class='icon-caret-right'></i>
+                <span>商品--添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品--列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品--管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag/create'>
+                <i class='icon-caret-right'></i>
+                <span>商品--添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品--列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag/create'>
+                <i class='icon-caret-right'></i>
+                <span>商品添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品收货地址</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品收货地址列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品兑换管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品兑换列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>商品网站设置管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/tag/create'>
+                <i class='icon-caret-right'></i>
+                <span>商品网站设置添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/tag'>
+                <i class='icon-caret-right'></i>
+                <span>商品网站设置列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
 </ul>
 </div>
 </nav>
