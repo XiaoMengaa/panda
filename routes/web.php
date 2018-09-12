@@ -71,14 +71,11 @@ Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 //问题追加资源路由
 Route::resource('/append','AppendController');
 });
+
+//网站开关路由
 Route::get('home/wzkg',function(){
 	return view('/home/wzkg');
 });
-
-
-
-
-
 
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
@@ -126,6 +123,19 @@ Route::resource('/admin/shangpin','AdminShangpinController');
 //商品网站设置表支援路由
 Route::resource('/admin/spwzsz','AdminSpwzszController');
 
+//商城收货地址信息后台管理路由
+Route::resource('/admin/shangcheng/shdz','AdminShangchengController');
 });
+
+//商城前台路由
+
+/**
+ * 需要判断是否登录的路由
+ */
+
+//商城收货地址信息路由
+Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
+
+
 
 
