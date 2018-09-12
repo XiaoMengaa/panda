@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Link;
+use App\Record;
 use Illuminate\Http\Request;
 
-class AdminLinkController extends Controller
+class AdminDuihuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,10 @@ class AdminLinkController extends Controller
      */
     public function index()
     {
-        $link = Link::orderBy('id','desc') 
-        ->where('name','like','%'.request()->name.'%')
+        $dh = Record::orderBy('id','desc') 
         ->paginate(3);
 
-        return view('admin.link.index', ['link'=>$link]);
+        return view('admin.dhjl.index', ['dh'=>$dh]);
     }
 
     /**
@@ -27,7 +26,7 @@ class AdminLinkController extends Controller
      */
     public function create()
     {
-        return view('admin.link.create');
+        //
     }
 
     /**
@@ -38,19 +37,7 @@ class AdminLinkController extends Controller
      */
     public function store(Request $request)
     {
-        $link = new Link;
-
-        $link -> name = $request->name;
-        $link -> url = $request->url;
-        if ($request->hasFile('lpic')) {
-            $link->lpic = '/'.$request->lpic->store('uploads/'.date('Ymd'));
-        }
-
-        if($link -> save()){
-            return redirect('/admin/link')->with('success', '添加成功');
-        }else{
-            return back()->with('error','添加失败');
-        }
+        //
     }
 
     /**
@@ -72,9 +59,9 @@ class AdminLinkController extends Controller
      */
     public function edit($id)
     {
-        $link = Link::findOrFail($id);
+         $dh = Record::findOrFail($id);
          
-        return view('admin.link.edit',['link'=>$link]);
+        return view('admin.dhjl.edit',['dh'=>$dh]);
     }
 
     /**
@@ -86,12 +73,13 @@ class AdminLinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $link = Link::findOrFail($id);
-        $link -> name = $request->name;
-        $link -> url = $request->url;
-        $link -> lpic = $request->lpic;
-        if($link ->save()){
-            return redirect('/admin/link')->with('success','修改成功');
+        $dh = Record::findOrFail($id);
+        $dh -> user_id = $request->user_id;
+        $dh -> commodity_id = $request->commodity_id;
+        $dh -> money = $request->money;
+        $dh -> rstate = $request->rstate;
+        if($dh ->save()){
+            return redirect('/admin/dhjl')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败');
         }
@@ -105,9 +93,9 @@ class AdminLinkController extends Controller
      */
     public function destroy($id)
     {
-        $link = Link::findOrFail($id);
-        if($link->delete()){
-        return redirect('/admin/link')->with('success','删除成功');
+         $dh = Record::findOrFail($id);
+        if($dh->delete()){
+        return redirect('/admin/dhjl')->with('success','删除成功');
         }else{
             return back()->with('error','删除成功');
         }

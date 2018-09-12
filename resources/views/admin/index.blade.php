@@ -439,7 +439,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag'>
+            <a href='/admin/dhjl'>
                 <i class='icon-caret-right'></i>
                 <span>商品兑换列表</span>
             </a>
