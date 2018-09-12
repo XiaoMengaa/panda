@@ -376,6 +376,27 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
+        <span>商品分类</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/admin/spcate/create'>
+                <i class='icon-caret-right'></i>
+                <span>商品分类添加</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/admin/spcate'>
+                <i class='icon-caret-right'></i>
+                <span>商品分类列表</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
         <span>商品表</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
