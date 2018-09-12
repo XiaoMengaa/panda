@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'home' => \App\Http\Middleware\HomeMiddleware::class,
         'wzkg' => \App\Http\Middleware\Wzkg::class,
+        'spwzsz'=>\App\Http\Middleware\Spwzsz::class,
     ];
 }

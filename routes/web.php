@@ -139,3 +139,10 @@ Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
 
 
 
+//前台网站配置组
+Route::group(['middleware'=>'spwzsz'],function(){
+
+});
+Route::get('home/wzkg',function(){
+	return view('/home/wzkg');
+});

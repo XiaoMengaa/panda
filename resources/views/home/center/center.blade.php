@@ -273,7 +273,7 @@
 <!-- 结束 --> 
 
 <!-- 版权 开始 -->
-<div class="container-fluid cfh_bottom" style="background:grey">
+<div class="container-fluid cfh_bottom" style="background:#CCCCCC">
   <div class="container">
   </div>
   <div class="box50"></div>
