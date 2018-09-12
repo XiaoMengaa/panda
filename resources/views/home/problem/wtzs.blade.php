@@ -22,7 +22,7 @@
     <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
     <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
     <span class="like-count">{{$problem->browse}}</span>
-    <span class="btn btn-mini" style="background:yellow">财富值</span>
+    <span class="btn btn-mini"style="background:yellow">熊猫知识币</span>
 </div><!-- end of post meta -->
 
 <p>{{$problem->content}}</p>
@@ -162,7 +162,7 @@ $("#w").click(function(){
 </div>
 
 <p class="allowed-tags"></p>
-<input type="hidden" name="id" value="{{$id}}">
+<input type="hidden" name="id"  value="{{$id}}">
 
 <div>
 <input class="btn" type="submit" id="submit"  value="立即回答">
