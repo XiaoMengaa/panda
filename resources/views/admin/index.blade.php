@@ -349,24 +349,31 @@
         </li>
     </ul>
 </li>
+
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
         <span>网站配置</span>
-
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>广告管理</span>
-
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/wzpz'>
-                <i class='icon-caret-right'></i>
-                <span>配置列表</span>
-
+        <a href='/admin/wzpz'>
+        <i class='icon-caret-right'></i>
+        <span>配置列表</span>
+    </a>
+    </li>
+</ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>广告管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+           
             <a href='/admin/gggl/create'>
                 <i class='icon-caret-right'></i>
                 <span>广告添加</span>
@@ -376,10 +383,12 @@
             <a href='/admin/gggl'>
                 <i class='icon-caret-right'></i>
                 <span>广告列表</span>
+
             </a>
         </li>
     </ul>
-</li>
+
+
 </ul>
 </div>
 </nav>
