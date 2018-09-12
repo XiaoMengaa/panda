@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Udetails;
 use App\User;
+use App\Wealth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -52,10 +53,24 @@ class AdminUserController extends Controller
         $user -> username = $request->username;
        // dd($user);
         $user -> password = Hash::make($request->password);
+        DB::beginTransaction();
 
         if($user -> save()){
+            try{
+                $yhxq = new Udetails;
+                $yhxq -> user_id =  $user -> id;
+                $yhxq -> save();
+                $yhcf = new Wealth;
+                $yhcf -> user_id = $user -> id;
+                $yhcf ->save();
+            }catch(\Exception $e){
+                DB::rollBack();
+                return back()->with('error','添加失败');
+            }
+            DB::commit();
             return redirect('/admin/user')->with('success', '添加成功');
         }else{
+            DB::rollBack();
             return back()->with('error','添加失败');
         }
 
