@@ -17,7 +17,7 @@ class CreateUdetailsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->enum('sex',['w','m'])->nullable();
-            $table->string('pic')->nullable();
+            $table->string('pic')->default('/image/1.jpg');
             $table->string('synopsis')->nullable();
             $table->string('phone',11)->nullable();
             $table->string('email')->nullable();
