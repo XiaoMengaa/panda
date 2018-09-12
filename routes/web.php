@@ -87,7 +87,7 @@ Route::post('/admin/login', 'AdminController@dologin');
 
 
 //后台路由组
-Route::group(['middleware'=>'admin'],function(){
+// Route::group(['middleware'=>'admin'],function(){
 
 //后台路由
 Route::get('/admin','AdminController@index');
@@ -116,6 +116,6 @@ Route::resource('/append','AppendController');
 
 
 
-});
+// });
 
 
