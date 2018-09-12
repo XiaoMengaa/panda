@@ -409,48 +409,7 @@
         </li>
     </ul>
 </li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>商品--管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='/admin/tag/create'>
-                <i class='icon-caret-right'></i>
-                <span>商品--添加</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='/admin/tag'>
-                <i class='icon-caret-right'></i>
-                <span>商品--列表</span>
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>商品管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='/admin/tag/create'>
-                <i class='icon-caret-right'></i>
-                <span>商品添加</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='/admin/tag'>
-                <i class='icon-caret-right'></i>
-                <span>商品列表</span>
-            </a>
-        </li>
-    </ul>
-</li>
+
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
