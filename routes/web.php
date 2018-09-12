@@ -33,6 +33,9 @@ Route::group(['middleware'=>'home'],function(){
 	
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
+	
+	//采纳路由
+	Route::get('/home/server','HomeProblemController@caina');
 
 });
 
@@ -111,12 +114,17 @@ Route::resource('/admin/cate','AdminCateController');
 //问题标签资源路由 
 Route::resource('/admin/tag','AdminTagController');
 
-
 //问题追加资源路由
 Route::resource('/append','AppendController');
 
-//采纳路由
-Route::get('/home/server','HomeProblemController@caina');
+//商品分类支援路由
+Route::resource('/admin/spcate','AdminSpcateController');
+
+//商品列表资源路由
+Route::resource('/admin/shangpin','AdminShangpinController');
+
+//商品网站设置表支援路由
+Route::resource('/admin/spwzsz','AdminSpwzszController');
 
 });
 

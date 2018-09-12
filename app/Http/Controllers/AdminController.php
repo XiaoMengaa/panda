@@ -30,9 +30,6 @@ class AdminController extends Controller
 			return back()->with('error','登陆失败!');
 		}
 
-		$Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
-
-
 		if(Udetails::where('user_id','=',$user->id)->get()->first()){
             $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;
         }else{
