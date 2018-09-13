@@ -14,6 +14,7 @@ class AdminLinkController extends Controller
     public function index()
     {
         $link = Link::orderBy('id','desc') 
+        ->where('name','like','%'.request()->name.'%')
         ->paginate(3);
 
         return view('admin.link.index', ['link'=>$link]);
