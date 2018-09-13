@@ -63,9 +63,7 @@
                             <td>{{$v['id']}}</td>
                             <td>{{$v->user->username}}</td>
                             <td class="am-hide-sm-only">{{$v['commodity_id']}}</td>
-                            <!-- <td class="am-hide-sm-only">{{$v->commodity->cname}}</td> -->
                             <td class="am-hide-sm-only">{{$v['money']}}</td>
-                            <!-- <td class="am-hide-sm-only">{{$v->commodity->money}}</td> -->
                             <td class="am-hide-sm-only">@if($v['rstate']==0) 未收货 @else 已收货 @endif</td>
                             <td>
                                 <div class="am-btn-toolbar">

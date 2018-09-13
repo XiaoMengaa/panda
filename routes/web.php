@@ -142,7 +142,7 @@ Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
 
 
 //前台商城兑换记录路由
-Route::post('/home/dhjl/create','HomeDhjlController@index');
+Route::get('/home/dhjl/create','HomeDhjlController@index');
 
 
 //前台网站配置组

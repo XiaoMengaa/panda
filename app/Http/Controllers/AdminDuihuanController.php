@@ -74,7 +74,6 @@ class AdminDuihuanController extends Controller
     public function update(Request $request, $id)
     {
         $dh = Record::findOrFail($id);
-        $dh -> user_id = $request->user_id;
         $dh -> commodity_id = $request->commodity_id;
         $dh -> money = $request->money;
         $dh -> rstate = $request->rstate;

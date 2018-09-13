@@ -9,6 +9,7 @@ use App\Reply;
 use App\Tag;
 use App\Udetails;
 use App\User;
+use App\Record;
 use App\Wealth;
 use App\Feedback;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Hash;
 class HomeProblemController extends Controller
 {
     public function index()
-    {
+    {   
         $tags = Tag::all();
         $tags = Tag::paginate(34);
     	$problem = Problem::all();
@@ -118,11 +119,11 @@ class HomeProblemController extends Controller
     public function center(Request $request)
     {
       
-       
+       $dh = Record::all();
        $id = \Session::get('id');
        $user = User::find($id);
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
-       return view('home.center.center',['user'=>$user,'udetails'=>$udetails]);
+       return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh]);
 
     }
 
@@ -203,6 +204,6 @@ class HomeProblemController extends Controller
         }else{
             return back()->with('error','更新失败');
         }
-      }
-
     }
+
+}
