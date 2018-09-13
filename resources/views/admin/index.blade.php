@@ -425,7 +425,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/admin/tag'>
+            <a href='/admin/shangcheng/shdz'>
                 <i class='icon-caret-right'></i>
                 <span>商品收货地址列表</span>
             </a>

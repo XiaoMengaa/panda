@@ -137,16 +137,21 @@ Route::resource('/admin/dhjl','AdminDuihuanController');
 
 //商城收货地址信息路由
 Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
+//添加地址
+Route::get('/home/shangcheng/shdx','HomeShangchengController@store');
+//显示地址
+Route::get('/home/shangcheng/more','HomeShangchengController@more');
+//修改地址路由
+Route::get('/home/shangcheng/edit/{id}','HomeShangchengController@edit');
+Route::get('/home/shangcheng/update/{id}','HomeShangchengController@update');
+//删除
+Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
+
 
 
 //前台商城兑换记录路由
-Route::post('/home/dhjl/create','HomeDhjlController@index');
+Route::get('/home/dhjl/create','HomeDhjlController@index');
 
-//前台商城主页路由
-Route::get('/home/shangcheng','HomeSpController@index');
-
-//前台商品展示路由
-Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 
 //前台网站配置组
 Route::group(['middleware'=>'spwzsz'],function(){
@@ -156,6 +161,8 @@ Route::get('/home/shangcheng','HomeSpController@index');
 
 //前台商品展示路由
 Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
+//商品详情路由
+Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
 Route::get('home/wzkg',function(){

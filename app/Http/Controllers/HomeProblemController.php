@@ -9,6 +9,7 @@ use App\Reply;
 use App\Tag;
 use App\Udetails;
 use App\User;
+use App\Record;
 use App\Wealth;
 use App\Feedback;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Hash;
 class HomeProblemController extends Controller
 {
     public function index()
-    {
+    {   
         $tags = Tag::all();
         $tags = Tag::paginate(34);
     	$problem = Problem::all();
@@ -91,6 +92,12 @@ class HomeProblemController extends Controller
         }
 
 
+        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
+          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
+        }
+        
+
+
 
 
         if(Udetails::where('user_id','=',$user->id)->get()->first()){
@@ -118,43 +125,15 @@ class HomeProblemController extends Controller
     public function center(Request $request)
     {
       
-       
+       $dh = Record::all();
        $id = \Session::get('id');
        $user = User::find($id);
+
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
-       return view('home.center.center',['user'=>$user,'udetails'=>$udetails]);
+       return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh]);
 
     }
 
-    public function update(Request $request,$id){
-        
-        $user = User::findOrFail($id);
-         
-        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
-        if(!$yhxq){
-            $yhxq = new Udetails;
-             
-        }
-        $yhxq -> user_id =$user->id;
-        $yhxq -> sex = $request->sex;
-        $yhxq -> synopsis = $request->synopsis;
-        $yhxq -> phone = $request->phone;
-        $yhxq -> email = $request->email;
-        if($request->jurisdiction){
-           $yhxq -> jurisdiction = $request->jurisdiction; 
-        }
-        
-         if($user->save()){
-            if($yhxq->save()){
-                return back()->with('success','更新成功');
-            }else{
-                return back()->with('error','更新失败');
-            }
-        }else{
-            return back()->with('error','更新失败');
-        } 
-        
-    }
 
     public function xgmm(Request $request)
     {
@@ -186,7 +165,10 @@ class HomeProblemController extends Controller
                 }else{
                     DB::rollBack();
                 }
-             }
+            }
+            
+         }else{
+            rollBack();
          }
     }
 
@@ -204,6 +186,6 @@ class HomeProblemController extends Controller
         }else{
             return back()->with('error','更新失败');
         }
-      }
-
     }
+
+}

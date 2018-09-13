@@ -8,6 +8,6 @@ class Commodity extends Model
 {
     public function spcate()
     {
-    	return $this->belongsTo('App\spcate');
+    	return $this->belongsTo('App\Spcate');
     }
 }
