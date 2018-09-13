@@ -135,6 +135,16 @@ Route::resource('/admin/shangcheng/shdz','AdminShangchengController');
 
 //商城收货地址信息路由
 Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
+//添加地址
+Route::get('/home/shangcheng/shdx','HomeShangchengController@store');
+//显示地址
+Route::get('/home/shangcheng/more','HomeShangchengController@more');
+//修改地址路由
+Route::get('/home/shangcheng/edit/{id}','HomeShangchengController@edit');
+Route::get('/home/shangcheng/update/{id}','HomeShangchengController@update');
+//删除
+Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
+
 
 
 

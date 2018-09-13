@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>城市三级联动 - citys</title>
+        
+        <style type="text/css">
+            .citys{
+                margin-bottom: 10px;
+            }
+            .citys p{
+                line-height: 28px;
+            }
+            .warning{
+                color: #c00;
+            }
+            .main a{
+                margin-right: 8px;
+                color: #369;
+            }
+        </style>
+        <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="script/jquery.citys.js"></script>
+    </head>
+    <body>   
+        <div class="main">
+            <form action="./1.php">
+            	<div id="demo3" class="citys">
+                    <p>
+                        <select name="province" id="sheng"></select>
+                        <select name="city" id="cheng"></select>
+                        <select name="area" id="zheng"></select>
+                        <select name="town"></select>
+                        <input type="hidden" name="shengfen">
+                        <input type="hidden" name="chengshi">
+                        <input type="hidden" name="xiangzheng">
+                    </p>
+                </div>
+                <button>测验提交</button>
+            </form>
+           
+            <script type="text/javascript">
+        		var $town = $('#demo3 select[name="town"]');
+        		var townFormat = function(info){
+        			$town.hide().empty();
+        			if(info['code']%1e4&&info['code']<7e5){	//是否为“区”且不是港澳台地区
+        				$.ajax({
+        					url:'http://passer-by.com/data_location/town/'+info['code']+'.json',
+        					dataType:'json',
+        					success:function(town){
+        						$town.show();
+        						for(i in town){
+        								$town.append('<option value="'+town[i]+'">'+town[i]+'</option>');
+        						}
+        					},
+                            async:false,
+        				});
+        			}
+
+        		};
+
+                $('#demo3').citys({
+        			province:'福建',
+        			city:'厦门',
+        			area:'思明',
+        			onChange:function(info){
+        				townFormat(info);
+                        $('input[name=shengfen]').val(info.province);
+                        $('input[name=chengshi]').val(info.city);
+                        $('input[name=xiangzheng]').val(info.area);
+        			}
+        		},function(api){
+        			var info = api.getInfo();
+        			townFormat(info);
+                    $('input[name=shengfen]').val(info.province);
+                    $('input[name=chengshi]').val(info.city);
+                    $('input[name=xiangzheng]').val(info.area);
+        		});
+            </script>
+            
+        </div>
+    </body>
+</html>
