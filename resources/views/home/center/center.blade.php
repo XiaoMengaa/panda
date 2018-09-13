@@ -26,6 +26,9 @@
 <link href="/center/css/crowdfunding.css" rel="stylesheet">
 <link href="/center/css/crowdfunding.center/make_head.css" rel="stylesheet">
 
+<link href="/center/css/bootstrap.min.css" rel="stylesheet">
+<link href="/center/css/crowdfunding.center/integration_rule.css" rel="stylesheet">
+
 </head>
 <body>
 <!-- top + banner 开始 -->
@@ -71,6 +74,7 @@
           <li id="listClick1" class=""  onClick="listClick(1);"><img src="/center/img/member_center/left_icon_1.png"> 基本信息</li>  
           <li id="listClick4" class=""  onClick="listClick(4)"> <img src="/center/img/member_center/left_icon_2.png">修改头像</li>
           <li id="listClick2" class="" onClick="listClick(2)"> <img src="/center/img/member_center/left_icon_3.png">修改密码 </li>
+          <li id="listClick13" class="" onClick="listClick(13)"> <img src="/center/img/member_center/left_icon_13.png"> 兑换记录</li>
           
         </ul>
       </div>
@@ -216,7 +220,6 @@
 </form>
 </div>
 
-
 <div class="col-lg-9"  id="dingbo" style="display:none ;">
   <form action="/touxiang/{{session::get('id')}}" method="post" enctype="multipart/form-data">
   <div class="make_head_title">修改头像</div>
@@ -230,38 +233,87 @@
   </div>
   </div>
   </div>
- 
-    
- 
   </form>
 </div>
+
+
+<div class="col-lg-9"  id="jifen" style="display:none ;">
+<div class="my_info_title" >兑换记录
+ </div>
+<div class="my_info_title_3">
+  <ul>
+    
+  </ul>
+</div>
+<div class="my_info_content">
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="active">
+        <th class="text-center">商品名</th>
+        <th class="text-center">所需财富值</th>
+        <th class="text-center">状态</th>
+      </tr>
+    @foreach($dh as $v)
+      <tr>
+          <td class="am-hide-sm-only" style="text-align:center">{{$v->commodity['cname']}}</td>
+          <td class="am-hide-sm-only" style="text-align:center">{{$v->commodity['money']}}</td>
+          <td class="am-hide-sm-only" style="text-align:center">@if($v['rstate']==0) 未收货 @else 已收货 @endif</td>
+           {{csrf_field()}}
+      </tr>
+    @endforeach
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+
 <script type="text/javascript">
     function listClick(value){
         if(value == 4){
             $('#dbzl').css('display','none');
+            $('#jifen').css('display','none');
             $('#dingbo').css('display','');
             $('#ding').css('display','none');
             $('#listClick1').attr('class','');
             $('#listClick2').attr('class','');
             $('#listClick4').attr('class','menu_list_on');
+            $('#listClick13').attr('class','');
 
         }
         if(value == 1){
             $('#dbzl').css('display','');
+            $('#jifen').css('display','none');
             $('#dingbo').css('display','none');
             $('#ding').css('display','none');
             $('#listClick1').attr('class','menu_list_on');
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','');
+            $('#listClick13').attr('class','');
         }
         if(value == 2){
             $('#dbzl').css('display','none');
+            $('#jifen').css('display','none');
             $('#dingbo').css('display','none');
             $('#ding').css('display','');
             $('#listClick1').attr('class','');
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','menu_list_on');
+            $('#listClick13').attr('class','');
         }
+
+        if(value == 13){
+            $('#dbzl').css('display','none');
+            $('#dingbo').css('display','none');
+            $('#ding').css('display','none');
+            $('#jifen').css('display','');
+            $('#listClick1').attr('class','');
+            $('#listClick4').attr('class','');
+            $('#listClick2').attr('class','');
+            $('#listClick13').attr('class','menu_list_on');
+        }
+
+
     }
 </script>
 
