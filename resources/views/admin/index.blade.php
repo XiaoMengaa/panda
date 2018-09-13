@@ -373,6 +373,7 @@
         </li>
     </ul>
 </li>
+
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
@@ -404,13 +405,13 @@
         <li class=''>
             <a href='/admin/shangpin/create'>
                 <i class='icon-caret-right'></i>
-                <span>商品表添加</span>
+                <span>商品添加</span>
             </a>
         </li>
         <li class=''>
             <a href='/admin/shangpin'>
                 <i class='icon-caret-right'></i>
-                <span>商品表列表</span>
+                <span>商品列表</span>
             </a>
         </li>
     </ul>

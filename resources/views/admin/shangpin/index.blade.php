@@ -10,7 +10,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>商品表列表</span>
+                <span>商品列表</span>
             </h1>
 
             <div class='pull-right'>
@@ -41,7 +41,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>商品表列表</div>
+            <div class='title'>商品列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
