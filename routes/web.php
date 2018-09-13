@@ -144,11 +144,6 @@ Route::get('/home/shangcheng/shdz','HomeShangchengController@index');
 //前台商城兑换记录路由
 Route::post('/home/dhjl/create','HomeDhjlController@index');
 
-//前台商城主页路由
-Route::get('/home/shangcheng','HomeSpController@index');
-
-//前台商品展示路由
-Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 
 //前台网站配置组
 Route::group(['middleware'=>'spwzsz'],function(){
@@ -158,6 +153,8 @@ Route::get('/home/shangcheng','HomeSpController@index');
 
 //前台商品展示路由
 Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
+//商品详情路由
+Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
 Route::get('home/wzkg',function(){
