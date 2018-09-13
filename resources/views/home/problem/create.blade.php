@@ -86,7 +86,7 @@
             <div style="height: 50px;float: both;"></div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 592px">
-                    <input type="text" name="title">
+                    <input type="text" name="title" id="url">
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name">
@@ -96,7 +96,7 @@
             </div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 592px">
-                    <textarea class="form-control" rows="8" name="content"></textarea>
+                    <textarea class="form-control" rows="8" name="content" id="jieshao"></textarea>
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name" >
@@ -116,13 +116,28 @@
 
             <div class="row  clearfix"  style="text-align: right;">
                 <div class="span10 offset2">
-                    <input type="submit" name="submit" class="submit" value="提交">
+                    <input type="submit" name="submit" class="submit" value="提交" id="hh">
                 </div>
             </div>
             {{csrf_field()}}
             </form>
+            <script type="text/javascript">
+            var hh=document.getElementById("hh");
+            hh.onclick = function(){
+               var text=document.getElementById("url").value;
+               var text=document.getElementById("jieshao").value;//通过id获取需要验证的表单元素的值
+                   if(text==""){//当上面获取的值为空时
+                     alert("不能为空哦！");//弹出提示
+                     return false;//返回false（不提交表单）
+                   }else{
+                    return true;//提交表单
+                   }
+            }
+               
+            </script>
         </div>
     </section>
+    
     <script>
         $(".a-upload").on("change","input[type='file']",function(){
             var filePath=$(this).val();

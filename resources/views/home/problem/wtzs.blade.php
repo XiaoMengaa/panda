@@ -169,6 +169,20 @@ $("#w").click(function(){
 </div>
 {{csrf_field()}}
 </form>
+ <script type="text/javascript">
+            var hh=document.getElementById("submit");
+            hh.onclick = function(){
+               
+               var text=document.getElementById("comment").value;//通过id获取需要验证的表单元素的值
+                   if(text==""){//当上面获取的值为空时
+                     alert("请填写您宝贵的回答！");//弹出提示
+                     return false;//返回false（不提交表单）
+                   }else{
+                    return true;//提交表单
+                   }
+            }
+               
+            </script>
 
 </div>
 

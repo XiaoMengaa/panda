@@ -41,8 +41,6 @@ class FeedBackController extends Controller
      */
     public function store(Request $request)
     {
-        //
-   
    
         $fk = new Feedback;
 

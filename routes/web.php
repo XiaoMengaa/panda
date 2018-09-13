@@ -19,31 +19,22 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
-	//提问问题管理资源路由
-	Route::resource('/problem','ProblemController');
 
 	//前台提问问题
 	Route::get('/home/problem/create','HomeProblemController@create');
 
 	//前台回答回复
 	Route::get('/home/append/create/{id}','HomeProblemController@createreply');
-
-	//回答问题资源路由
-	Route::resource('/reply','ReplyController');
-	
-	//反馈后台资源
-	Route::resource('/fankui','FeedBackController');
 	
 	//采纳路由
 	Route::get('/home/server','HomeProblemController@caina');
 	
 	//前往用户个人中心
 	Route::get('/home/center','HomeProblemController@center');
+
+	//前台问题展示
+	Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 });
-
-
-
-
 
 //用户个人中心编辑
 Route::post('/home/{id}/update','HomeProblemController@update');
@@ -63,11 +54,11 @@ Route::get('/home/register','HomeController@register');
 //前台用户注册保存路由
 Route::post('/home/create','HomeController@create');
 
+//反馈后台资源
+Route::resource('/fankui','FeedBackController');
+
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');
-
-//前台问题展示
-Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
 //问题追加资源路由
 Route::resource('/append','AppendController');
@@ -91,8 +82,14 @@ Route::post('/admin/login', 'AdminController@dologin');
 //后台路由组
 Route::group(['middleware'=>'admin'],function(){
 
+//回答问题资源路由
+Route::resource('/reply','ReplyController');
+
 //后台路由
 Route::get('/admin','AdminController@index');
+
+//提问问题管理资源路由
+Route::resource('/problem','ProblemController');
 
 // 友情链接资源路由
 Route::resource('/admin/link','AdminLinkController');
@@ -129,6 +126,7 @@ Route::resource('/admin/shangcheng/shdz','AdminShangchengController');
 
 //后台商城兑换记录路由
 Route::resource('/admin/dhjl','AdminDuihuanController');
+
 });
 
 //商城前台路由

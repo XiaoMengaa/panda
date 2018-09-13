@@ -99,7 +99,7 @@ class HomeProblemController extends Controller
         //校验密码
         if(Hash::check($request->password, $user->password)){
             //写入session
-            session(['username'=>$user->username, 'id'=>$user->id]);
+            session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
             return redirect('home/problemlist')->with('success','登录成功');
         }else{
             return back()->with('error','登录失败!');
@@ -164,6 +164,7 @@ class HomeProblemController extends Controller
             if($request->password == $request->pass){
                 $user->password = Hash::make($request->password);
                 $user->save();
+                Session()->flush();
                 return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
                     }
            }
