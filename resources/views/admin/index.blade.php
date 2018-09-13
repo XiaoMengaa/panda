@@ -398,7 +398,7 @@
 <li>
     <a class='dropdown-collapse ' href='#'>
         <i class='icon-tint'></i>
-        <span>商品表</span>
+        <span>商品管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
     <ul class='nav nav-stacked'>
