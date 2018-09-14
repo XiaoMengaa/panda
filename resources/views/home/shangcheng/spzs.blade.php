@@ -1,10 +1,11 @@
 @include('home.shangpin_top')
             <div class="header-bottom-area" style="padding:0px">
                 <div class="container">
+
                     <div class="row" >
                         <div class="col-md-3 col-xs-12">
                             <div class="logo pad-logo final-mrg" >
-                                <a href="index.html"><img src="/image/panda.jpg" alt="" width="120px" /></a>
+                                <img src="/image/panda.jpg" alt="" width="120px" />
                             </div>
                         </div>
                         <div class="col-md-9 col-xs-12">
@@ -13,30 +14,10 @@
                                 <div class="cart-total">
                                     <ul>
                                         <li>
-                                            <a href="/home/dhjl/create">
+                                            <a href="/home/center">
                                                 <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
                                                 <span class="cart-no">我的订单</span>
                                             </a>
-                                            <div class="mini-cart-content">
-                                               
-                                                <div class="clear"></div>
-                                                <div class="cart-img-details">                                          
-                                                    <div class="cart-img-photo">
-                                                        <a href="#"><img src="/shangcheng/img/product/2.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-img-contaent">
-                                                        <a href="#"><h4>Printed...</h4></a>
-                                                        <span>£50.00</span>
-                                                    </div>
-                                                    <div class="pro-del"><a href="#"><i class="fa fa-times-circle"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-inner-bottom">
-                                                    <p class="total">Total: <span class="amount">£ 56.28</span></p>
-                                                    <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">Checkout</a></p>
-                                                </div>
-                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -64,6 +45,7 @@
             </div> <!-- End Header Bottom Area  -->
             <div class="mainmenu-area find">
                 <div class="container">
+                    <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/shangcheng" target="_self" style="color:white;">首页</a></div>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mainmenu-left visible-lg  visible-md">
@@ -96,25 +78,23 @@
                         <!-- Slider Image -->
                         <div class="slider">
                             <div id="mainSlider" class="nivoSlider slider-image">
-                                <img src="/shangcheng/img/slider/1.jpg" alt="main slider" title="#htmlcaption1"/>
-                                <img src="/shangcheng/img/slider/2.jpg" alt="main slider" title="#htmlcaption2"/>
+                                <img src="/image/17.png" alt="main slider" title="#htmlcaption1"/>
+                                <img src="/image/15.png" alt="main slider" title="#htmlcaption2"/>
                             </div>
                             <!-- Slider Caption 1 -->
                             <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
                                 <div class="slider-progress"></div> 
                                 <div class="slide1-text">
                                     <div class="middle-text desc1">
-                                        <div class="cap-title wow zoomInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                                            <p class="title-1">字幕</p>
-                                        </div>  
+                                        
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                                            <p class="title-2">字幕</p>
+                                            <p class="title-2" style="font-size:35px;color:#99ccff" >4K HDR | 人工智能语音系统 | 海量片源</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft hidden-xs" data-wow-duration="1.3s" data-wow-delay=".5s">
-                                            <p class="title-3">字 <br>字幕</p>
+                                            <p class="title-3" style="color:#0000cc">声音更有立体感<br>观影更有临场感</p>
                                         </div>
                                         <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
-                                            <a href="/home/spxx/1">立即购买</a>
+                                            <a href="/home/spxx/30" style="color:#ddd">查看详情</a>
                                         </div>  
                                     </div>  
                                 </div>
@@ -125,16 +105,16 @@
                                 <div class="slide1-text">
                                     <div class="middle-text desc2">
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                                            <p class="title-1">字幕</p>
+                                            <p class="title-1" style="color:yellow">罗伯特车载空气净化器</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                                            <p class="title-2">字幕</p>
+                                            <p class="title-2">净化效果好才是硬道理</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft hidden-xs" data-wow-duration="1.3s" data-wow-delay=".5s">
-                                            <p class="title-3">字幕<br>字幕</p>
+                                            <p class="title-3" style="font-size:20px;color:#0000cc">强劲动力<br>高效净化</p>
                                         </div>
                                         <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
-                                            <a href="/home/spxx/2">立即购买</a>
+                                            <a href="/home/spxx/28" style="color:#ddd">查看详情</a>
                                         </div>  
                                     </div>  
                                 </div>
@@ -180,7 +160,7 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-ratings">
+                                                        <div class="product-ratings" style="width:170px;height:80px ;overflow: hidden">
                                                             {{$v['cdetails']}}
                                                         </div>
                                                         <div class="product-price">
@@ -190,7 +170,7 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/shangcheng/more"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>
@@ -234,49 +214,3 @@
       
         <!-- End Banner Area -->
 @include('home.shangpin_foot')
-
-<div class="favourite-carousel"> 
-    @foreach($spb as $v)
-    <div class="col-md-8" style="float:right">
-       
-        <div class="single-product" >
-            <div class="product-img">
-                <a href="#">
-                    <img src="{{$v['cpic']}}" width="150" />
-                    <span class="new-box">新款</span>
-                </a>
-                <div class="quick-preview">
-                    <a href="#myModal" data-toggle="modal">快速浏览</a>
-                </div>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">
-                    <a href="#">{{$v['cname']}}</a>
-                </h5>
-                <div class="product-ratings">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <div class="product-ratings">
-                    {{$v['cdetails']}}
-                </div>
-                <div class="product-price">
-                    <h2>
-                        所需财富值:{{$v['money']}}
-                    </h2>
-                </div>
-                <div class="product-action">
-                    <ul>
-                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
-                        <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-    @endforeach
