@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
+use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminShangchengController extends Controller
 {
@@ -13,7 +16,9 @@ class AdminShangchengController extends Controller
      */
     public function index()
     {
-        //
+        $message=Message::all();
+        $address=Address::all();
+        return view('/admin/shangcheng/shdz', ['message'=>$message ,'address'=>$address]);
     }
 
     /**
@@ -80,5 +85,20 @@ class AdminShangchengController extends Controller
     public function destroy($id)
     {
         //
+        $address =Address::findOrFail(request()->aid);
+        $message=Message::findOrFail($id);
+        DB::beginTransaction();
+        if($address->delete()){
+                if($message -> delete()){
+                    DB::commit();
+                  return back()->with('success','删除成功');  
+              }else{
+                DB::rollBack();
+            return back()->with('error','删除失败');
+              }
+        }else{
+            DB::rollBack();
+            return back()->with('error','删除失败');
+        }
     }
 }

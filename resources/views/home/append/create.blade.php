@@ -74,7 +74,7 @@
             <div style="height: 50px;float: both;"></div>
             <div class="row clearfix">
                 <div class="ctrl" style="float: right;width: 570px">
-                    <textarea name="content" cols="30" rows="10"></textarea>
+                    <textarea name="content" cols="30" rows="10" id="hufui"></textarea>
                 </div>
                 <div class="lbl"  style="float:left;">
                     <label for="name">
@@ -87,11 +87,25 @@
                 <div class="span10 offset2">
                     <input type="hidden" name="id" value="{{$id}}">
                     <input type="hidden" name="pid" value="{{$pid}}">
-                    <input type="submit" class="submit" value="提交">
+                    <input type="submit" class="submit" id="hh" value="提交">
                 </div>
             </div>
             {{csrf_field()}}
             </form>
+             <script type="text/javascript">
+            var hh=document.getElementById("hh");
+            hh.onclick = function(){
+               
+               var text=document.getElementById("hufui").value;//通过id获取需要验证的表单元素的值
+                   if(text==""){//当上面获取的值为空时
+                     alert("请填写您要回复的内容！");//弹出提示
+                     return false;//返回false（不提交表单）
+                   }else{
+                    return true;//提交表单
+                   }
+            }
+               
+            </script>
         </div>
     </section>
     

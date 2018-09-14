@@ -48,7 +48,7 @@
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品名称:</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cname' placeholder='输入商品名称' type='text' />
+                                        <input style="height: 30px" data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cname' placeholder='输入商品名称' type='text' />
                                     </div>
                                 </div>
 
@@ -74,7 +74,7 @@
                                <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品定价财富值:</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='money' type='text' />
+                                        <input style="height: 30px" data-rule-minlength='2' data-rule-required='true' id='validation_name' name='money' type='text' />
                                     </div>
                                 </div>
 
