@@ -125,10 +125,10 @@ class HomeProblemController extends Controller
     public function center(Request $request)
     {
       
-       $dh = Record::all();
+       
        $id = \Session::get('id');
        $user = User::find($id);
-
+       $dh = Record::where('user_id','=',$user->id)->get();
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
        return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh]);
 
@@ -188,4 +188,14 @@ class HomeProblemController extends Controller
         }
     }
 
+
+    public function qrsh(Request $request)
+    {
+        $request -> id;
+        $dh = Record::find($request -> id);
+        $dh -> rstate = '1';
+        if($dh->save()){
+            return back()->with('success','收货成功');
+        }
+    }
 }
