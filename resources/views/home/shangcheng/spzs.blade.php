@@ -13,30 +13,10 @@
                                 <div class="cart-total">
                                     <ul>
                                         <li>
-                                            <a href="/home/dhjl/create">
+                                            <a href="/home/center">
                                                 <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
                                                 <span class="cart-no">我的订单</span>
                                             </a>
-                                            <div class="mini-cart-content">
-                                               
-                                                <div class="clear"></div>
-                                                <div class="cart-img-details">                                          
-                                                    <div class="cart-img-photo">
-                                                        <a href="#"><img src="/shangcheng/img/product/2.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-img-contaent">
-                                                        <a href="#"><h4>Printed...</h4></a>
-                                                        <span>£50.00</span>
-                                                    </div>
-                                                    <div class="pro-del"><a href="#"><i class="fa fa-times-circle"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-inner-bottom">
-                                                    <p class="total">Total: <span class="amount">£ 56.28</span></p>
-                                                    <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">查看</a></p>
-                                                </div>
-                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -180,7 +160,7 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-ratings">
+                                                        <div class="product-ratings" style="width:170px;height:80px ;overflow: hidden">
                                                             {{$v['cdetails']}}
                                                         </div>
                                                         <div class="product-price">
@@ -190,7 +170,7 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/shangcheng/more"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>

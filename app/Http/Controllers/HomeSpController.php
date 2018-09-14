@@ -38,8 +38,8 @@ class HomeSpController extends Controller
     { 
         // dd($id);
       $spb = Commodity::findOrFail($id);
-      
       $sp = Spcate::all();
-      return view('home.shangcheng.spxx',compact('sp','spb'));
+      $spxx = Commodity::where('spcate_id','=',$id)->get();
+      return view('home.shangcheng.spxx',compact('sp','spb','spxx'));
     }
 }
