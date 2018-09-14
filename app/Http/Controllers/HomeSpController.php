@@ -37,8 +37,10 @@ class HomeSpController extends Controller
      public function xiangqing(Request $request,$id)
     { 
         // dd($id);
-      $spb = Commodity::where('spcate_id','=',$id)->get();
+      $spb = Commodity::findOrFail($id);
+     
       $sp = Spcate::all();
-      return view('home.shangcheng.spxx',compact('sp','spb'));
+      $spxx = Commodity::where('spcate_id','=',$spb->spcate_id)->get();
+      return view('home.shangcheng.spxx',compact('sp','spb','spxx'));
     }
 }

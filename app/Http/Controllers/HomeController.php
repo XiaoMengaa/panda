@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
+use App\Commodity;
+use App\Message;
 use App\User;
 use App\Wealth;
 use Illuminate\Http\Request;
@@ -43,10 +46,20 @@ class HomeController extends Controller
             return back()->with('error','注册失败');
         }   
     }
-    public function dingdanguanli()
-    {
-        
-    }
+     
+       
 
+     public function dingdanguanli()
+     {  
+        // $message=Message::find($id);
+     
+        $message =Message::where( 'id','=',request()->address)->get()->first();
+        $address=Address::where('message_id','=',$message->id)->get()->first();
+        $commoditie=Commodity::findOrFail(request()->id); 
+
+        // dd($address);
+       return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
+
+     }
 }
 

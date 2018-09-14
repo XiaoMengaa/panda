@@ -4,12 +4,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Donan || Home 1</title>
+        <title>熊猫商城</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
         ============================================ -->        
-        <link rel="shortcut icon" type="image/x-icon" href="/shangcheng/img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/image/panda.jpg">
         
         <!-- google fonts here -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"> 
@@ -52,14 +52,30 @@
                             <div class="header-top-left">
                                 <ul>
                                   
-                                    <li><a href="#">我的账户</a>
-                                        <ul>
-                                            <li><a href="#">我的账户</a></li>
-                                            <li><a href="#">愿望清单</a></li>
-                                            <li><a href="#">结账</a></li>
-                                            <li><a href="#">登录</a></li>
-                                        </ul>
-                                    </li>
+                                    <li>@if(!Session::has('id'))<a href="/home/login">登录</a>@endif
+                                                                @if(Session::has('id'))<a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                                                                
+                            <img  height='23' src='{{Session::get('pic')}}' width='23' />
+                            <span class='user-name hidden-phone'>{{Session::get('username')}}</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        
+                            <li>
+                                <a href="/home/center">
+                                    <i class="icon-user"></i>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/home/shangcheng">
+                                    <i class="icon-signout"></i>
+                                    退出
+                                </a>
+                            </li>
+                            
+                        </ul>@endif
                                 </ul>
                             </div>
                         </div>
