@@ -84,8 +84,10 @@
 					$(this).css('background-size', '245px 130px').siblings('.add_mi').css('background-size', '245px 130px');
 				})
 				$('.Caddress .add_mi').click(function() {
+					var jxzl = $(this).attr('nihao');
 					if(confirm("确定使用该地址?")){
-		 　　			console.log($(this).attr('xuzong'));
+                          
+		 　　		window.location.href='/home/dingdanguanli?address='+jxzl;
 					}
 					
 				});
@@ -406,7 +408,8 @@
 				<a href="/home/shangcheng/shdz"><button class="open_btn" onclick="javascript:onclick_open();">添加新地址</button></a>
 			</div>
 			@foreach($message as $v)
-			<div class="add_mi" xuzong='{{$v->id}}' style="margin-bottom: 10px;">
+			
+			<div class="add_mi" xuzong='{{$v->id}}' style="margin-bottom: 10px;" nihao="{{$v->id}}">
 				<p style="border-bottom:1px dashed #ccc;line-height:28px;">{{$v['name']}}</p>
 				<p> {{$v->address['sname']}}{{$v->address['cname']}}{{$v->address['zname']}}{{$v->address['xname']}}{{$v->address['xxdz']}}{{$v['phone']}}&nbsp; &nbsp;{{$v['bphone']}}</p>
 				
@@ -420,6 +423,7 @@
               </div>
 			</div>
 			@endforeach
+		
 		</div>
 
 	
