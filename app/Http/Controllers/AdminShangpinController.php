@@ -15,7 +15,7 @@ class AdminShangpinController extends Controller
      */
     public function index()
     {
-      $shangpin = Commodity::OrderBy('id','desc')->get();
+      $shangpin = Commodity::OrderBy('id','desc')->where('cname','like','%'.request()->cname.'%')->paginate(10);
       $spcate = Spcate::all();
      
       return view('admin.shangpin.index',['shangpin'=>$shangpin, 'spcate'=>$spcate]);
