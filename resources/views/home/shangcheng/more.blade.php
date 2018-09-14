@@ -89,10 +89,11 @@
 					var jxzl = $(this).attr('nihao');
 					if(confirm("确定使用该地址?")){
                           
-		 　　		window.location.href='/home/dingdanguanli?address='+jxzl+'&id='+{{request()->id}};
+		 　　			window.location.href='/home/dingdanguanli?address='+jxzl+'&id='+{{request()->id}};
 					}
 					
-				});
+				})
+
 			})
 			var x = Array();
 
