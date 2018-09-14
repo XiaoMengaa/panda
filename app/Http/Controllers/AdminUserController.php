@@ -173,10 +173,11 @@ class AdminUserController extends Controller
         // var_dump($yhxq);
        // dd($user);;
          $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+         $jifen = Wealth::where('user_id','=',$user->id)->get()->first();
         if($user->delete()){
         
            if($yhxq){
-              if($yhxq->delete()){
+              if($yhxq->delete() && $jifen->delete()){
                 DB::commit();
                 return back()->with('success','删除成功');
                 }

@@ -92,6 +92,12 @@ class HomeProblemController extends Controller
         }
 
 
+        if($Udetails = Udetails::where('user_id','=',$user->id)->get()->first()){
+          $Udetails = Udetails::where('user_id','=',$user->id)->get()->first()->jurisdiction;  
+        }
+        
+
+
 
 
         if(Udetails::where('user_id','=',$user->id)->get()->first()){
@@ -100,7 +106,7 @@ class HomeProblemController extends Controller
         //校验密码
         if(Hash::check($request->password, $user->password)){
             //写入session
-            session(['username'=>$user->username, 'id'=>$user->id]);
+            session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
             return redirect('home/problemlist')->with('success','登录成功');
         }else{
             return back()->with('error','登录失败!');
@@ -122,40 +128,12 @@ class HomeProblemController extends Controller
        $dh = Record::all();
        $id = \Session::get('id');
        $user = User::find($id);
+
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
        return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh]);
 
     }
 
-    public function update(Request $request,$id){
-        
-        $user = User::findOrFail($id);
-         
-        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
-        if(!$yhxq){
-            $yhxq = new Udetails;
-             
-        }
-        $yhxq -> user_id =$user->id;
-        $yhxq -> sex = $request->sex;
-        $yhxq -> synopsis = $request->synopsis;
-        $yhxq -> phone = $request->phone;
-        $yhxq -> email = $request->email;
-        if($request->jurisdiction){
-           $yhxq -> jurisdiction = $request->jurisdiction; 
-        }
-        
-         if($user->save()){
-            if($yhxq->save()){
-                return back()->with('success','更新成功');
-            }else{
-                return back()->with('error','更新失败');
-            }
-        }else{
-            return back()->with('error','更新失败');
-        } 
-        
-    }
 
     public function xgmm(Request $request)
     {
@@ -165,6 +143,7 @@ class HomeProblemController extends Controller
             if($request->password == $request->pass){
                 $user->password = Hash::make($request->password);
                 $user->save();
+                Session()->flush();
                 return redirect('/home/login')->with('success','修改密码成功,请重新登陆');
                     }
            }
@@ -186,7 +165,10 @@ class HomeProblemController extends Controller
                 }else{
                     DB::rollBack();
                 }
-             }
+            }
+            
+         }else{
+            rollBack();
          }
     }
 
