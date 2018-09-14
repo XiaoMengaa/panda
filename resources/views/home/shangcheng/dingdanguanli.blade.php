@@ -71,8 +71,10 @@
  </ul>
 </form>
 </div>
-<form id="J_Form" name="J_Form" action="/home/dhjl/create?id={{$commoditie['id']}}" method="get">
+<form id="J_Form" name="J_Form" action="/home/dhjl/create" method="get">
+
  <input name='_tb_token_' type='hidden' value='IZpONoL2bm'>
+ <input name='id' type='hidden' value='{{$commoditie->id}}'>
  <input type="hidden" name="action" value="order/confirmOrderAction" />
  <input type="hidden" name="event_submit_do_confirm" value="1" />
  <input type="hidden" id="J_InsuranceDatas" name="insurance_datas" value="" />
@@ -330,6 +332,8 @@
      {
       if(confirm("兑换成功")){
               
+      }else{
+        return false;
       }
       
       
