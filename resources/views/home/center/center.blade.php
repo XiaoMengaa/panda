@@ -28,6 +28,7 @@
 
 <link href="/center/css/bootstrap.min.css" rel="stylesheet">
 <link href="/center/css/crowdfunding.center/integration_rule.css" rel="stylesheet">
+<link href="/center/css/crowdfunding.center/investment_inquiry.css" rel="stylesheet">
 
 </head>
 <body>
@@ -75,6 +76,8 @@
           <li id="listClick4" class=""  onClick="listClick(4)"> <img src="/center/img/member_center/left_icon_2.png">修改头像</li>
           <li id="listClick2" class="" onClick="listClick(2)"> <img src="/center/img/member_center/left_icon_3.png">修改密码 </li>
           <li id="listClick13" class="" onClick="listClick(13)"> <img src="/center/img/member_center/left_icon_13.png"> 兑换记录</li>
+          <li id="listClick9" class="" onClick="listClick(9)"> <img src="/center/img/member_center/left_icon_9.png">我的问题</li>
+          <li id="listClick6" class="" onClick="listClick(6)"><img src="/center/img/member_center/left_icon_6.png">我的回答</li>
           
         </ul>
       </div>
@@ -268,9 +271,70 @@
 </div>
 
 
+<div class="col-lg-9"  id="wenti" style="display:none ;">
+<div class="my_info_title">我的问题</div>
+<div class="my_info_title_3">
+  <ul>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">全部问题</li>
+  </ul>
+</div>
+<div class="my_info_content">
+     <table class="table table-bordered">
+    <tbody>
+      @foreach($problem as $val)
+      <tr class="active">
+       <th class="text-center"><a href="/home/problem/{{$val->id}}">{{$val['title']}}</a></th>
+      </tr>
+      {{csrf_field()}}
+      @endforeach
+    </tbody>
+  </table>
+ </div>
+</div>
+
+
+
+<div class="col-lg-9"  id="huida" style="display:none ;">
+<div class="my_info_title">我的回答</div>
+<div class="my_info_title_3">
+  <ul>
+    <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">回答</li>
+  </ul>
+</div>
+<div class="my_info_content">
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="active">
+        <th class="text-center">问题ID</th>
+        <th class="text-center">回答内容</th>
+        <th class="text-center">回答状态</th>
+        <th class="text-center">点赞数</th>
+        <th class="text-center">被点赞数</th>
+        
+      </tr>
+    @foreach($reply as $va)
+      <tr>
+          <td class="am-hide-sm-only" style="text-align:center">{{$va['problem_id']}}</td>
+          <td class="am-hide-sm-only" style="text-align:center">{{$va['content']}}</td>
+          <td class="am-hide-sm-only" style="text-align:center">@if($va['state']==0)采纳 @else 已采纳 @endif</td>
+          <td class="am-hide-sm-only" style="text-align:center">{{$va['fabulous']}}</td>
+          <td class="am-hide-sm-only" style="text-align:center">{{$va['tread']}}</td>
+      </tr>
+    {{csrf_field()}}
+    @endforeach
+
+    </tbody>
+  </table>
+ 
+</div>
+</div>
+
+
 <script type="text/javascript">
     function listClick(value){
         if(value == 4){
+            $('#wenti').css('display','none');
+            $('#huida').css('display','none');
             $('#dbzl').css('display','none');
             $('#jifen').css('display','none');
             $('#dingbo').css('display','');
@@ -279,9 +343,12 @@
             $('#listClick2').attr('class','');
             $('#listClick4').attr('class','menu_list_on');
             $('#listClick13').attr('class','');
+            $('#listClick6').attr('class','');
 
         }
         if(value == 1){
+            $('#wenti').css('display','none');
+            $('#huida').css('display','none');
             $('#dbzl').css('display','');
             $('#jifen').css('display','none');
             $('#dingbo').css('display','none');
@@ -290,8 +357,12 @@
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','');
             $('#listClick13').attr('class','');
+            $('#listClick6').attr('class','');
+           
         }
         if(value == 2){
+            $('#wenti').css('display','none');
+            $('#huida').css('display','none');
             $('#dbzl').css('display','none');
             $('#jifen').css('display','none');
             $('#dingbo').css('display','none');
@@ -300,9 +371,13 @@
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','menu_list_on');
             $('#listClick13').attr('class','');
+             $('#listClick6').attr('class','');
+           
         }
 
         if(value == 13){
+            $('#wenti').css('display','none');
+            $('#huida').css('display','none');
             $('#dbzl').css('display','none');
             $('#dingbo').css('display','none');
             $('#ding').css('display','none');
@@ -310,7 +385,41 @@
             $('#listClick1').attr('class','');
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','');
+            $('#listClick6').attr('class','');
+            $('#listClick9').attr('class','');
             $('#listClick13').attr('class','menu_list_on');
+        }
+
+
+        if(value == 9){
+            $('#wenti').css('display','');
+            $('#huida').css('display','none');
+            $('#dbzl').css('display','none');
+            $('#dingbo').css('display','none');
+            $('#ding').css('display','none');
+            $('#jifen').css('display','none');
+            $('#listClick1').attr('class','');
+            $('#listClick4').attr('class','');
+            $('#listClick2').attr('class','');
+            $('#listClick13').attr('class','');
+            $('#listClick6').attr('class','');
+            $('#listClick9').attr('class','menu_list_on');
+            
+        }
+
+         if(value == 6){
+            $('#huida').css('display','');
+            $('#wenti').css('display','none');
+            $('#dbzl').css('display','none');
+            $('#dingbo').css('display','none');
+            $('#ding').css('display','none');
+            $('#jifen').css('display','none');
+            $('#listClick1').attr('class','');
+            $('#listClick4').attr('class','');
+            $('#listClick2').attr('class','');
+            $('#listClick13').attr('class','');
+            $('#listClick9').attr('class','');
+            $('#listClick6').attr('class','menu_list_on');
         }
 
 
