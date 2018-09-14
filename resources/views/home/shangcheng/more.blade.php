@@ -34,6 +34,8 @@
         <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="/sanjiliandong/script/jquery.citys.js"></script>
     </head>
+   
+
      <script type="text/javascript">
 			$(function() {
 				var region = $("#region");
@@ -87,7 +89,7 @@
 					var jxzl = $(this).attr('nihao');
 					if(confirm("确定使用该地址?")){
                           
-		 　　		window.location.href='/home/dingdanguanli?address='+jxzl;
+		 　　		window.location.href='/home/dingdanguanli?address='+jxzl+'&id='+{{request()->id}};
 					}
 					
 				});

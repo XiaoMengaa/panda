@@ -71,7 +71,7 @@
  </ul>
 </form>
 </div>
-<form id="J_Form" name="J_Form" action="/home/center" method="get">
+<form id="J_Form" name="J_Form" action="home/dhjl/create" method="get">
  <input name='_tb_token_' type='hidden' value='IZpONoL2bm'>
  <input type="hidden" name="action" value="order/confirmOrderAction" />
  <input type="hidden" name="event_submit_do_confirm" value="1" />
@@ -175,6 +175,8 @@
 </tr>
  <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0">
  <td class="s-title">
+     <li> {{$commoditie['cname']}}</li>
+          
    
 
     <a title="消费者保障服务，卖家承诺商品如实描述" href="#" target="_blank">
@@ -187,7 +189,7 @@
  <td class="s-price">
    
   <span class='price '>
- <em class="style-normal-small-black J_ItemPrice"  >630.00</em>
+ <em class="style-normal-small-black J_ItemPrice"  >{{$commoditie['money']}}</em>
   </span>
 <input type="hidden" name="costprice" value="630.00" class="J_CostPrice" />
 </td>
@@ -201,7 +203,7 @@
  <td class="s-total">
    
    <span class='price '>
- <em class="style-normal-bold-red J_ItemTotal "  >630.00</em>
+ <em class="style-normal-bold-red J_ItemTotal "  >{{$commoditie['money']}}</em>
   </span>
     <input id="furniture_service_list_b_47285539868" type="hidden" name="furniture_service_list_b_47285539868"/>
  </td>
@@ -255,7 +257,7 @@
 <tr class="shop-total blue-line">
  <td colspan="5">合计(<span class="J_Exclude" style="display: none">不</span>含运费<span class="J_ServiceText" style="display: none">，服务费</span>)：
    <span class='price g_price '>
- <span>&yen;</span><em class="style-middle-bold-red J_ShopTotal"  >630.00</em>
+ <span>&yen;</span><em class="style-middle-bold-red J_ShopTotal"  >{{$commoditie['money']}}</em>
   </span>
   <input type="hidden" name="1704508670:2|creditcard" value="false" />
 <input type="hidden" id="J_IsLadderGroup" name="isLadderGroup" value="false"/>
@@ -275,7 +277,7 @@
  <div class="point-in">
    
    <em class="t">实付币：</em>  <span class='price g_price '>
- <span>&yen;</span><em class="style-large-bold-red"  id="J_ActualFee"  >630.00</em>
+ <span>&yen;</span><em class="style-large-bold-red"  id="J_ActualFee"  >{{$commoditie['money']}}</em>
   </span>
 </div>
 
@@ -283,10 +285,10 @@
  <li><em>寄送至:</em><span id="J_AddrConfirm" style="word-break: break-all;">
    {{$message->address['sname']}} {{$message->address['cname']}}{{$message->address['xname']}}{{$message->address['zname']}} {{$message->address['xxdz']}}
    </span></li>
- <li><em>收货人:</em><span id="J_AddrNameConfirm">{{$message['xname']}} {{$message['phone']}}{{$message['bphone']}} </span></li>
+ <li><em>收货人:</em><span id="J_AddrNameConfirm">{{$message['xname']}}{{$message['phone']}}&nbsp; &nbsp;   &nbsp; &nbsp;      {{$message['bphone']}} </span></li>
  </ul>
      </div>
- </div>
+ </div> 
          <a href="/home/shangcheng"
  class="back J_MakePoint" target="_top"
  data-point-url="">返回商品页</a>

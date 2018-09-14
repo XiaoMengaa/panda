@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Commodity;
 use App\Message;
 use App\User;
 use App\Wealth;
@@ -53,8 +54,10 @@ class HomeController extends Controller
            
               $message =Message::where( 'id','=',request()->address)->get()->first();
               $address=Address::where('message_id','=',$message->id)->get()->first();
+              $commoditie=Commodity::findOrFail(request()->id); 
+
               // dd($address);
-             return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address]);
+             return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
 
            }
 }
