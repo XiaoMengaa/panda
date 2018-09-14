@@ -155,7 +155,7 @@ Route::get('/home/shangcheng/update/{id}','HomeShangchengController@update');
 //删除
 Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
 
-//前台商城兑换记录路由
+//前台商城兑换路由
 Route::get('/home/dhjl/create','HomeDhjlController@index');
 
 
