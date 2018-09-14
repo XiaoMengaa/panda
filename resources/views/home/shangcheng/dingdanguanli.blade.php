@@ -71,7 +71,7 @@
  </ul>
 </form>
 </div>
-<form id="J_Form" name="J_Form" action="home/dhjl/create" method="get">
+<form id="J_Form" name="J_Form" action="/home/dhjl/create?id={{$commoditie['id']}}" method="get">
  <input name='_tb_token_' type='hidden' value='IZpONoL2bm'>
  <input type="hidden" name="action" value="order/confirmOrderAction" />
  <input type="hidden" name="event_submit_do_confirm" value="1" />
