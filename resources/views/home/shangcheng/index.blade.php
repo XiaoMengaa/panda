@@ -34,7 +34,7 @@
                                                 <div class="cart-inner-bottom">
                                                     <p class="total">Total: <span class="amount">£ 56.28</span></p>
                                                     <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">Checkout</a></p>
+                                                    <p class="cart-button-top"><a href="checkout.html">查看</a></p>
                                                 </div>
                                             </div>
                                         </li>
@@ -163,17 +163,15 @@
                                                
                                                 <div class="single-product" >
                                                     <div class="product-img">
-                                                        <a href="#">
+                                                        <a href="/home/spxx/{{$v['id']}}">
                                                             <img src="{{$v['cpic']}}" width="150" />
                                                             <span class="new-box">新款</span>
                                                         </a>
-                                                        <div class="quick-preview">
-                                                            <a href="#myModal" data-toggle="modal">快速浏览</a>
-                                                        </div>
+                                                     
                                                     </div>
                                                     <div class="product-content">
                                                         <h5 class="product-name">
-                                                            <a href="#">{{$v['cname']}}</a>
+                                                            <a href="/home/spxx/{{$v['id']}}">{{$v['cname']}}</a>
                                                         </h5>
                                                         <div class="product-ratings">
                                                             <i class="fa fa-star"></i>

@@ -34,7 +34,7 @@
                                                 <div class="cart-inner-bottom">
                                                     <p class="total">Total: <span class="amount">£ 56.28</span></p>
                                                     <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">Checkout</a></p>
+                                                    <p class="cart-button-top"><a href="checkout.html">查看</a></p>
                                                 </div>
                                             </div>
                                         </li>
@@ -93,11 +93,39 @@
                     <div class="col-md-9 col-md-offset-3">
                         <!-- Slider Image -->
                         <div class="slider">
-                            <div > 
-                                @foreach($spb as $v)
-                                  <img src="{{$v['cpic']}}" width="250" />
-                                @endforeach
+                            <div style="float:right;width:280px;height: 200px ;margin-right:100px">
+                                <span style="font-size:25px";>
+                                    <p style="font-size:25px">【熊猫商城】&nbsp;{{$spb['cname']}}</p>
+                                    <br>
+                                <div>
+                                    <p style="font-size: 15px">介绍:{{$spb['cdetails']}}</p>
+                                </div>
+                                    <br>
+                                <div class="product-ratings">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <br><br>
+                                <div class="product-ratings">
+                                    <b style="font-size:20px">所需财富值:</b><b style="color:red;font-size:40px">{{$spb['money']}}</b>
+                                </div>
+                                <br><br><br><br><br><br><br><br><br>
+                                 <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
+                                            <a href="/home/shangcheng/shdz">立即兑换</a>
+                                        </div>  
+                                </span>
+
                             </div>
+                        
+                            <div > 
+                                
+                                <img src="{{$spb['cpic']}}" width="450" />
+                                
+                            </div>
+                           
                         </div>  
                     </div>
                 </div>
@@ -164,47 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="women">
-                                <div class="favourite-product">
-                                    <div class="row">
-                                        <div class="favourite-carousel">
-                                            <div class="col-md-12">
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        <a href="#">
-                                                            <img src="/shangcheng/img/product/1.jpg" alt="" />
-                                                            <span class="new-box">new</span>
-                                                        </a>
-                                                        <div class="quick-preview">
-                                                            <a href="#myModal" data-toggle="modal">快速浏览</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-content">
-                                                        <h5 class="product-name">
-                                                            <a href="#">Printed Chiffon Dress</a>
-                                                        </h5>
-                                                        <div class="product-ratings">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <h2>
-                                                                £ 19.68
-                                                                <del> £ 24.60 </del>
-                                                            </h2>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
-            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -214,49 +202,3 @@
       
         <!-- End Banner Area -->
 @include('home.shangpin_foot')
-
-<div class="favourite-carousel"> 
-    @foreach($spb as $v)
-    <div class="col-md-8" style="float:right">
-       
-        <div class="single-product" >
-            <div class="product-img">
-                <a href="#">
-                    <img src="{{$v['cpic']}}" width="150" />
-                    <span class="new-box">新款</span>
-                </a>
-                <div class="quick-preview">
-                    <a href="#myModal" data-toggle="modal">快速浏览</a>
-                </div>
-            </div>
-            <div class="product-content">
-                <h5 class="product-name">
-                    <a href="#">{{$v['cname']}}</a>
-                </h5>
-                <div class="product-ratings">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <div class="product-ratings">
-                    {{$v['cdetails']}}
-                </div>
-                <div class="product-price">
-                    <h2>
-                        所需财富值:{{$v['money']}}
-                    </h2>
-                </div>
-                <div class="product-action">
-                    <ul>
-                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
-                        <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-    @endforeach
