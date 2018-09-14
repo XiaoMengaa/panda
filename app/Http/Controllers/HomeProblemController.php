@@ -127,13 +127,14 @@ class HomeProblemController extends Controller
 
     public function center(Request $request)
     {
-      
-       
+
        $id = \Session::get('id');
        $user = User::find($id);
+       $problem = Problem::where('user_id','=',$user->id)->get();
+       $reply = Reply::where('user_id','=',$user->id)->get();
        $dh = Record::where('user_id','=',$user->id)->get();
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
-       return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh]);
+       return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh,'problem'=>$problem,'reply'=>$reply]);
 
     }
 
