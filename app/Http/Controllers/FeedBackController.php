@@ -45,13 +45,13 @@ class FeedBackController extends Controller
         $fk = new Feedback;
 
         $fk -> content = $request-> content;
-        $fk -> user_id = 1;
+        $fk -> user_id = \Session::get('id');
        
 
         if($fk -> save()){
             return redirect('/home/problemlist')->with('success', '反馈成功,请耐心等待!');
         }else{
-            return back()->with('error','添加失败');
+            return back()->with('error','反馈失败');
         }
     
     }

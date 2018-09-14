@@ -1,10 +1,10 @@
 @include('home.shangpin_top')
             <div class="header-bottom-area" style="padding:0px">
                 <div class="container">
-                    <div class="row" >
+
                         <div class="col-md-3 col-xs-12">
                             <div class="logo pad-logo final-mrg" >
-                                <a href="index.html"><img src="/image/panda.jpg" alt="" width="120px" /></a>
+                               <img src="/image/panda.jpg" alt="" width="120px" />
                             </div>
                         </div>
                         <div class="col-md-9 col-xs-12">
@@ -44,6 +44,8 @@
             </div> <!-- End Header Bottom Area  -->
             <div class="mainmenu-area find">
                 <div class="container">
+                     <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/shangcheng" target="_self" style="color:white;">首页</a></div>
+                    <div class="row" >
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mainmenu-left visible-lg  visible-md">
@@ -75,7 +77,7 @@
                         <div class="slider">
                             <div style="float:right;width:280px;height: 200px ;margin-right:100px">
                                 <span style="font-size:25px";>
-                                    <p style="font-size:25px">【熊猫商城】&nbsp;{{$spb['cname']}}</p>
+                                    <p style="font-size:25px">&nbsp;{{$spb['cname']}}&nbsp;</p>
                                     <br>
                                 <div class="product-ratings">
                                     <i class="fa fa-star"></i>
@@ -88,9 +90,9 @@
                                 <div class="product-ratings">
                                     <b style="font-size:20px">所需财富值:</b><b style="color:red;font-size:40px">{{$spb['money']}}</b>
                                 </div>
-                                <br><br><br><br><br><br><br><br><br>
+                                <br><br><br><br><br>
                                  <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
-                                            <a href="/home/shangcheng/more">立即兑换</a>
+                                            <a href="/home/shangcheng/more?id={{$spb['id']}}" style="background-color:#ddd">立即兑换</a>
                                         </div>  
                                 </span>
 
@@ -113,7 +115,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2>可能你喜欢的</h2>
+                            <h2>可能您还喜欢</h2>
                         </div>
                        
                         <div class="tab-content">
@@ -168,22 +170,25 @@
                                     </div>
                                 </div>
                             </div>
-                           
                         </div>
                     </div>
                 </div>
-            </div>
-           
-        </div> 
-         <div style="float:right;width:500px;margin-right:500px">
+                   <img src="{{$spb['cpic']}}" width="300px"> 
+                <div style="float:right;width:400px;margin-right:380px;margin-top:40px">
+
                 <span style="font-size:40px">
+                    <h3 style="color:#333333">
                     商品详情
+                    </h3>
                     <hr>
-                </span>
-                <p style="font-size:20px">
+                    <p style="font-size:20px">
                     {{$spb['cdetails']}}
                 </p>
+                </span>
+                
+                </div>
             </div>
+        </div> 
         <!-- End Favourite Area -->
       
         <!-- End Banner Area -->
