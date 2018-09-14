@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Append;
 use App\Cate;
+use App\Feedback;
+use App\Link;
 use App\Problem;
+use App\Record;
 use App\Reply;
 use App\Tag;
 use App\Udetails;
 use App\User;
-use App\Record;
 use App\Wealth;
-use App\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +24,8 @@ class HomeProblemController extends Controller
         $tags = Tag::all();
         $tags = Tag::paginate(34);
     	$problem = Problem::all();
-    	return view('home.problem.hindex',compact('problem','tags'));
+        $link = Link::all();
+    	return view('home.problem.hindex',compact('problem','tags','link'));
     }
     public function wtzs($id)
     {
@@ -33,6 +35,7 @@ class HomeProblemController extends Controller
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
         $append = Append::all();
+        $link = Link::all();
          if(\Session::has('id')){
             if(!\Session::has('ckwt')){
                 \session(['ckwt' => 1]);
@@ -48,10 +51,10 @@ class HomeProblemController extends Controller
         }
         if(\session::get('ckwt') == 6){
             request()->session()->flash('success', '恭喜您获得五积分');
-            return view('home.problem.wtzs',compact('problem','id','reply','append'));
+            return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
     }
 
 

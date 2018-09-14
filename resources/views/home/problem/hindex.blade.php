@@ -37,9 +37,13 @@
                         <section class="widget">
                                 <div class="support-widget">
                                     <a href="/home/center">
-                                        <h3 class="title">个人中心</h3>
+                                        <h3 class="title" style="float: left;">个人中心</h3>
+                                        <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
+                                            <img src="{{Session::get('pic')}}" alt="" width="80">
+                                        </div>
+                                        
                                     </a>
-                                        <p class="intro"></p>
+                                        
                                 </div>
                         </section>
 

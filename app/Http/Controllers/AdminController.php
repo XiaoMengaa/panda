@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use App\Udetails;
 use App\User;
 use Illuminate\Http\Request;
@@ -59,5 +60,24 @@ class AdminController extends Controller
 		$request->session()->flush();
 		return redirect('/admin/login')->with('success','退出成功');
 	}
+
+	public function fankuiindex()
+    {
+        // 
+         $fk = Feedback::orderBy('id','desc')
+        ->where('content','like','%'.request()->content.'%')
+        ->get();
+        return view('home.fankui.create',['fk'=>$fk]);
+    }
+
+    public function fankuishanchu($id)
+    {
+    	$fk = Feedback::findOrFail($id);
+          if($fk->delete()){
+            return redirect('/admin/fankui')->with('success','删除成功');
+          }else{
+            return back()->with('error','删除失败');
+          }
+    }
 
 }

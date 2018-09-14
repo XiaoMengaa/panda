@@ -104,6 +104,6 @@ class FeedBackController extends Controller
             return redirect('/fankui')->with('success','删除成功');
           }else{
             return back()->with('error','删除失败');
-          }
+          } 
     }
 }
