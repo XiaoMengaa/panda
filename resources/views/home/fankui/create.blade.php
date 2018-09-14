@@ -62,7 +62,7 @@
                                 <input type="checkbox">
                             </td>
                             <td>{{$v['id']}}</td>
-                            <td>{{$v['user_id']}}</td>
+                            <td>{{$v->user['username']}}</td>
                             <td class="am-hide-sm-only">{{$v['content']}}</td>
                             <td>
                                 <div class="am-btn-toolbar">

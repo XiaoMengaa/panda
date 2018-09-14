@@ -291,7 +291,7 @@
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>收件人姓名 <span class="required">*</span></label>										
-										<input placeholder="" type="text" name="name" value="{{$message['name']}}">
+										<input placeholder="" type="text" name="name" value="{{$message['name']}}" id="name">
 									</div>
 								</div>
 								<div class="main col-md-12 col-xs-12">
@@ -352,14 +352,14 @@
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>详情地址  <span class="required">*</span></label>										
-										<input placeholder="详情地址" type="text" name="xxdz" value="{{$message->address['xxdz']}}">
+										<input placeholder="详情地址" type="text" name="xxdz" value="{{$message->address['xxdz']}}" id="xxdz">
 									</div>
 								</div>
 								
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>电话 <span class="required">*</span></label>										
-										<input placeholder="" type="text" name="phone" value="{{$message['phone']}}">
+										<input placeholder="" type="text" name="phone" value="{{$message['phone']}}" id="phone">
 									</div>
 								</div>
 								<div class="col-md-12 col-xs-12">
@@ -369,12 +369,44 @@
 									</div>
 								</div>
 								<div class='form-actions' style='margin-bottom:0'>
-                                    <button  class='btn btn-primary' type='submit'>
+                                    <button  class='btn btn-primary' type='submit'id="submit">
                                         <i class='icon-save'></i>
                                         提交
                                     </button>
                                 </div>
 								</form>
+								  <script type="text/javascript">
+                             	var submit=document.getElementById('submit');
+                             	submit.onclick=function(){
+                             		var text =document.getElementById('name').value;
+                             		if(text == ''){
+                             			alert('收件人姓名不能为空哦!');
+                             			return false;
+
+                             		}else{
+                             			var text =document.getElementById('xxdz').value;
+                             		if(text == ''){
+                             			alert('收件详情地址不能为空哦!');
+                             			return false;
+
+                             		}else{
+                             			var text =document.getElementById('phone').value;
+                             			if(text ==''){
+                             				alert('收件人手机号不能为空哦!')
+                             				return false;
+                             			}
+
+                             			return true;
+                             		}
+                             		
+                             		}
+                             		
+
+
+
+                             	}
+
+                             </script>
 							</div>
 						</div>
 				         	</div>

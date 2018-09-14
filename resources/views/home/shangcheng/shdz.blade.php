@@ -290,8 +290,8 @@
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>收件人姓名 <span class="required">*</span></label>										
-										<input placeholder=""  id="admin" type="text" name="name" onBlur="checkUserName()" oninput="checkUserName()"> 
-										<span class="default" id="nameErr"></span> 		
+										<input placeholder=""  id="name" type="text" name="name"> 
+												
 									</div>
 								</div>
 								<div class="main col-md-12 col-xs-12">
@@ -352,14 +352,14 @@
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>详情地址  <span class="required">*</span></label>										
-										<input placeholder="详情地址" type="text" name="xxdz">
+										<input placeholder="详情地址" type="text" name="xxdz" id="xxdz">
 									</div>
 								</div>
 								
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
 										<label>电话 <span class="required">*</span></label>										
-										<input placeholder="必须输入11位手机号"  type="text" name="phone" maxlength="11">
+										<input placeholder="必须输入11位手机号"  type="text" name="phone" maxlength="11" id="phone">
 									</div>
 								</div>
 								<div class="col-md-12 col-xs-12">
@@ -369,37 +369,46 @@
 									</div>
 								</div>
 								<div class='form-actions' style='margin-bottom:0'>
-                                    <button  class='btn btn-primary' type='submit'>
+                                    <button  class='btn btn-primary' type='submit' id="submit">
                                         <i class='icon-save'></i>
                                         提交
                                     </button>
                                 </div>
 								</form>
- 
-                           <script>
-                           	  function checkUserName(){ 
-		                     var username = document.getElementById('admin'); 
-		                   var errname = document.getElementById('nameErr');  
-		                   
-		            if(username.value.length == 0){ 
-		                 errname.innerHTML="账号不能为空"
-		                errname.className="error"
-		                   return false; 
-		               }
+                             <script type="text/javascript">
+                             	var submit=document.getElementById('submit');
+                             	submit.onclick=function(){
+                             		var text =document.getElementById('name').value;
+                             		if(text == ''){
+                             			alert('收件人姓名不能为空哦!');
+                             			return false;
 
-		               function tianjia(){ 
-	             var result = $("#userModal02 form").serialize();
-	             if(checkUserName()&&checkPassword()&&checkName()){
+                             		}else{
+                             			var text =document.getElementById('xxdz').value;
+                             		if(text == ''){
+                             			alert('收件详情地址不能为空哦!');
+                             			return false;
+
+                             		}else{
+                             			var text =document.getElementById('phone').value;
+                             			if(text ==''){
+                             				alert('收件人手机号不能为空哦!')
+                             				return false;
+                             			}
+
+                             			return true;
+                             		}
+                             		
+                             		}
+                             		
 
 
- 
-	  	}else{
-			return false;
-		}  
 
+                             	}
 
                              </script>
-
+                                
+        
 							</div>
 						</div>
 				         	</div>
