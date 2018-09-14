@@ -83,6 +83,7 @@
                                                                         @endif
                                                                 </li>
                                                                 <li><a href="/fankui/create">反馈</a></li>
+                                                                <li><a href="/home/shangcheng">商城</a></li>
                                                         </ul>
                                                 </div>
                                         </nav>

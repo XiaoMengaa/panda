@@ -257,11 +257,10 @@
       <tr>
           <td class="am-hide-sm-only" style="text-align:center">{{$v->commodity['cname']}}</td>
           <td class="am-hide-sm-only" style="text-align:center">{{$v->commodity['money']}}</td>
-          <td class="am-hide-sm-only" style="text-align:center">@if($v['rstate']==0) 未收货 @else 已收货 @endif</td>
+          <td class="am-hide-sm-only" style="text-align:center">@if($v['rstate']==0) 未收货 <button><a href="/home/qrsh?id={{$v['id']}}">确认收货</a> </button>@else 已收货 @endif</td>
            {{csrf_field()}}
       </tr>
     @endforeach
-
     </tbody>
   </table>
 </div>
