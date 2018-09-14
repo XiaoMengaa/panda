@@ -19,6 +19,11 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
+	//前台订单路由
+	Route::get('/home/dingdanguanli','HomeController@dingdanguanli');
+
+	//反馈后台资源
+	Route::resource('/fankui','FeedBackController');
 
 	//前台提问问题
 	Route::get('/home/problem/create','HomeProblemController@create');
@@ -54,9 +59,6 @@ Route::get('/home/register','HomeController@register');
 //前台用户注册保存路由
 Route::post('/home/create','HomeController@create');
 
-//反馈后台资源
-Route::resource('/fankui','FeedBackController');
-
 //前台问题列表
 Route::get('/home/problemlist','HomeProblemController@index');
 
@@ -81,6 +83,12 @@ Route::post('/admin/login', 'AdminController@dologin');
 
 //后台路由组
 Route::group(['middleware'=>'admin'],function(){
+
+//问题反馈展示普通路由
+Route::get('/admin/fankui','AdminController@fankuiindex');
+
+//问题反馈删除普通路由
+Route::post('/admin/fankui/{id}','AdminController@fankuishanchu');
 
 //回答问题资源路由
 Route::resource('/reply','ReplyController');

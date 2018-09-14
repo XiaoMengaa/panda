@@ -13,30 +13,10 @@
                                 <div class="cart-total">
                                     <ul>
                                         <li>
-                                            <a href="/home/dhjl/create">
+                                            <a href="/home/center">
                                                 <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
                                                 <span class="cart-no">我的订单</span>
                                             </a>
-                                            <div class="mini-cart-content">
-                                               
-                                                <div class="clear"></div>
-                                                <div class="cart-img-details">                                          
-                                                    <div class="cart-img-photo">
-                                                        <a href="#"><img src="/shangcheng/img/product/2.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-img-contaent">
-                                                        <a href="#"><h4>Printed...</h4></a>
-                                                        <span>£50.00</span>
-                                                    </div>
-                                                    <div class="pro-del"><a href="#"><i class="fa fa-times-circle"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-inner-bottom">
-                                                    <p class="total">Total: <span class="amount">£ 56.28</span></p>
-                                                    <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">Checkout</a></p>
-                                                </div>
-                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -93,11 +73,35 @@
                     <div class="col-md-9 col-md-offset-3">
                         <!-- Slider Image -->
                         <div class="slider">
-                            <div > 
-                                @foreach($spb as $v)
-                                  <img src="{{$v['cpic']}}" width="250" />
-                                @endforeach
+                            <div style="float:right;width:280px;height: 200px ;margin-right:100px">
+                                <span style="font-size:25px";>
+                                    <p style="font-size:25px">【熊猫商城】&nbsp;{{$spb['cname']}}</p>
+                                    <br>
+                                <div class="product-ratings">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <br><br>
+                                <div class="product-ratings">
+                                    <b style="font-size:20px">所需财富值:</b><b style="color:red;font-size:40px">{{$spb['money']}}</b>
+                                </div>
+                                <br><br><br><br><br><br><br><br><br>
+                                 <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
+                                            <a href="/home/shangcheng/more">立即兑换</a>
+                                        </div>  
+                                </span>
+
                             </div>
+                        
+                            <div > 
+                                
+                                <img src="{{$spb['cpic']}}" width="450" />
+                                
+                            </div>
+                           
                         </div>  
                     </div>
                 </div>
@@ -109,7 +113,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2>Our Favourites</h2>
+                            <h2>可能你喜欢的</h2>
                         </div>
                        
                         <div class="tab-content">
@@ -117,7 +121,7 @@
                                 <div class="favourite-product">
                                     <div class="row">
                                         <div class="favourite-carousel"> 
-                                            @foreach($spb as $v)
+                                            @foreach($spxx as $v)
                                             <div class="col-md-9" style="float:right">
                                                
                                                 <div class="single-product" >
@@ -139,7 +143,7 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-ratings">
+                                                        <div class="product-ratings" style="width:170px;height:80px ;overflow: hidden">
                                                             {{$v['cdetails']}}
                                                         </div>
                                                         <div class="product-price">
@@ -149,14 +153,14 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/shangcheng/more"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
+                                               <hr>
                                             </div>
                                             @endforeach
                                       
@@ -164,52 +168,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="women">
-                                <div class="favourite-product">
-                                    <div class="row">
-                                        <div class="favourite-carousel">
-                                            <div class="col-md-12">
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        <a href="#">
-                                                            <img src="/shangcheng/img/product/1.jpg" alt="" />
-                                                            <span class="new-box">new</span>
-                                                        </a>
-                                                        <div class="quick-preview">
-                                                            <a href="#myModal" data-toggle="modal">快速浏览</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-content">
-                                                        <h5 class="product-name">
-                                                            <a href="#">Printed Chiffon Dress</a>
-                                                        </h5>
-                                                        <div class="product-ratings">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <h2>
-                                                                £ 19.68
-                                                                <del> £ 24.60 </del>
-                                                            </h2>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
-            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
+           
         </div> 
+         <div style="float:right;width:500px;margin-right:500px">
+                <span style="font-size:40px">
+                    商品详情
+                    <hr>
+                </span>
+                <p style="font-size:20px">
+                    {{$spb['cdetails']}}
+                </p>
+            </div>
         <!-- End Favourite Area -->
       
         <!-- End Banner Area -->

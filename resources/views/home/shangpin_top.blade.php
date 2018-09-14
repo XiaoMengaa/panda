@@ -4,12 +4,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Donan || Home 1</title>
+        <title>熊猫商城</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
         ============================================ -->        
-        <link rel="shortcut icon" type="image/x-icon" href="/shangcheng/img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/image/panda.jpg">
         
         <!-- google fonts here -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"> 
