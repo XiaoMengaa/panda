@@ -4,7 +4,7 @@
                     <div class="row" >
                         <div class="col-md-3 col-xs-12">
                             <div class="logo pad-logo final-mrg" >
-                                <a href="index.html"><img src="/image/panda.jpg" alt="" width="120px" /></a>
+                                <img src="/image/panda.jpg" alt="" width="120px" />
                             </div>
                         </div>
                         <div class="col-md-9 col-xs-12">
@@ -13,30 +13,10 @@
                                 <div class="cart-total">
                                     <ul>
                                         <li>
-                                            <a href="/home/dhjl/create">
+                                            <a href="/home/center">
                                                 <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
                                                 <span class="cart-no">我的订单</span>
                                             </a>
-                                            <div class="mini-cart-content">
-                                               
-                                                <div class="clear"></div>
-                                                <div class="cart-img-details">                                          
-                                                    <div class="cart-img-photo">
-                                                        <a href="#"><img src="/shangcheng/img/product/2.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-img-contaent">
-                                                        <a href="#"><h4>Printed...</h4></a>
-                                                        <span>£50.00</span>
-                                                    </div>
-                                                    <div class="pro-del"><a href="#"><i class="fa fa-times-circle"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-inner-bottom">
-                                                    <p class="total">Total: <span class="amount">£ 56.28</span></p>
-                                                    <div class="clear"></div>
-                                                    <p class="cart-button-top"><a href="checkout.html">Checkout</a></p>
-                                                </div>
-                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -64,6 +44,7 @@
             </div> <!-- End Header Bottom Area  -->
             <div class="mainmenu-area find">
                 <div class="container">
+                    <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/shangcheng" target="_self" style="color:white;">首页</a></div>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mainmenu-left visible-lg  visible-md">
@@ -96,8 +77,8 @@
                         <!-- Slider Image -->
                         <div class="slider">
                             <div id="mainSlider" class="nivoSlider slider-image" style="height:500px">
-                                <img src="/xdd.jpg" alt="main slider"  title="#htmlcaption1"/ >
-                                <img src="/shangcheng/img/slider/2.jpg" alt="main slider" title="#htmlcaption2"/>
+                                <img src="/image/9.png" alt="main slider"  title="#htmlcaption1"/ >
+                                <img src="/image/11.png" alt="main slider" title="#htmlcaption2"/>
                             </div>
                             <!-- Slider Caption 1 -->
                             <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
@@ -105,16 +86,16 @@
                                 <div class="slide1-text">
                                     <div class="middle-text desc1">
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                                            <p class="title-1">社会主义好</p>
+                                            <p class="title-1">暴风魔镜VR眼镜</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                                            <p class="title-2">歌颂共产党</p>
+                                            <p class="title-2">看QING世界</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft hidden-xs" data-wow-duration="1.3s" data-wow-delay=".5s">
-                                            <p class="title-3"> <br>像习大大看齐</p>
+                                            <p class="title-3"> <br>看得清,戴的轻</p>
                                         </div>
                                         <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
-                                            <a href="/home/spxx/1">立即购买</a>
+                                            <a href="/home/spxx/21">查看详情</a>
                                         </div>  
                                     </div>  
                                 </div>
@@ -125,16 +106,16 @@
                                 <div class="slide1-text">
                                     <div class="middle-text desc2">
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                                            <p class="title-1">字幕</p>
+                                            <p class="title-1">北通游戏手柄</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                                            <p class="title-2">字幕</p>
+                                            <p class="title-2" style="font-size:25px">像踩油门一样的程度控制</p>
                                         </div>  
                                         <div class="cap-title wow zoomInLeft hidden-xs" data-wow-duration="1.3s" data-wow-delay=".5s">
-                                            <p class="title-3">字幕<br>字幕</p>
+                                            <p class="title-3" style="color:#2bf666"><br>LT/RT键采用日本NOBLE线性电位器,摆杆式扳机结构让电位器灵敏输出</p>
                                         </div>
                                         <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
-                                            <a href="/home/spxx/2">立即购买</a>
+                                            <a href="/home/spxx/24" style="color:yellow">查看详情</a>
                                         </div>  
                                     </div>  
                                 </div>
@@ -150,7 +131,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2>Our Favourites</h2>
+                            <h2>可能喜欢</h2>
                         </div>
                        
                         <div class="tab-content">
@@ -163,17 +144,15 @@
                                                
                                                 <div class="single-product" >
                                                     <div class="product-img">
-                                                        <a href="#">
+                                                        <a href="/home/spxx/{{$v['id']}}">
                                                             <img src="{{$v['cpic']}}" width="150" />
                                                             <span class="new-box">新款</span>
                                                         </a>
-                                                        <div class="quick-preview">
-                                                            <a href="#myModal" data-toggle="modal">快速浏览</a>
-                                                        </div>
+                                                     
                                                     </div>
                                                     <div class="product-content">
                                                         <h5 class="product-name">
-                                                            <a href="#">{{$v['cname']}}</a>
+                                                            <a href="/home/spxx/{{$v['id']}}">{{$v['cname']}}</a>
                                                         </h5>
                                                         <div class="product-ratings">
                                                             <i class="fa fa-star"></i>
@@ -183,7 +162,8 @@
                                                             <i class="fa fa-star"></i>
                                                         </div>
                                                         <div class="product-ratings">
-                                                            {{$v['cdetails']}}
+
+                                                            {{mb_substr($v['cdetails'],0,100)}}
                                                         </div>
                                                         <div class="product-price">
                                                             <h2>
@@ -192,7 +172,7 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/shangcheng/more"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>
@@ -207,47 +187,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="women">
-                                <div class="favourite-product">
-                                    <div class="row">
-                                        <div class="favourite-carousel">
-                                            <div class="col-md-12">
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        <a href="#">
-                                                            <img src="/shangcheng/img/product/1.jpg" alt="" />
-                                                            <span class="new-box">new</span>
-                                                        </a>
-                                                        <div class="quick-preview">
-                                                            <a href="#myModal" data-toggle="modal">快速浏览</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-content">
-                                                        <h5 class="product-name">
-                                                            <a href="#">Printed Chiffon Dress</a>
-                                                        </h5>
-                                                        <div class="product-ratings">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <h2>
-                                                                £ 19.68
-                                                                <del> £ 24.60 </del>
-                                                            </h2>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
-            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

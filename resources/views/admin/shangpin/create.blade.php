@@ -61,6 +61,7 @@
                                         <div class='control-group'>
                                             <select  name="spcate_id" style="width:200px;height:30px">
                                                @foreach($spcate as $v)
+                                                <option></option>
                                                 <option value="{{$v['id']}}">{{$v['sname']}}</option>
                                                 @endforeach
                                             </select>
@@ -92,17 +93,9 @@
                                         <input data-rule-minlength='2' data-rule-required='true' id='validation_name' name='cpic' type='file' />
                                     </div>
                                 </div>
-                               
-                                
-                             
-                                
-                        </div>
+                                </div>
 
-
-
-                        
-
-                                <div class='form-actions' style='margin-bottom:0'>
+                                   <div class='form-actions' style='margin-bottom:0'>
                                     <button  class='btn btn-primary' type='submit'>
                                         <i class='icon-save'></i>
                                         提交
