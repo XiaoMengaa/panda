@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Commodity;
 use App\Spcate;
+use App\User;
+use App\Wealth;
 use Illuminate\Http\Request;
 
 class HomeSpController extends Controller
@@ -37,10 +39,10 @@ class HomeSpController extends Controller
      public function xiangqing(Request $request,$id)
     { 
         // dd($id);
+      $user = User::findOrFail(\Session::get('id'));
       $spb = Commodity::findOrFail($id);
-     
       $sp = Spcate::all();
       $spxx = Commodity::where('spcate_id','=',$spb->spcate_id)->get();
-      return view('home.shangcheng.spxx',compact('sp','spb','spxx'));
+      return view('home.shangcheng.spxx',compact('sp','spb','spxx','user'));
     }
 }

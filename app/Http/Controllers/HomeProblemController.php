@@ -13,6 +13,7 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
+use App\Commodity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -137,6 +138,35 @@ class HomeProblemController extends Controller
        return view('home.center.center',['user'=>$user,'udetails'=>$udetails,'dh'=>$dh,'problem'=>$problem,'reply'=>$reply]);
 
     }
+     public function update(Request $request,$id){
+        
+        $user = User::findOrFail($id);
+         
+        $yhxq = Udetails::where('user_id','=',$user->id)->get()->first();
+        if(!$yhxq){
+            $yhxq = new Udetails;
+             
+        }
+        $yhxq -> user_id =$user->id;
+        $yhxq -> sex = $request->sex;
+        $yhxq -> synopsis = $request->synopsis;
+        $yhxq -> phone = $request->phone;
+        $yhxq -> email = $request->email;
+        if($request->jurisdiction){
+           $yhxq -> jurisdiction = $request->jurisdiction; 
+        }
+        
+         if($user->save()){
+            if($yhxq->save()){
+                return back()->with('success','更新成功');
+            }else{
+                return back()->with('error','更新失败');
+            }
+        }else{
+            return back()->with('error','更新失败');
+        } 
+        
+    }
 
 
     public function xgmm(Request $request)
@@ -228,8 +258,9 @@ class HomeProblemController extends Controller
 
 
     public function qrsh(Request $request)
-    {
+    {   
         $request -> id;
+        
         $dh = Record::find($request -> id);
         $dh -> rstate = '1';
         if($dh->save()){

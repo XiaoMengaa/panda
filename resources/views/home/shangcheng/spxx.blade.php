@@ -91,9 +91,16 @@
                                     <b style="font-size:20px">所需财富值:</b><b style="color:red;font-size:40px">{{$spb['money']}}</b>
                                 </div>
                                 <br><br><br><br><br>
-                                 <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
+                                @if($user->wealths['riches'] < $spb['money'])
+                                <div class="cap-readmore wow zoomInLeft" >
+                                            <p href="#" style="color:red">对不起,您的财富值不足!</p>
+                                        </div> 
+                                @else
+                                   <div class="cap-readmore wow zoomInLeft" data-wow-duration="1.4s" data-wow-delay=".7s">
                                             <a href="/home/shangcheng/more?id={{$spb['id']}}" style="background-color:#ddd">立即兑换</a>
                                         </div>  
+                            
+                                @endif
                                 </span>
 
                             </div>
@@ -155,7 +162,7 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="/home/shangcheng/more?id={{$spb['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/spxx/{{$v['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>
