@@ -172,6 +172,9 @@ Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
+//确认收货前台路由
+Route::get('/home/qrsh','HomeProblemController@qrsh');
+
 Route::get('home/wzkg',function(){
 	return view('/home/wzkg');
 });
