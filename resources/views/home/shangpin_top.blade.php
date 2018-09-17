@@ -69,7 +69,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="/home/shangcheng">
+                                <a href="/home/logout">
                                     <i class="icon-signout"></i>
                                     退出
                                 </a>
