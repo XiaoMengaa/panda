@@ -294,6 +294,7 @@
 												
 									</div>
 								</div>
+								<input type="hidden" name="id" value="{{$id}}">
 								<div class="main col-md-12 col-xs-12">
 						            	<div id="demo3" class="citys">
 						            		<label>收件人地址 <span class="required">*</span></label>
@@ -379,7 +380,7 @@
                              	var submit=document.getElementById('submit');
                              	submit.onclick=function(){
                              		var text =document.getElementById('name').value;
-                             		if(text == ''){
+                             		if(text == ''){.
                              			alert('收件人姓名不能为空哦!');
                              			return false;
 
