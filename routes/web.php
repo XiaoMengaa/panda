@@ -33,6 +33,10 @@ Route::group(['middleware'=>'home'],function(){
 	
 	//采纳路由
 	Route::get('/home/server','HomeProblemController@caina');
+	//点赞路由
+	Route::get('/home/dianzan','HomeProblemController@dianzan');
+	//点踩路由
+	Route::get('/home/chai','HomeProblemController@chai');
 	
 	//前往用户个人中心
 	Route::get('/home/center','HomeProblemController@center');
@@ -172,6 +176,8 @@ Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
+//确认收货前台路由
+Route::get('/home/qrsh','HomeProblemController@qrsh');
 Route::get('home/wzkg',function(){
 	return view('/home/wzkg');
 });

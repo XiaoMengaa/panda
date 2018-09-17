@@ -175,6 +175,40 @@ class HomeProblemController extends Controller
             rollBack();
          }
     }
+       
+    public function dianzan(request $request)
+    {        
+        DB::beginTransaction();
+           $reply = Reply::findOrFail($request ->id);
+            $reply -> fabulous  =$reply -> fabulous + 1;
+          if ($reply ->save())
+           { 
+            DB::commit();
+            echo $reply->fabulous;
+              
+          }else{
+               DB::rollBack();
+          }
+ 
+
+    }
+    public function chai(request $request)
+    {
+        DB::beginTransaction();
+        $reply = Reply::findOrFail($request ->id);
+        $reply -> tread =$reply -> tread + 1;
+        if($reply->save())
+        {
+            DB::commit();
+            echo $reply->tread;
+              
+          }else{
+               DB::rollBack();
+          }
+    }
+
+
+
 
     public function touxiang(Request $request, $id)
     {
@@ -202,4 +236,6 @@ class HomeProblemController extends Controller
             return back()->with('success','收货成功');
         }
     }
+
+  
 }
