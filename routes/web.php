@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//确认收货前台路由
+Route::get('/home/qrsh','HomeProblemController@qrsh');
+
 Route::group(['middleware'=>'wzkg'],function(){
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
@@ -172,8 +175,7 @@ Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
-//确认收货前台路由
-Route::get('/home/qrsh','HomeProblemController@qrsh');
+
 
 Route::get('home/wzkg',function(){
 	return view('/home/wzkg');

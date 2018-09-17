@@ -13,6 +13,7 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
+use App\Commodity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -194,8 +195,9 @@ class HomeProblemController extends Controller
 
 
     public function qrsh(Request $request)
-    {
+    {   
         $request -> id;
+        
         $dh = Record::find($request -> id);
         $dh -> rstate = '1';
         if($dh->save()){
