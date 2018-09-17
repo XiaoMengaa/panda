@@ -45,6 +45,7 @@
             <div class="mainmenu-area find">
                 <div class="container">
                     <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/shangcheng" target="_self" style="color:white;">首页</a></div>
+                     <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/problemlist" target="_self" style="color:white;">知道</a></div>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mainmenu-left visible-lg  visible-md">
@@ -172,7 +173,7 @@
                                                         </div>
                                                         <div class="product-action">
                                                             <ul>
-                                                                <li class="cart"><a href="/home/shangcheng/more?id={{$v['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
+                                                                <li class="cart"><a href="/home/spxx/{{$v['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
                                                                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                                                                
                                                             </ul>
