@@ -160,7 +160,6 @@ Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
 //前台商城兑换记录路由
 Route::get('/home/dhjl/create','HomeDhjlController@index');
 
-
 //前台网站配置组
 Route::group(['middleware'=>'spwzsz'],function(){
 

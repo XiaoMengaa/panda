@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Commodity;
 use App\Message;
+use App\Udetails;
 use App\User;
 use App\Wealth;
 use Illuminate\Http\Request;
@@ -33,7 +34,9 @@ class HomeController extends Controller
         if($user -> save()){
              $w = new Wealth;
              $w -> user_id = $user -> id;
-             if($w -> save()){
+             $m = new Udetails;
+             $m -> user_id = $user -> id;
+             if($w -> save() && $m -> save()){
                 DB::commit();
                 return redirect('/home/login')->with('success', '注册成功');
             }else{
