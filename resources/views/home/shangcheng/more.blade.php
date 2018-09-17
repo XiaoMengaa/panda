@@ -89,10 +89,11 @@
 					var jxzl = $(this).attr('nihao');
 					if(confirm("确定使用该地址?")){
                           
-		 　　		window.location.href='/home/dingdanguanli?address='+jxzl+'&id='+{{request()->id}};
+		 　　			window.location.href='/home/dingdanguanli?address='+jxzl+'&id='+{{request()->id}};
 					}
 					
-				});
+				})
+
 			})
 			var x = Array();
 
@@ -407,7 +408,7 @@
 		</div>
 		<div class="Caddress">
 			<div class="open_new">
-				<a href="/home/shangcheng/shdz"><button class="open_btn" onclick="javascript:onclick_open();">添加新地址</button></a>
+				<a href="/home/shangcheng/shdz?id={{request()->id}}"><button class="open_btn" onclick="javascript:onclick_open();">添加新地址</button></a>
 			</div>
 			@foreach($message as $v)
 			
@@ -417,7 +418,7 @@
 				
                   <div align="left" style="float:left;width:30px;"><p>
                   	 <input type="hidden" name="aid" value="{{$v->address->id}}">
-                   <a href="/home/shangcheng/edit/{{$v['id']}}" class="am-btn am-btn-default am-btn-xs am-text-secondary bianji" ><span class="am-icon-pencil-square-o"></span>编辑</a></p></div>
+                   <a href="/home/shangcheng/edit/{{$v['id']}}?id={{request()->id}}" class="am-btn am-btn-default am-btn-xs am-text-secondary bianji" ><span class="am-icon-pencil-square-o"></span>编辑</a></p></div>
                   
                   <div>
                   	<a href="/home/shangcheng/delete/{{$v['id']}}" class="shanchu">删除</a>

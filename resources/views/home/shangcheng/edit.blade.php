@@ -286,11 +286,11 @@
 				
 				<div class="row">
 					<div class="col-md-6">
-						<form action="/home/shangcheng/update/{{$message['id']}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
+						<form action="/home/shangcheng/update/{{$message['id']}}?id={{request()->id}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
 						<input type="hidden" name="aid" value="{{$message->address->id}}">
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
-										<label>收件人姓名 <span class="required">*</span></label>										
+										<label>收件人姓名{{$message->address['xname']}} <span class="required">*</span></label>										
 										<input placeholder="" type="text" name="name" value="{{$message['name']}}" id="name">
 									</div>
 								</div>
@@ -305,11 +305,14 @@
 						                        <input type="hidden" name="sname" value="{{$message->address['sname']}}">
 						                        <input type="hidden" name="cname" value="{{$message->address['cname']}}">
 						                        <input type="hidden" name="xname"  value="{{$message->address['xname']}}">
+						                        <div style="display: none;" id="wode" shuxing="{{$message->address['xname']}}"></div>
 						                    </p>
 						                </div>
 						                
 						           
 						            <script type="text/javascript">
+						            	var xiang = $('#wode').attr('shuxing');
+
 						        		var $town = $('#demo3 select[name="town"]');
 						        		var townFormat = function(info){
 						        			$town.hide().empty();
@@ -318,9 +321,17 @@
 						        					url:'http://passer-by.com/data_location/town/'+info['code']+'.json',
 						        					dataType:'json',
 						        					success:function(town){
+
 						        						$town.show();
 						        						for(i in town){
+						        							if(xiang == town[i]){
+						        								$town.append('<option value="'+town[i]+'" selected>'+town[i]+'</option>');
+						        							}else{
 						        								$town.append('<option value="'+town[i]+'">'+town[i]+'</option>');
+						        							}
+
+						        								
+						        								
 						        						}
 						        					},
 						                            async:false,
@@ -330,9 +341,9 @@
 						        		};
 
 						                $('#demo3').citys({
-						        			province:'福建',
-						        			city:'厦门',
-						        			area:'思明',
+						        			province:"{{$message->address['sname']}}",
+						        			city:"{{$message->address['cname']}}",
+						        			area:"{{$message->address['zname']}}",
 						        			onChange:function(info){
 						        				townFormat(info);
 						                        $('input[name=sname]').val(info.province);

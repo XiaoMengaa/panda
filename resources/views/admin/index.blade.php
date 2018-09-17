@@ -1,4 +1,4 @@
-@extends('default.admin_top')
+@include('default.admin_top')
                         
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body class='contrast-red '>
@@ -321,7 +321,7 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='/fankui'>
+            <a href='/admin/fankui'>
                 <i class='icon-caret-right'></i>
                 <span>问答反馈列表</span>
             </a>
@@ -500,4 +500,4 @@
 @show
 
 <!-- / jquery -->
-@extends('default.admin_button')
+@include('default.admin_button')

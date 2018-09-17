@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Commodity;
 use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,11 +13,12 @@ class HomeShangchengController extends Controller
     //
     public function index()
     {
-    	return view('home.shangcheng.shdz');
+
+    	return view('home.shangcheng.shdz',['id'=>request()->id]);
     }
    
     public function store(Request $request)
-    { 
+    {      
            $message=new Message;
     	   $message -> user_id =1;
 	       $message -> name = $request->name;
@@ -34,7 +36,7 @@ class HomeShangchengController extends Controller
 		       	$address -> message_id = $message->id;
        	   if($address->save()){
                   DB::commit();
-       	   	 	return redirect('/home/shangcheng/more')->with('success','保存成功');
+       	   	 	return redirect('/home/shangcheng/more?id='.request()->id)->with('success','保存成功');
        	      }else{
        	      	DB::rollBack();
        	      return back()->with('error','保存失败');
@@ -54,7 +56,7 @@ class HomeShangchengController extends Controller
        
        	   if($address->save()){
                 DB::commit();
-       	   	 	return redirect('/home/shangcheng/more')->with('success','保存成功');
+       	   	 	return redirect('/home/shangcheng/more?id='.request()->id)->with('success','保存成功');
        	   }else{
 	       	   	DB::rollBack();
 	       	      	return back()->with('error','保存失败');
@@ -85,7 +87,7 @@ class HomeShangchengController extends Controller
        {
 
        	    $message=Message::find($id);
-
+            //$commoditie=Commodity::findOrFail(request()->id)->get()->first();; 
        	    
     	   $message -> user_id =1;
 	       $message -> name = $request->name;
@@ -105,7 +107,7 @@ class HomeShangchengController extends Controller
 		       
        	   if($address->save()){
                   DB::commit();
-       	   	 	return redirect('/home/shangcheng/more')->with('success','保存成功');
+       	   	 	return redirect('/home/shangcheng/more?id='.request()->id)->with('success','保存成功');
        	      }else{
        	      	DB::rollBack();
        	      return back()->with('error','保存失败');
@@ -125,7 +127,7 @@ class HomeShangchengController extends Controller
        
        	   if($address->save()){
                 DB::commit();
-       	   	 	return redirect('/home/shangcheng/more')->with('success','保存成功');
+       	   	 	return redirect('/home/shangcheng/more?id='.request()->id)->with('success','保存成功');
        	   }else{
 	       	   	DB::rollBack();
 	       	      	return back()->with('error','保存失败');

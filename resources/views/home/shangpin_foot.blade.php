@@ -1,34 +1,6 @@
   <!-- Brands slider Area -->
         <footer class="footer-area">
-            <div class="footer-top-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-7">
-                            <div class="news-letter">
-                                <form action="#">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter your e-mail" />
-                                        <button type="submit">
-                                            <span>Subscribe</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-5 text-right">
-                            <div class="footer-top-social-bookmarks">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- footer-top-area -->
+            
             <div class="footer-middle-area">
                 <div class="container">
                     <div class="row">

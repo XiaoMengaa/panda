@@ -17,8 +17,9 @@
                                         <div class="span3">
                                                 <section class="widget"><h3 class="title">友情链接</h3>
                                                         <ul>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">1</a> </li>
-                                                                <li><a href="#" title="Lorem ipsum dolor sit amet,">2</a></li>
+                                                                @foreach($link as $v)
+                                                                <li><a href="{{$v->url}}" title="Lorem ipsum dolor sit amet,">{{$v->name}}</a></li>
+                                                                @endforeach
                                                         </ul>
                                                 </section>
                                         </div>
@@ -57,7 +58,7 @@
                                         <div class="row">
                                                 <div class="span6">
                                                         <p class="copyright">
-                                                                Copyright © 2013. All Rights Reserved by KnowledgeBase.Collect from
+                                                                2018年五个青年男女创建的一个小型网站
                                                         </p>
                                                 </div>
                                                 <div class="span6">

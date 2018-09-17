@@ -20,7 +20,7 @@
                 <form accept-charset="UTF-8" action="/fankui" class="navbar-search pull-right hidden-phone" method="post" ><div style="margin:350;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
-                    <input autocomplete="off" class="search-query span2" id="q_header" name="content" placeholder="搜索" type="text" value="">
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="content" placeholder="搜索" type="text" value="" style="width:200px">
                 </form>
                 </ul>
             </div>
@@ -68,8 +68,7 @@
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">  
                                                
-                                        <form style="float:left" action="/fankui/{{$v['id']}}" method="post">
-                                            {{method_field('DELETE')}}
+                                        <form style="float:left" action="/admin/fankui/{{$v['id']}}" method="post">
                                             {{csrf_field()}}
                                             <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                                         </form>
@@ -141,12 +140,6 @@
         </div>
     </div>
     <div class="tpl-alert"></div>
-</div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- / jquery -->
 
