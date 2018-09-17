@@ -185,3 +185,5 @@ Route::get('/home/wzkg',function(){
 
 //找回密码路由
 Route::get('/home/zhmm','HomeZhmmController@index');
+//新密码
+Route::post('/home/xmm','HomeZhmmController@store');
