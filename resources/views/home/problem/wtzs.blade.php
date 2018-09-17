@@ -21,28 +21,13 @@
     <span class="date">{{substr($problem->created_at,0,10)}}</span>
     <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
     <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
-    <span class="like-count">{{$problem->browse}}</span>
+
     <span class="btn btn-mini"style="background:yellow">熊猫知识币</span>
 </div><!-- end of post meta -->
 
 <p>{{$problem->content}}</p>
 
 </article>
-
-<div class="like-btn">
-
-<form id="like-it-form" action="#" method="post">
-    <span class="like-it ">66</span>
-    <input type="hidden" name="post_id" value="99">
-    <input type="hidden" name="action" value="like_it">
-</form>
-
-<span class="tags">
-    <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">basic</a>, <a href="#" rel="tag">setting</a>, <a href="http://knowledgebase.inspirythemes.com/tag/website/" rel="tag">website</a>
-</span>
-
-</div>
-
 <section id="comments">
 
 <h3 id="comments-title">(3) 回答</h3>
@@ -67,16 +52,51 @@
     - <a class="comment-reply-link" href="/home/append/create/{{$v->id}}?id={{$id}}">回复</a>
 </h5>
 
+
 <p class="date">
     <a href="#">
 
             <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
+           <div class="like-btn">
+            <span class="like-it"   dianzan="0">{{$v->fabulous}}</span>
+            <div  class="chai"style="background:#fafafa;width: 35.24px;height: 30px;color: #8cd24e;padding-left: 10px;"><img src="/image/chai.jpg" width="30%">&nbsp;{{$v->tread}}</div>
+           </div>
+           <script>
+            
+              
+            $(".like-it").click(function(){
+               var js = $(this)
+                       $.ajax({ //一个Ajax过程你看看你你可能酷酷酷酷酷酷酷酷酷酷酷酷
+                       url : "/home/dianzan",
+                       data:{id:{{$v->id}}},//与此php页面h
+                       success: function(json){//如果调用php成功
+                               js.html(json);
+                               alert('赞赞加1哦！')
+                            }
+                       });
+                       return false;
+                  });
 
+             $(".chai").click(function(){
+                var js =$(this)
+                $.ajax({
 
+                    url:"/home/chai",
+
+                    data:{id:{{$v->id}}},
+                    success:function(json){
+                      js.html(json);
+                      confirm("你真的要踩人家吗");
+                    }
+                });
+                return false;
+             });
+           </script>
+          
 
     </a>
 </p>
-
+ 
 </div><!-- end .comment-meta -->
 
 <div class="comment-body">

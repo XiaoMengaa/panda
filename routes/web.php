@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//确认收货前台路由
+Route::get('/home/qrsh','HomeProblemController@qrsh');
+
 Route::group(['middleware'=>'wzkg'],function(){
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
@@ -33,6 +36,10 @@ Route::group(['middleware'=>'home'],function(){
 	
 	//采纳路由
 	Route::get('/home/server','HomeProblemController@caina');
+	//点赞路由
+	Route::get('/home/dianzan','HomeProblemController@dianzan');
+	//点踩路由
+	Route::get('/home/chai','HomeProblemController@chai');
 	
 	//前往用户个人中心
 	Route::get('/home/center','HomeProblemController@center');
@@ -176,10 +183,10 @@ Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
 });
+
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
-
-Route::get('/home/wzkg',function(){
+Route::get('home/wzkg',function(){
 	return view('/home/wzkg');
 });
 
@@ -189,3 +196,6 @@ Route::get('/home/zhmm','HomeZhmmController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//新密码
+Route::post('/home/xmm','HomeZhmmController@store');
+

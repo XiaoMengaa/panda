@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+     
+       
+
+     public function dingdanguanli()
+     {  
+        // $message=Message::find($id);
+     //exit;
+        $message =Message::where( 'id','=',request()->address)->get()->first();
+        $address=Address::where('message_id','=',$message->id)->get()->first();
+        $commoditie=Commodity::findOrFail(request()->id); 
+
+        // dd($address);
+       return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
+
+     }
 }
