@@ -286,7 +286,7 @@
 				
 				<div class="row">
 					<div class="col-md-6">
-						<form action="/home/shangcheng/update/{{$message['id']}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
+						<form action="/home/shangcheng/update/{{$message['id']}}?id={{request()->id}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
 						<input type="hidden" name="aid" value="{{$message->address->id}}">
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">

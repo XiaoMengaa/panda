@@ -39,6 +39,10 @@ Route::group(['middleware'=>'home'],function(){
 
 	//前台问题展示
 	Route::get('/home/problem/{id}','HomeProblemController@wtzs');
+
+	//bug 待调 
+	//前台提问问题
+	// Route::resource('/problem','ProblemController');
 });
 
 //用户个人中心编辑
@@ -126,7 +130,7 @@ Route::resource('/admin/spcate','AdminSpcateController');
 //商品列表资源路由
 Route::resource('/admin/shangpin','AdminShangpinController');
 
-//商品网站设置表资源路由
+//商品网站设置表支援路由
 Route::resource('/admin/spwzsz','AdminSpwzszController');
 
 //商城收货地址信息后台管理路由
@@ -155,7 +159,9 @@ Route::get('/home/shangcheng/update/{id}','HomeShangchengController@update');
 //删除
 Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
 
-//前台商城兑换路由
+
+
+//前台商城兑换记录路由
 Route::get('/home/dhjl/create','HomeDhjlController@index');
 
 //前台网站配置组
@@ -169,9 +175,13 @@ Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
 //商品详情路由
 Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 
+});
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
-});
-Route::get('home/wzkg',function(){
+
+Route::get('/home/wzkg',function(){
 	return view('/home/wzkg');
 });
+
+//找回密码路由
+Route::get('/home/zhmm','HomeZhmmController@index');
