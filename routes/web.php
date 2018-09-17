@@ -39,6 +39,10 @@ Route::group(['middleware'=>'home'],function(){
 
 	//前台问题展示
 	Route::get('/home/problem/{id}','HomeProblemController@wtzs');
+
+	//bug 待调 
+	//前台提问问题
+	// Route::resource('/problem','ProblemController');
 });
 
 //用户个人中心编辑
@@ -175,6 +179,9 @@ Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
 
-Route::get('home/wzkg',function(){
+Route::get('/home/wzkg',function(){
 	return view('/home/wzkg');
 });
+
+//找回密码路由
+Route::get('/home/zhmm','HomeZhmmController@index');
