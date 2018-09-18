@@ -194,3 +194,4 @@ Route::get('home/wzkg',function(){
 Route::get('/home/zhmm','HomeZhmmController@index');
 //新密码
 Route::post('/home/xmm','HomeZhmmController@store');
+Route::post('/home/mm','HomeZhmmController@update');
