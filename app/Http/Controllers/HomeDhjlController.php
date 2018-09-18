@@ -22,12 +22,8 @@ class HomeDhjlController extends Controller
                 $caifu = new Wealth;
                 $wealth = $caifu -> where('user_id','=',\Session::get('id'))->get()->first();
 
-               $wealth -> riches = User::findOrFail(\Session::get('id'))->wealths->riches - Commodity::find($request -> id)['money'];
-  
-
-             
+               $wealth -> riches = User::findOrFail(\Session::get('id'))->wealths->riches - Commodity::find($request -> id)['money'];           
               $wealth -> save();
-
               DB::commit(); 
           }catch(\Exception $e){
             DB::rollBack();
