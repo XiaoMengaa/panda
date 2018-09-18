@@ -192,6 +192,14 @@ Route::get('home/wzkg',function(){
 
 //找回密码路由
 Route::get('/home/zhmm','HomeZhmmController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 //新密码
 Route::post('/home/xmm','HomeZhmmController@store');
+<<<<<<< HEAD
 Route::post('/home/mm','HomeZhmmController@update');
+=======
+
+>>>>>>> d802c7a0824ce7cdf930d694b03f30421d448510
