@@ -40,7 +40,7 @@
                 <ul class='breadcrumb'>
 
                
-                <form accept-charset="UTF-8"class="navbar-search pull-right hidden-phone" method="get" action="/admin/shangpin"><div style="margin:350;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <form accept-charset="UTF-8"class="navbar-search pull-right hidden-phone" method="get" action="/admin/shangpin"><div style="margin:350px;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 
                     <button class="btn btn-link icon-search" name="button" type="submit"></button>
                     <input autocomplete="off" class="search-query span2" id="q_header" name="cname" placeholder="搜索" type="text" value="">
