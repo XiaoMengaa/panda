@@ -52,8 +52,8 @@
                     </div>
 
                     <button class="login_btn layui-btn layui-btn-radius layui-btn-normal" lay-submit lay-filter="登录">登录</button>
-                    <strong class="text-white">还没有账号？ <a href="/home/register" style="color: cornflowerblue;">立即注册</a></strong><br>
-                    <strong class="text-white">忘记密码了？ <a href="/home/zhmm" style="color: cornflowerblue;">找回密码</a></strong>
+                    <strong class="text-white"> <a href="/home/register" style="color: cornflowerblue;">立即注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/home/zhmm" style="color: cornflowerblue;">忘记密码?</a></strong><br>
+                    
                      {{csrf_field()}}
                 </form>  
                 </div>
