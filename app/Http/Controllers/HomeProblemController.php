@@ -209,6 +209,7 @@ class HomeProblemController extends Controller
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
+        
            $reply = Reply::findOrFail($request ->id);
             $reply -> fabulous  =$reply -> fabulous + 1;
           if ($reply ->save())
