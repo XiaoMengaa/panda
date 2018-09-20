@@ -18,7 +18,10 @@ class HomeSpController extends Controller
     {
         $sp = Spcate::all();
         $spb = Commodity::all();
-        return view('home.shangcheng.index',compact('sp','spb'));
+        $ss = Commodity::orderBy('id','desc') ->where('cname','like', '%'.request()->cname.'%')->get();
+        // dd($ss);
+
+        return view('home.shangcheng.index',compact('sp','spb','ss'));
     }
 
     /**
