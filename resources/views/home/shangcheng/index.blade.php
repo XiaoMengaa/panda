@@ -162,7 +162,7 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-ratings">
+                                                        <div class="product-ratings" style="height: 100px;overflow:hidden;">
 
                                                             {{mb_substr($v['cdetails'],0,100)}}
                                                         </div>
