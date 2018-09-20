@@ -29,11 +29,11 @@
                                                         <h3 class="title">开发者</h3>
                                                         <div id="twitter_update_list">
                                                                 <ul>
-                                                                        <li>Mr.Fan</li>
-                                                                        <li>Mr.Liu</li>
-                                                                        <li>Ms.Ding</li>
-                                                                        <li>Mr.Han</li>
-                                                                        <li>Mr.Jia</li>
+                                                                        <li>樊锰</li>
+                                                                        <li>贾旭</li>
+                                                                        <li>韩国玺</li>
+                                                                        <li>刘金阳</li>
+                                                                        <li>丁博</li>
                                                                 </ul>
                                                         </div>
                                                 </section>
