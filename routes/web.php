@@ -47,9 +47,8 @@ Route::group(['middleware'=>'home'],function(){
 	//前台问题展示
 	Route::get('/home/problem/{id}','HomeProblemController@wtzs');
 
-	//bug 待调 
 	//前台提问问题
-	// Route::resource('/problem','ProblemController');
+	Route::resource('/problem','ProblemController');
 });
 
 //用户个人中心编辑
