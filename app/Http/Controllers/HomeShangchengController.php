@@ -20,7 +20,7 @@ class HomeShangchengController extends Controller
     public function store(Request $request)
     {      
            $message=new Message;
-    	   $message -> user_id =1;
+    	   $message -> user_id = \Session::get('id');
 	       $message -> name = $request->name;
 	       $message -> phone = $request->phone;
 	       $message -> bphone = $request->bphone;
@@ -70,7 +70,7 @@ class HomeShangchengController extends Controller
 }
        public function more()
        {
-       	 $message=Message::all();
+       	 $message=Message::where('user_id','=',\Session::get('id'))->get();
 
 
        	return view('/home/shangcheng/more',['message'=>$message]);
