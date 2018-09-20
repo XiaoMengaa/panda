@@ -10,20 +10,8 @@
                         </div>
                         <div class="col-md-9 col-xs-12">
                             <div class="header-cart-search-box clearfix">
-                                <!-- cart-total start -->
-                                <div class="cart-total">
-                                    <ul>
-                                        <li>
-                                            <a href="/home/center">
-                                                <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
-                                                <span class="cart-no">我的订单</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- cart-total end -->
                                 <div class="header-search-box">
-                                    <form action="#">
+                                    <form action="/home/shangcheng">
                                         <div class="pos-select-box">
                                             <select>
                                                 <option value="">所有类别</option>
@@ -33,7 +21,7 @@
                                             </select>
                                         </div>
                                         <div class="search-box">
-                                            <input type="text" name="sname" placeholder="输入商品关键字..." />
+                                            <input type="text" name="cname" placeholder="输入商品关键字..." />
                                             <button><i class="fa fa-search"></i></button>
                                         </div>
                                     </form>
@@ -130,7 +118,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2>Our Favourites</h2>
+                            <h2>可能您还喜欢</h2>
                         </div>
                        
                         <div class="tab-content">
