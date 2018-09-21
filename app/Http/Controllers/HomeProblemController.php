@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Advertis;
 use App\Append;
 use App\Cate;
+use App\Commodity;
 use App\Feedback;
 use App\Link;
 use App\Problem;
@@ -13,7 +15,6 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
-use App\Commodity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -23,10 +24,11 @@ class HomeProblemController extends Controller
     public function index()
     {   
         $tags = Tag::all();
+        $gggl = Advertis::all();
         $tags = Tag::paginate(34);
     	$problem = Problem::all();
         $link = Link::all();
-    	return view('home.problem.hindex',compact('problem','tags','link'));
+    	return view('home.problem.hindex',compact('problem','tags','link','gggl'));
     }
     public function wtzs($id)
     {
@@ -209,6 +211,7 @@ class HomeProblemController extends Controller
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
+        
            $reply = Reply::findOrFail($request ->id);
             $reply -> fabulous  =$reply -> fabulous + 1;
           if ($reply ->save())

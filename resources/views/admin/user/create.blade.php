@@ -21,7 +21,7 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        Forms
+                                        用户添加
                                     </li>
                                     <li class='separator'>
                                         <i class='icon-angle-right'></i>

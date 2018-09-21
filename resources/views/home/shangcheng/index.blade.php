@@ -9,20 +9,9 @@
                         </div>
                         <div class="col-md-9 col-xs-12">
                             <div class="header-cart-search-box clearfix">
-                                <!-- cart-total start -->
-                                <div class="cart-total">
-                                    <ul>
-                                        <li>
-                                            <a href="/home/center">
-                                                <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span> 
-                                                <span class="cart-no">我的订单</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- cart-total end -->
+                                
                                 <div class="header-search-box">
-                                    <form action="#">
+                                    <form action="/home/shangcheng">
                                         <div class="pos-select-box">
                                             <select>
                                                 <option value="">所有类别</option>
@@ -32,7 +21,7 @@
                                             </select>
                                         </div>
                                         <div class="search-box">
-                                            <input type="text" name="sname" placeholder="输入商品关键字..." />
+                                            <input type="text" name="cname" placeholder="输入商品关键字..." />
                                             <button><i class="fa fa-search"></i></button>
                                         </div>
                                     </form>
@@ -45,7 +34,7 @@
             <div class="mainmenu-area find">
                 <div class="container">
                     <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/shangcheng" target="_self" style="color:white;">首页</a></div>
-                     <div onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:right;width:50px;height:30px;margin-top:12px;font-size: 20px" ><a href="/home/problemlist" target="_self" style="color:white;">知道</a></div>
+                 
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mainmenu-left visible-lg  visible-md">
@@ -162,7 +151,7 @@
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-ratings">
+                                                        <div class="product-ratings" style="height: 100px;overflow:hidden;">
 
                                                             {{mb_substr($v['cdetails'],0,100)}}
                                                         </div>

@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
 	public function index()
-	    {
-	        return view('admin.index');
-	    }
+    {
+        return view('admin.index');
+    }
 
     public function login()
     {
@@ -37,7 +37,7 @@ class AdminController extends Controller
         	$Udetails = [];
         }
 		
-		if(empty($Udetails))
+		if($Udetails==1)
 		{
 			return back()->with('error','您权限不足,请与管理员联系');
 		}

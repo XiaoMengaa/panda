@@ -31,7 +31,7 @@
 <form name="addrForm" id="addrForm" action="#">
 <h3>确认收货地址
  <span class="manage-address">
- <a href="/home/shangcheng/more" title="管理我的收货地址"
+ <a href="/home/shangcheng/more?id={{request()->id}}" title="管理我的收货地址"
  class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.7">管理收货地址</a>
  </span>
 </h3>
@@ -51,14 +51,7 @@
  <span class="marker-tip">寄送至</span>
    <div class="address-info">
  <a href="#" class="J_Modify modify J_MakePoint" data-point-url="#">修改本地址</a>
- <input name="address"
- class="J_MakePoint"
- type="radio"
- value="594209677"
- id="addrId_594209677"
- data-point-url="#"
- ah:params="#"
- >
+ 
 
  <label for="addrId_594209677" class="user-address">
      {{$message->address['sname']}} {{$message->address['cname']}}{{$message->address['sname']}} {{$message['name']}} ({{$message['name']}} 收) <em>1342407681</em></label><em class="tip" style="display: none">默认地址</em>
@@ -287,7 +280,7 @@
  <li><em>寄送至:</em><span id="J_AddrConfirm" style="word-break: break-all;">
    {{$message->address['sname']}} {{$message->address['cname']}}{{$message->address['xname']}}{{$message->address['zname']}} {{$message->address['xxdz']}}
    </span></li>
- <li><em>收货人:</em><span id="J_AddrNameConfirm">{{$message['xname']}}{{$message['phone']}}&nbsp; &nbsp;   &nbsp; &nbsp;      {{$message['bphone']}} </span></li>
+ <li><em>收货人:</em><span id="J_AddrNameConfirm">{{$message['name']}} {{$message['phone']}}&nbsp; &nbsp;   &nbsp; &nbsp;      {{$message['bphone']}} </span></li>
  </ul>
      </div>
  </div> 

@@ -64,7 +64,8 @@
            <script>
             
               
-            $(".like-it").click(function(){
+            $(".like-it").one("click",function(){
+              
                var js = $(this)
                        $.ajax({ //一个Ajax过程你看看你你可能酷酷酷酷酷酷酷酷酷酷酷酷
                        url : "/home/dianzan",
@@ -77,7 +78,7 @@
                        return false;
                   });
 
-             $(".chai").click(function(){
+             $(".chai").one("click",function(){
                 var js =$(this)
                 $.ajax({
 
