@@ -304,7 +304,7 @@
   <table class="table table-bordered">
     <tbody>
       <tr class="active">
-        <th class="text-center">问题ID</th>
+        
         <th class="text-center">回答内容</th>
         <th class="text-center">回答状态</th>
         <th class="text-center">点赞数</th>
@@ -313,7 +313,7 @@
       </tr>
     @foreach($reply as $va)
       <tr>
-          <td class="am-hide-sm-only" style="text-align:center">{{$va['problem_id']}}</td>
+     
           <td class="am-hide-sm-only" style="text-align:center">{{$va['content']}}</td>
           <td class="am-hide-sm-only" style="text-align:center">@if($va['state']==0)采纳 @else 已采纳 @endif</td>
           <td class="am-hide-sm-only" style="text-align:center">{{$va['fabulous']}}</td>
