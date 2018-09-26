@@ -200,17 +200,17 @@
       <tr>
         <td width="300" align="right" class="color555">旧密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="jiupass" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12" >请输入旧密码</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12" ></span></td>
       </tr>
       <tr>
         <td align="right" class="color555">新密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="password" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12">请输入新密码</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
       <tr>
         <td align="right" class="color555">确认新密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="pass" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12">请再次输入</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
      
       <tr>
