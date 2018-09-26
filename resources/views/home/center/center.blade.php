@@ -201,17 +201,17 @@
       <tr>
         <td width="300" align="right" class="color555">旧密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="jiupass" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12" >请输入旧密码</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12" ></span></td>
       </tr>
       <tr>
         <td align="right" class="color555">新密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="password" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12">请输入新密码</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
       <tr>
         <td align="right" class="color555">确认新密码：</td>
         <td class="color555"><input class="my_info_content_care_table_text" name="pass" type="password">
-          <span class="colorCA1E37 margin_left10 font_size12">请再次输入</span></td>
+          <span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
      
       <tr>
@@ -410,7 +410,7 @@ var zhang = true;
   <table class="table table-bordered">
     <tbody>
       <tr class="active">
-        <th class="text-center">问题ID</th>
+        
         <th class="text-center">回答内容</th>
         <th class="text-center">回答状态</th>
         <th class="text-center">点赞数</th>
@@ -419,7 +419,7 @@ var zhang = true;
       </tr>
     @foreach($reply as $va)
       <tr>
-          <td class="am-hide-sm-only" style="text-align:center">{{$va['problem_id']}}</td>
+     
           <td class="am-hide-sm-only" style="text-align:center">{{$va['content']}}</td>
           <td class="am-hide-sm-only" style="text-align:center">@if($va['state']==0)采纳 @else 已采纳 @endif</td>
           <td class="am-hide-sm-only" style="text-align:center">{{$va['fabulous']}}</td>

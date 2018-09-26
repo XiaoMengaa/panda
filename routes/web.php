@@ -29,7 +29,6 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 Route::group(['middleware'=>'home'],function(){
 
 	//问题标签路由
-	//1
 	Route::get('/home/problemtag/center/{id}','HomeProblemController@createtag');
 	//前台网站配置组
 	Route::group(['middleware'=>'spwzsz'],function(){
@@ -217,5 +216,14 @@ Route::get('home/wzkg',function(){
 
 //找回密码路由
 Route::get('/home/zhmm','HomeZhmmController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 //新密码
 Route::post('/home/xmm','HomeZhmmController@store');
+
+Route::post('/home/mm','HomeZhmmController@update');
+
+
+
