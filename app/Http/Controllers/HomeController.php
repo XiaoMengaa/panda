@@ -98,5 +98,15 @@ class HomeController extends Controller
         $nihao = json_encode($pro);
         echo $nihao;
      }
+
+     public function fenlei()
+     {   
+         $link = Link::all();
+         $cate = Cate::paginate();
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(34);
+        return view('home.cate' ,compact('tags','gggl','link','cate'));
+     }
 }
 

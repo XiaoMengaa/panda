@@ -53,6 +53,9 @@ Route::group(['middleware'=>'home'],function(){
 	//前台订单路由
 	Route::get('/home/dingdanguanli','HomeController@dingdanguanli');
 
+	//前台分类列表
+	Route::get('/home/cate','HomeController@fenlei');
+
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
 
