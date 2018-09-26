@@ -98,5 +98,18 @@ class HomeController extends Controller
         $nihao = json_encode($pro);
         echo $nihao;
      }
+
+     public function tagstore(Request $request)
+     {
+        $problem = Problem::findOrFail($request -> wentiid);
+        try{
+            $a = $problem -> tags() ->sync($request -> tag_id);
+            return back()->with('success','已保存');  
+        }catch(\Exception $e){
+            return back()->with('error','保存失败');
+        }
+        
+
+     }
 }
 

@@ -288,7 +288,7 @@
       @foreach($problem as $val)
       <tr class="active">
        <th style="min-width: 300px;"><a href="/home/problem/{{$val->id}}">{{$val ->title}}</a></th>
-       <th style="text-align: center;"><a href="#" su="{{$val}}" id="createtag">为此问题添加标签</a></th>
+       <th style="text-align: center;"><a href="#" su="{{$val}}" wentiid="{{$val -> id}}" id="createtag">为此问题添加标签</a></th>
       </tr>
       @endforeach
     </tbody>
@@ -296,7 +296,7 @@
  </div>
   <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/pkg/common.613a3e7.css">
   <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/question/pkg/aio.2c9a63e.css">
-<form action="/">
+<form action="/home/tagproblem/create" method="post">
   <div class="ui-dialog ui-widget ui-widget-content ui-front question-dialog dialog-set-tag ui-dialog-buttons ui-draggable" tabindex="-1" role="dialog" aria-describedby="ik-dlg-183" aria-labelledby="ui-id-1" style="min-height: 400px; width: 556px; top: 200px; left: 600px; display: none;" id="bjbq">
     <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix">
       <span id="ui-id-1" class="ui-dialog-title">编辑标签</span>
@@ -324,20 +324,16 @@
         <div class="dialog-tags line more-tags-container" style="display: none;"></div>
       </div>
       <div class="dialog-tags-wp mt-15 ui-dialog-buttonset clearfix">
-        <a href="javascript:void(0)" class="btn-32-green saveTo">保存</a>
-        <a href="javascript:void(0)" class="btn-32-white cancel">取消</a>
-      </div>
-    </div>
-    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="text-align: center;">
-      <div class="ui-dialog-buttonset">
-        <a href="#" class="btn-32-green dialog-btn dialog-btn-1">完成</a>
-        <a href="#" class="btn-32-white dialog-btn dialog-btn-2">取消</a>
+        <input type="submit" value="保存" class="btn-32-green saveTo" style="width: 80px">
+        <a href="#" onclick="java(1)" class="btn-32-white cancel">取消</a>
       </div>
     </div>
   </div>
+  {{csrf_field()}}
 </div>
+
 </form>
-{{csrf_field()}}
+
 <script>
 var zhang = true;
 
@@ -345,6 +341,9 @@ var zhang = true;
     if(zhang){
         zhang = false;
         var wenti = $(this).attr('su');
+        var wentiid = $(this).attr('wentiid');
+        var wenid = '<input type="hidden" name="wentiid" value="'+wentiid+'" />';
+        $('#zhebing').append(wenid);
         $.ajax({
           url:'/home/taghuoqu',
           data:{foo:wenti,_token:"{{csrf_token()}}"},
@@ -377,11 +376,12 @@ var zhang = true;
 
         if($(this).attr('biaoshi') == 1){
           $(this).attr('biaoshi',2);
-          $(this).
+          $(this).find('input').removeAttr('checked');
           $('#zhebing').append($(this));
         }else{
           $('#dangqian').append($(this));
           $(this).attr('biaoshi',1);
+          $(this).find('input').attr('checked',true);
         };
         return false;
     });
@@ -449,6 +449,7 @@ var zhang = true;
             $('#listClick4').attr('class','menu_list_on');
             $('#listClick13').attr('class','');
             $('#listClick6').attr('class','');
+            $('#listClick9').attr('class','');
 
         }
         if(value == 1){
@@ -463,6 +464,7 @@ var zhang = true;
             $('#listClick2').attr('class','');
             $('#listClick13').attr('class','');
             $('#listClick6').attr('class','');
+            $('#listClick9').attr('class','');
            
         }
         if(value == 2){
@@ -476,7 +478,8 @@ var zhang = true;
             $('#listClick4').attr('class','');
             $('#listClick2').attr('class','menu_list_on');
             $('#listClick13').attr('class','');
-             $('#listClick6').attr('class','');
+            $('#listClick6').attr('class','');
+            $('#listClick9').attr('class','');
            
         }
 
