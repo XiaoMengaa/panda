@@ -10,10 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//前台首页路由
+Route::get('/','HomeController@index');
+
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
 
+//前台网站开关
 Route::group(['middleware'=>'wzkg'],function(){
+
 //修改密码
 Route::post('/xgmmaaw','HomeProblemController@xgmm');
 
@@ -22,6 +27,31 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
+
+	//问题标签路由
+	Route::get('/home/problemtag/center/{id}','HomeProblemController@createtag');
+	//前台网站配置组
+	Route::group(['middleware'=>'spwzsz'],function(){
+
+	//前台商城主页路由
+	Route::get('/home/shangcheng','HomeSpController@index');
+
+	//前台商品展示路由
+	Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
+	//商品详情路由
+	Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
+
+	});
+
+	//问题标签修改与保存
+	Route::post('/home/tagproblem/create','HomeController@tagstore');
+
+	//所有标签获取
+	Route::post('/home/taghuoqu','HomeController@tags');
+
+	//当前标签获取
+	Route::post('/home/tagdangqian','HomeController@dangqian');
+
 	//前台订单路由
 	Route::get('/home/dingdanguanli','HomeController@dingdanguanli');
 
@@ -30,6 +60,9 @@ Route::group(['middleware'=>'home'],function(){
 
 	//前台提问问题
 	Route::get('/home/problem/create','HomeProblemController@create');
+
+	//前台保存问题
+	Route::post('/home/problem/store','HomeProblemController@store');
 
 	//前台回答回复
 	Route::get('/home/append/create/{id}','HomeProblemController@createreply');
@@ -170,21 +203,10 @@ Route::get('/home/shangcheng/delete/{id}','HomeShangchengController@delete');
 //前台商城兑换记录路由
 Route::get('/home/dhjl/create','HomeDhjlController@index');
 
-//前台网站配置组
-Route::group(['middleware'=>'spwzsz'],function(){
-
-//前台商城主页路由
-Route::get('/home/shangcheng','HomeSpController@index');
-
-//前台商品展示路由
-Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
-//商品详情路由
-Route::get('/home/spxx/{id}','HomeSpController@xiangqing');
-
-});
 
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
+
 Route::get('home/wzkg',function(){
 	return view('/home/wzkg');
 });

@@ -2,6 +2,20 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Address;
+use App\Advertis;
+use App\Cate;
+use App\Commodity;
+use App\Link;
+use App\Message;
+use App\Problem;
+use App\Tag;
+use App\Udetails;
+use App\User;
+use App\Wealth;
+>>>>>>> 6b6830238c966886f77cce4222fc3309110c33d0
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -38,6 +52,48 @@ class HomeController extends Controller
 
         // dd($address);
        return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
+
+     }
+
+     public function index()
+     {
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(34);
+        
+        $problem = Problem::all();
+        $cate = Cate::paginate(5);
+        $link = Link::all();
+        return view('home.index',compact('problem','tags','link','gggl','cate'));
+     }
+
+     public function tags()
+     {
+        $a = json_decode(request()->foo);
+        $tag = Tag::where('cate_id','=',$a -> cate_id)->get();
+        $nihao = json_encode($tag);
+        echo $nihao;
+     }
+
+     public function dangqian()
+     {
+        $m = json_decode(request()->foo);
+        $problem = Problem::findOrFail($m -> id);
+        $pro = $problem -> tags;
+        $nihao = json_encode($pro);
+        echo $nihao;
+     }
+
+     public function tagstore(Request $request)
+     {
+        $problem = Problem::findOrFail($request -> wentiid);
+        try{
+            $a = $problem -> tags() ->sync($request -> tag_id);
+            return back()->with('success','已保存');  
+        }catch(\Exception $e){
+            return back()->with('error','保存失败');
+        }
+        
 
      }
 }

@@ -35,7 +35,7 @@
                 <aside class="span4 page-sidebar">
 
                         <section class="widget">
-                                <div class="support-widget">
+                                <div class="support-widget" style="height: 70px">
                                     <a href="/home/center">
                                         <h3 class="title" style="float: left;">个人中心</h3>
                                         <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
@@ -53,9 +53,9 @@
                                 <div>
                                        @foreach($gggl as $v)
                                             <tr>
-                                                <td>{{$v['name']}}</td><br>
-                                                <td>{{$v['glink']}}</td><br>
-                                                <td><img src="{{$v['gpic']}}"></td>
+                                                
+                                                <a href="{{$v['glink']}}">
+                                                <td><img src="{{$v['gpic']}}"></td></a>
                                             </tr><hr>
                                        @endforeach
 
@@ -64,12 +64,12 @@
 
 
                         <section class="widget">
-                                <h3 class="title">标签</h3>
-                                <div class="tagcloud">
-                                    @foreach($tags as $v)
-                                    <a href="#" class="btn btn-mini">{{$v->title}}</a>
-                                    @endforeach
-                                </div>
+                            <h3 class="title">问题标签</h3>
+                            <div class="tagcloud">
+                                @foreach($tags as $v)
+                                <a href="/home/problemlist?tid={{$v->id}}" class="btn btn-mini">{{$v->title}}</a>
+                                @endforeach
+                            </div>
                         </section>
                 </aside>
 
