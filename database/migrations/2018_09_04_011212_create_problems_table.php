@@ -22,6 +22,7 @@ class CreateProblemsTable extends Migration
             $table->string('image')->nullable();
             $table->enum('state', [1,0])->default(0);
             $table->integer('browse')->unsigned();
+            $table->integer('reward')->nullable();
             $table->timestamps();
 
         });

@@ -38,24 +38,7 @@ class ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        $problem = new Problem;
-    
-        $problem -> title = $request -> title;
-        $problem -> user_id = \Session::get('id');
-        $problem -> cate_id = $request -> cate_id;
-        $problem -> state = 1;
-        $problem -> browse = 0;
-        $problem -> content = $request -> content;
-
-        if ($request->hasFile('image')) {
-            $problem->image = '/'.$request->image->store('uploads/'.date('Ymd'));
-        }
-
-        if($problem->save()){
-            return redirect('/home/problemlist')->with('success','提问成功');
-        }else{
-            return back()->with('error','提问失败');
-        }
+        
     }
 
     /**

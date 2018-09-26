@@ -26,7 +26,15 @@ class HomeProblemController extends Controller
         $tags = Tag::all();
         $gggl = Advertis::all();
         $tags = Tag::paginate(34);
-    	$problem = Problem::all();
+        if(request()->cid){
+            $problem = Problem::where('cate_id','=',request()->cid)->get();
+        }else if(request()->tid){
+            $tagss = Tag::findOrFail(request()->tid);
+            $problem = $tagss -> problems;
+        }else{
+            $problem = Problem::orderBy('id', 'desc')->paginate(5);
+        }
+    	
         $link = Link::all();
     	return view('home.problem.hindex',compact('problem','tags','link','gggl'));
     }
@@ -113,7 +121,7 @@ class HomeProblemController extends Controller
         if(Hash::check($request->password, $user->password)){
             //写入session
             session(['username'=>$user->username, 'id'=>$user->id,'pic'=>$user->udetails->pic]);
-            return redirect('home/problemlist')->with('success','登录成功');
+            return redirect('/')->with('success','登录成功');
         }else{
             return back()->with('error','登录失败!');
         }
@@ -133,7 +141,7 @@ class HomeProblemController extends Controller
 
        $id = \Session::get('id');
        $user = User::find($id);
-       $problem = Problem::where('user_id','=',$user->id)->get();
+       $problem = Problem::where('user_id','=',\Session::get('id'))->get();
        $reply = Reply::where('user_id','=',$user->id)->get();
        $dh = Record::where('user_id','=',$user->id)->get();
        $udetails = Udetails::where('user_id','=',$user->id)->get()->first();
@@ -269,6 +277,33 @@ class HomeProblemController extends Controller
         if($dh->save()){
             return back()->with('success','收货成功');
         }
+    }
+
+    public function store(Request $request)
+    {
+       $problem = new Problem;
+    
+        $problem -> title = $request -> title;
+        $problem -> user_id = \Session::get('id');
+        $problem -> cate_id = $request -> cate_id;
+        $problem -> state = 1;
+        $problem -> browse = 0;
+        $problem -> content = $request -> content;
+
+        if ($request->hasFile('image')) {
+            $problem->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+
+        if($problem->save()){
+            return redirect('/home/problemlist')->with('success','提问成功');
+        }else{
+            return back()->with('error','提问失败');
+        } 
+    }
+
+    public function createtag($id)
+    {
+        
     }
 
   

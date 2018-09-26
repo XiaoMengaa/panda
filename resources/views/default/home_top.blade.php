@@ -50,7 +50,7 @@
                                         <nav class="main-nav">
                                                 <div class="menu-top-menu-container">
                                                         <ul id="menu-top-menu" class="clearfix">
-                                                                <li><a href="/home/problemlist">首页</a></li>
+                                                                <li><a href="/">首页</a></li>
                                                                 <li><a href="/home/problemlist">问题列表</a></li>
                                                                 
                                                                 <li>@if(!Session::has('id'))<a href="/home/login">登录</a>@endif

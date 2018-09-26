@@ -22,6 +22,7 @@
     <![endif]-->
 <link href="/center/css/style.css" rel="stylesheet">
 <!-- CSS公共部分 结束 -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <link href="/center/css/crowdfunding.css" rel="stylesheet">
 <link href="/center/css/crowdfunding.center/make_head.css" rel="stylesheet">
@@ -280,16 +281,121 @@
 <div class="my_info_content">
      <table class="table table-bordered">
     <tbody>
+      <tr class="active">
+       <th>问题标题</th>
+       <th style="text-align: center;">问题操作</th>
+      </tr>
       @foreach($problem as $val)
       <tr class="active">
-       <th class="text-center"><a href="/home/problem/{{$val->id}}">{{$val['title']}}</a></th>
+       <th style="min-width: 300px;"><a href="/home/problem/{{$val->id}}">{{$val ->title}}</a></th>
+       <th style="text-align: center;"><a href="#" su="{{$val}}" id="createtag">为此问题添加标签</a></th>
       </tr>
-      {{csrf_field()}}
       @endforeach
     </tbody>
   </table>
  </div>
+  <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/pkg/common.613a3e7.css">
+  <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/question/pkg/aio.2c9a63e.css">
+<form action="/">
+  <div class="ui-dialog ui-widget ui-widget-content ui-front question-dialog dialog-set-tag ui-dialog-buttons ui-draggable" tabindex="-1" role="dialog" aria-describedby="ik-dlg-183" aria-labelledby="ui-id-1" style="min-height: 400px; width: 556px; top: 200px; left: 600px; display: none;" id="bjbq">
+    <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix">
+      <span id="ui-id-1" class="ui-dialog-title">编辑标签</span>
+      <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" type="button" aria-disabled="false" title="关闭" onclick="java(1)">
+        <span class=""></span>
+        <span class="ui-button-text">关闭</span>
+      </button>
+    </div>
+    <div id="ik-dlg-183" class="ui-dialog-content ui-widget-content" style="display: block; width: auto; min-height: 0px; max-height: none; height: 271px;">
+      <div class="tags-wrap line">
+        <div class="currentTag dialog-tags line" id="dangqian">
+          <h1 class="currentTitle">当前标签：</h1>
+
+          
+        </div>
+        <p class="red-tips ff-arial">问题标签不能超过三个</p>
+      </div>
+      <h1 class="more-labels">更多标签：</h1>
+      <div class="line more-tags">
+        <div class="tag-input line" id="zhebing">
+        </div>
+      </div>
+      <div class="dialog-tags-wp item-checked">
+        <i class="ope-arrow-down" style="display: none;"><em></em></i>
+        <div class="dialog-tags line more-tags-container" style="display: none;"></div>
+      </div>
+      <div class="dialog-tags-wp mt-15 ui-dialog-buttonset clearfix">
+        <a href="javascript:void(0)" class="btn-32-green saveTo">保存</a>
+        <a href="javascript:void(0)" class="btn-32-white cancel">取消</a>
+      </div>
+    </div>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="text-align: center;">
+      <div class="ui-dialog-buttonset">
+        <a href="#" class="btn-32-green dialog-btn dialog-btn-1">完成</a>
+        <a href="#" class="btn-32-white dialog-btn dialog-btn-2">取消</a>
+      </div>
+    </div>
+  </div>
 </div>
+</form>
+{{csrf_field()}}
+<script>
+var zhang = true;
+
+  $('#createtag').click(function(){
+    if(zhang){
+        zhang = false;
+        var wenti = $(this).attr('su');
+        $.ajax({
+          url:'/home/taghuoqu',
+          data:{foo:wenti,_token:"{{csrf_token()}}"},
+          type:'post',
+          async:false,
+          success:function(data){
+            var a = JSON.parse(data);
+            $.each(a,function(k,v){
+              var div = '<a class="tag-item shezhi" data-type="" biaoshi="2"><label><input type="checkbox" name="tag_id[]" style="display: none;" value="'+v.id+'" ><span>'+v.title+'</span></label></a>';
+              $('#zhebing').append(div);
+            });
+          }
+        });
+        $.ajax({
+          url:'/home/tagdangqian',
+          data:{foo:wenti,_token:"{{csrf_token()}}"},
+          type:'post',
+          async:false,
+          success:function(data){
+            var a = JSON.parse(data);
+            $.each(a,function(k,v){
+              var div = '<a class="tag-item shezhi" data-type="" biaoshi="1"><label><input type="checkbox" name="tag_id[]" style="display: none;" value="'+v.id+'" checked><span>'+v.title+'</span></label></a>';
+              $('#dangqian').append(div);            
+            });
+          }
+        });
+
+    }
+    $('.shezhi').click(function(){
+
+        if($(this).attr('biaoshi') == 1){
+          $(this).attr('biaoshi',2);
+          $(this).
+          $('#zhebing').append($(this));
+        }else{
+          $('#dangqian').append($(this));
+          $(this).attr('biaoshi',1);
+        };
+        return false;
+    });
+    
+    $('#bjbq').css('display','block');
+    return false;
+  });
+  function java(shuzi)
+  {
+    if(shuzi == 1){
+      $('#bjbq').css('display','none');
+    }
+  }
+</script> 
 
 
 

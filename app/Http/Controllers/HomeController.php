@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Advertis;
+use App\Cate;
 use App\Commodity;
+use App\Link;
 use App\Message;
+use App\Problem;
+use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
@@ -63,6 +68,35 @@ class HomeController extends Controller
         // dd($address);
        return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
 
+     }
+
+     public function index()
+     {
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(34);
+        
+        $problem = Problem::all();
+        $cate = Cate::paginate(5);
+        $link = Link::all();
+        return view('home.index',compact('problem','tags','link','gggl','cate'));
+     }
+
+     public function tags()
+     {
+        $a = json_decode(request()->foo);
+        $tag = Tag::where('cate_id','=',$a -> cate_id)->get();
+        $nihao = json_encode($tag);
+        echo $nihao;
+     }
+
+     public function dangqian()
+     {
+        $m = json_decode(request()->foo);
+        $problem = Problem::findOrFail($m -> id);
+        $pro = $problem -> tags;
+        $nihao = json_encode($pro);
+        echo $nihao;
      }
 }
 

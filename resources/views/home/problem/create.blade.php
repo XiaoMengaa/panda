@@ -56,7 +56,7 @@
         </div>
 
         <div class="container">
-            <form class="contact" action="/problem" method="post" enctype="multipart/form-data">
+            <form class="contact" action="/home/problem/store" method="post" enctype="multipart/form-data">
                 @if(Session::has('success'))
                 <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
                     <div class="dashboard-stat green">
