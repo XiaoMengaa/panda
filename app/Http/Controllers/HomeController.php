@@ -107,6 +107,21 @@ class HomeController extends Controller
         $gggl = Advertis::all();
         $tags = Tag::paginate(34);
         return view('home.cate' ,compact('tags','gggl','link','cate'));
+    }
+
+
+     public function tagstore(Request $request)
+     {
+        $problem = Problem::findOrFail($request -> wentiid);
+        try{
+            $a = $problem -> tags() ->sync($request -> tag_id);
+            return back()->with('success','已保存');  
+        }catch(\Exception $e){
+            return back()->with('error','保存失败');
+        }
+        
+
+
      }
 }
 

@@ -32,20 +32,20 @@
 
                                 </div>
                                 <!-- end of page content -->
-                <aside class="span4 page-sidebar">
+                 <aside class="span4 page-sidebar">
 
-                        <section class="widget">
-                                <div class="support-widget" style="height: 70px">
-                                    <a href="/home/center">
-                                        <h3 class="title" style="float: left;">个人中心</h3>
-                                        <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
-                                            <img src="{{Session::get('pic')}}" alt="" width="80">
-                                        </div>
-                                        
-                                    </a>
-                                        
-                                </div>
-                        </section>
+                                                 <section class="widget">
+                                                        <div class="support-widget" style="height: 75px">
+                                                            <a href="/home/center">
+                                                                <h3 class="title" style="float: left;">个人中心</h3>
+                                                                <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;height:80px;">
+                                                                    <img src="{{Session::get('pic')}}" alt="" width="80" height="80">
+                                                                </div>
+                                                                
+                                                            </a>
+                                                                
+                                                        </div>
+                                                </section>
 
 
                         <section class="widget">
