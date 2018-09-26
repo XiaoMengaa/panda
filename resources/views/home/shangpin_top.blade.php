@@ -49,9 +49,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-9">
-                            <div class="header-top-left" style="float:left;width: 40px;margin-top:14px">
+                            <div class="header-top-left" style="float:left;width: 70px;margin-top:14px">
                                 <span>
-                                    <a href="/home/problemlist">知道</a>
+                                    <a href="/">首页</a>
+                                </span>
+                            </div>
+                            <div class="header-top-left" style="float:left;width: 70px;margin-top:14px">
+                                <span>
+                                    <a href="/home/problemlist">问题列表</a>
                                 </span>
                             </div>
                             <div class="header-top-left">

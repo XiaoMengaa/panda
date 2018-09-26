@@ -29,7 +29,6 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 Route::group(['middleware'=>'home'],function(){
 
 	//问题标签路由
-	//1
 	Route::get('/home/problemtag/center/{id}','HomeProblemController@createtag');
 	//前台网站配置组
 	Route::group(['middleware'=>'spwzsz'],function(){

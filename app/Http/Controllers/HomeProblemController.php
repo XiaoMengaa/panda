@@ -42,6 +42,9 @@ class HomeProblemController extends Controller
     {
 
        // $user = User::where('username')->first();
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(59);
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
@@ -65,7 +68,7 @@ class HomeProblemController extends Controller
             return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append','link','tags','gggl'));
     }
 
 
