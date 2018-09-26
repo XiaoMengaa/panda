@@ -43,6 +43,9 @@ Route::group(['middleware'=>'home'],function(){
 
 	});
 
+	//问题标签修改与保存
+	Route::post('/home/tagproblem/create','HomeController@tagstore');
+
 	//所有标签获取
 	Route::post('/home/taghuoqu','HomeController@tags');
 
