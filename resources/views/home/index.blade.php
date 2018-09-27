@@ -12,36 +12,13 @@
                                                         <section class="span4 articles-list">
                                                                 <h3>热门问题</h3>
                                                                 <ul class="articles">
+                                                                    @foreach($problem as $v)
                                                                         <li class="article-entry standard">
-                                                                                <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
-                                                                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-                                                                                <span class="like-count">66</span>
+                                                                                <h4><a href="/home/problem/{{$v->id}}">{{$v->title}}</a></h4>
+                                                                                <span class="article-meta">{{mb_substr($v -> created_at,0,10)}} @foreach($v->tags as $val)<a href="/home/problemlist?tid={{$val->id}}"> {{$val->title}}</a> @endforeach</span>
+                                                                                
                                                                         </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">WordPress Site Maintenance</a></h4>
-                                                                                <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-                                                                                <span class="like-count">15</span>
-                                                                        </li>
-                                                                        <li class="article-entry video">
-                                                                                <h4><a href="single.html">Meta Tags in WordPress</a></h4>
-                                                                                <span class="article-meta">23 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-                                                                                <span class="like-count">8</span>
-                                                                        </li>
-                                                                        <li class="article-entry image">
-                                                                                <h4><a href="single.html">WordPress in Your Language</a></h4>
-                                                                                <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-                                                                                <span class="like-count">6</span>
-                                                                        </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">Know Your Sources</a></h4>
-                                                                                <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-                                                                                <span class="like-count">2</span>
-                                                                        </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">Validating a Website</a></h4>
-                                                                                <span class="article-meta">21 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-                                                                                <span class="like-count">3</span>
-                                                                        </li>
+                                                                    @endforeach
                                                                 </ul>
                                                         </section>
 
@@ -49,36 +26,14 @@
                                                         <section class="span4 articles-list">
                                                                 <h3>高悬赏</h3>
                                                                 <ul class="articles">
+                                                                    @foreach($problem1 as $v)
                                                                         <li class="article-entry standard">
-                                                                                <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
-                                                                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-                                                                                <span class="like-count">66</span>
+                                                                                <h4><a href="/home/problem/{{$v->id}}" style="float: left;">{{$v->title}}</a></h4>
+                                                                                <span> &nbsp;悬赏:{{$v -> reward}}</span>
+                                                                                <span class="article-meta">{{mb_substr($v -> created_at,0,10)}} @foreach($v->tags as $val)<a href="/home/problemlist?tid={{$val->id}}"> {{$val->title}}</a> @endforeach</span>
+                                                                                
                                                                         </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">Using Javascript</a></h4>
-                                                                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-                                                                                <span class="like-count">18</span>
-                                                                        </li>
-                                                                        <li class="article-entry image">
-                                                                                <h4><a href="single.html">Using Images</a></h4>
-                                                                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Designing in WordPress">Designing in WordPress</a></span>
-                                                                                <span class="like-count">7</span>
-                                                                        </li>
-                                                                        <li class="article-entry video">
-                                                                                <h4><a href="single.html">Using Video</a></h4>
-                                                                                <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in WordPress Plugins">WordPress Plugins</a></span>
-                                                                                <span class="like-count">7</span>
-                                                                        </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">WordPress Site Maintenance</a></h4>
-                                                                                <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-                                                                                <span class="like-count">15</span>
-                                                                        </li>
-                                                                        <li class="article-entry standard">
-                                                                                <h4><a href="single.html">WordPress CSS Information and Techniques</a></h4>
-                                                                                <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Theme Development">Theme Development</a></span>
-                                                                                <span class="like-count">1</span>
-                                                                        </li>
+                                                                    @endforeach
                                                                 </ul>
                                                         </section>
                                                 </div>

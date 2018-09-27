@@ -107,8 +107,8 @@
                                 <h3 class="search-header">有一个问题?</h3>
                                 <p class="search-tag-line">如果您有任何疑问，你可以在下面询问或输入您要找的内容!</p>
 
-                                <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
-                                        <input class="search-term required" type="text" id="s" name="s" placeholder="输入你想输入的问题" style="width:750px">
+                                <form id="search-form" class="search-form clearfix" method="get" action="/home/problemlist" autocomplete="off">
+                                        <input class="search-term required" type="text" id="s" name="wenti" placeholder="输入你想输入的问题" style="width:750px">
                                         <input class="search-btn" type="submit" value="搜索答案" />&nbsp;&nbsp;&nbsp;
                                         <input class="search-btn" type="submit" value="我要提问" onclick='window.open("/home/problem/create")'>
                                         <div id="search-error-container"></div>

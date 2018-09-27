@@ -9,6 +9,7 @@ use App\Commodity;
 use App\Link;
 use App\Message;
 use App\Problem;
+use App\Reply;
 use App\Tag;
 use App\Udetails;
 use App\User;
@@ -75,11 +76,11 @@ class HomeController extends Controller
         $tags = Tag::all();
         $gggl = Advertis::all();
         $tags = Tag::paginate(34);
-        
-        $problem = Problem::all();
+        $problem = Problem::orderBy('browse','desc') -> paginate(6);
+        $problem1 = Problem::orderBy('reward','desc') -> paginate(6);
         $cate = Cate::paginate(5);
         $link = Link::all();
-        return view('home.index',compact('problem','tags','link','gggl','cate'));
+        return view('home.index',compact('problem','problem1','tags','link','gggl','cate'));
      }
 
      public function tags()
@@ -110,6 +111,44 @@ class HomeController extends Controller
         }
         
 
+     }
+
+     public function xuansang(Request $request)
+     {
+
+         $pr = Problem::findOrFail($request -> wtid);
+        $pr -> reward = $request -> xuansang;
+        if($pr ->save()){
+            return back()->with('success','财富值设置成功');
+        }else{
+           return back()->with('error','财富值设置失败'); 
+        }
+     }
+
+     public function createreply(Request $request)
+     {
+         $reply = new Reply;
+
+       $reply -> user_id =\Session::get('id');
+       $reply -> content = $request ->content;
+
+       $reply -> problem_id = $request ->id;
+       $reply -> state= '0';
+       $reply -> fabulous =0;
+       $reply -> tread =0;
+        if($reply -> save()){
+            if(!\Session::has('hfwt')){
+                \session(['hfwt' => 1]);
+                $wealth = Wealth::where('user_id','=',\session::get('id'))->get()->first();
+                $wealth -> integral = $wealth -> integral + 10;
+                $wealth -> save();
+                return redirect('/home/problem/'.$request->id)->with(['success'=>'恭喜您回复成功','jifen'=>'恭喜您增加10积分']);
+            }
+                
+            return redirect('/home/problem/'.$request->id)->with('success', '同志,发言成功');
+        }else{
+            return back()->with('error','革命尚未成功,同志仍需努力');
+        }
      }
 }
 

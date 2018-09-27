@@ -36,7 +36,7 @@
 <!-- top + banner 开始 -->
 <div class="container cfh_top">
   <div class="container">
-    <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:left;list-style-type: none;font-size: 18px" ><a href="/home/problemlist" target="_self">首页</a></li>
+    <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)" style="float:left;list-style-type: none;font-size: 18px" ><a href="/" target="_self">首页</a></li>
     <ul class="list-inline">
       <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)">&nbsp;{{$user['username']}}&nbsp;</li>
       <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><img src="{{$udetails['pic']}}" style="width:40px;height:40px"></li>
@@ -44,16 +44,16 @@
   </div>
 </div>
 
-   @if(Session::has('success'))
-            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
-                <div class="dashboard-stat green">
-                        <div class="desc" style="font-size: 40px;text-align: center;line-height:95px;color:green">{{Session::get('success')}} </div>
-                </div>
-            </div>
-            @endif
+    @if(Session::has('success'))
+                            <div class=" am-u-sm-12" style="padding:0px;margin:0px;" id="xiaoshi">
+                                <div class="dashboard-stat green">
+                                        <div class="desc" style="text-align: center;font-size:30px;line-height:80px;color:green">{{Session::get('success')}} </div>
+                                </div>
+                            </div>
+                            @endif
 
             @if(Session::has('error'))
-            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;" id="xiaoshi">
                 <div class="dashboard-stat red">
                         <div class="desc" style="text-align: center;line-height:95px;color:white;color:red">{{Session::get('error')}} </div>
                 </div>
@@ -61,6 +61,12 @@
             @endif
 
 </div>
+<script>
+    var a = document.getElementById('xiaoshi');
+    setTimeout(function(){
+        a.style.display = 'none';
+    },2000);
+</script>
 <!-- top + banner 结束 --> 
 <script src="/crowdfunding.js"></script>
 <!-- 核心 开始 --> 
@@ -283,16 +289,46 @@
     <tbody>
       <tr class="active">
        <th>问题标题</th>
+       <th>问题悬赏</th>
        <th style="text-align: center;">问题操作</th>
       </tr>
       @foreach($problem as $val)
       <tr class="active">
-       <th style="min-width: 300px;"><a href="/home/problem/{{$val->id}}">{{$val ->title}}</a></th>
-       <th style="text-align: center;"><a href="#" su="{{$val}}" wentiid="{{$val -> id}}" id="createtag">为此问题添加标签</a></th>
+       <th style="min-width: 200px;"><a href="/home/problem/{{$val->id}}">{{$val ->title}}</a></th>
+       <th style="min-width: 100px;">{{$val ->reward}}</th>
+       <th style="text-align: center;"><a href="#" su="{{$val}}" wentiid="{{$val -> id}}" class="createtag">为此问题添加标签</a> &nbsp; &nbsp; &nbsp;<a href="#" class="xuansang" wentiid="{{$val -> id}}">设置悬赏值</a></th>
       </tr>
       @endforeach
     </tbody>
   </table>
+ </div>
+ <div class="ui-dialog ui-widget ui-widget-content ui-front question-dialog dialog-set-tag ui-dialog-buttons ui-draggable" tabindex="-1" role="dialog" aria-describedby="ik-dlg-183" aria-labelledby="ui-id-1" style="min-height: 100px; width: 650px;text-align: center;line-height: 100px; top: 300px; left: 600px; display: none;" id="xssz">
+ <h2>请设置悬赏值</h2>
+ <form action="/home/problem/xuansang" method="post" id="fo">
+    <input type="text" name="xuansang">
+    <input type="hidden" name="wtid" value="">
+    <input type="submit" value="保存" class="btn-32-green saveTo" style="width: 80px">
+    <input type="button" value="取消" class="btn-32-green saveTo" name="but" style="width: 80px">
+   {{csrf_field()}}
+ </form>
+ <script>
+   $('.xuansang').click(function(){
+      var wenti = $(this).attr('wentiid');
+      $('input[name=wtid]').val(wenti);
+      $('#xssz').css('display','block');
+      $('input[name=xuansang]').keyup(function(){
+        var sscfz = $(this).val();
+        if({{$user->wealths->riches}} < sscfz){
+          alert('对不起您的财富值不足,请重新设置悬赏');
+          $(this).val('');
+        }
+      });
+      $('input[type=button][name=but]').click(function(){
+        $('#xssz').css('display','none');
+        $('#fo').find('input[name=wtid]').val('');
+      });
+   });
+ </script>
  </div>
   <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/pkg/common.613a3e7.css">
   <link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/question/pkg/aio.2c9a63e.css">
@@ -307,8 +343,9 @@
     </div>
     <div id="ik-dlg-183" class="ui-dialog-content ui-widget-content" style="display: block; width: auto; min-height: 0px; max-height: none; height: 271px;">
       <div class="tags-wrap line">
+        <h1 class="currentTitle">当前标签：</h1>
         <div class="currentTag dialog-tags line" id="dangqian">
-          <h1 class="currentTitle">当前标签：</h1>
+          
 
           
         </div>
@@ -319,7 +356,7 @@
         <div class="tag-input line" id="zhebing">
         </div>
       </div>
-      <div class="dialog-tags-wp item-checked">
+      <div class="dialog-tags-wp item-checked" id="jiayou">
         <i class="ope-arrow-down" style="display: none;"><em></em></i>
         <div class="dialog-tags line more-tags-container" style="display: none;"></div>
       </div>
@@ -335,21 +372,19 @@
 </form>
 
 <script>
-var zhang = true;
 
-  $('#createtag').click(function(){
-    if(zhang){
-        zhang = false;
+  $('.createtag').click(function(){
         var wenti = $(this).attr('su');
         var wentiid = $(this).attr('wentiid');
         var wenid = '<input type="hidden" name="wentiid" value="'+wentiid+'" />';
-        $('#zhebing').append(wenid);
+        $('#jiayou').append(wenid);
         $.ajax({
           url:'/home/taghuoqu',
           data:{foo:wenti,_token:"{{csrf_token()}}"},
           type:'post',
           async:false,
           success:function(data){
+            $('#zhebing > *').remove();
             var a = JSON.parse(data);
             $.each(a,function(k,v){
               var div = '<a class="tag-item shezhi" data-type="" biaoshi="2"><label><input type="checkbox" name="tag_id[]" style="display: none;" value="'+v.id+'" ><span>'+v.title+'</span></label></a>';
@@ -363,15 +398,16 @@ var zhang = true;
           type:'post',
           async:false,
           success:function(data){
+            $('#dangqian > *').remove();
             var a = JSON.parse(data);
             $.each(a,function(k,v){
+
               var div = '<a class="tag-item shezhi" data-type="" biaoshi="1"><label><input type="checkbox" name="tag_id[]" style="display: none;" value="'+v.id+'" checked><span>'+v.title+'</span></label></a>';
               $('#dangqian').append(div);            
             });
           }
         });
 
-    }
     $('.shezhi').click(function(){
 
         if($(this).attr('biaoshi') == 1){

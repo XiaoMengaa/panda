@@ -10,4 +10,9 @@ class Problem extends Model
     {
     	return $this->belongsToMany('App\Tag', 'problem_tag', 'problem_id', 'tag_id');
     }
+
+    public function cate()
+    {
+    	return $this -> belongsTo('App\Cate');
+    }
 }

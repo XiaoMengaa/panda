@@ -64,10 +64,10 @@
 
 
                         <section class="widget">
-                                <h3 class="title">标签</h3>
+                                <h3 class="title">问题标签</h3>
                                 <div class="tagcloud">
                                     @foreach($tags as $v)
-                                    <a href="#" class="btn btn-mini">{{$v->title}}</a>
+                                    <a href="/home/problemlist?tid={{$v->id}}" class="btn btn-mini">{{$v->title}}</a>
                                     @endforeach
                                 </div>
                         </section>

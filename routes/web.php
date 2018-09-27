@@ -28,6 +28,12 @@ Route::post('/touxiang/{id}','HomeProblemController@touxiang');
 //前台路由组
 Route::group(['middleware'=>'home'],function(){
 
+	//前台问题回答
+	Route::post('/home/reply','HomeController@createreply');
+
+	//问题标签修改与保存
+	Route::post('/home/tagproblem/create','HomeController@tagstore');
+
 	//问题标签路由
 	//1
 	Route::get('/home/problemtag/center/{id}','HomeProblemController@createtag');
@@ -44,8 +50,7 @@ Route::group(['middleware'=>'home'],function(){
 
 	});
 
-	//问题标签修改与保存
-	Route::post('/home/tagproblem/create','HomeController@tagstore');
+	Route::post('/home/problem/xuansang','HomeController@xuansang');
 
 	//所有标签获取
 	Route::post('/home/taghuoqu','HomeController@tags');

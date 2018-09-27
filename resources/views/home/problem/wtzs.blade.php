@@ -8,8 +8,8 @@
 <div class="span8 page-content">
 
 <ul class="breadcrumb">
-<li><a href="#">Knowledge Base Theme</a><span class="divider">/</span></li>
-<li><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a> <span class="divider">/</span></li>
+<li><a href="#">{{$problem -> cate -> cname}}</a><span class="divider">/</span></li>
+<li><a href="#" title="View all posts in Server &amp; Database"> @foreach($problem->tags as $val)<a href="/home/problemlist?tid={{$val->id}}"> {{$val->title}}</a> @endforeach</a> <span class="divider">/</span></li>
 <li class="active">{{$problem->title}}</li>
 </ul>
 
@@ -19,10 +19,13 @@
 
 <div class="post-meta clearfix">
     <span class="date">{{substr($problem->created_at,0,10)}}</span>
-    <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-    <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
-
-    <span class="btn btn-mini"style="background:yellow">熊猫知识币</span>
+    <span class="category"><a href="#" title="View all posts in Server &amp; Database"> @foreach($problem->tags as $val)<a href="/home/problemlist?tid={{$val->id}}"> {{$val->title}}</a> @endforeach</a></span>
+    <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">浏览次数 {{$problem -> browse}}</a></span>
+    @if($problem -> reward)
+      <span class="btn btn-mini" id="xsz" cfz="{{$problem -> reward}}" style="background:yellow">悬赏值:{{$problem -> reward}}</span>
+    
+    @endif
+    
 </div><!-- end of post meta -->
 
 <p>{{$problem->content}}</p>
@@ -39,7 +42,7 @@
 <article id="comment-2">
 
 <a href="#">
-<img alt="" src="http://1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60">
+<img alt="" src="{{$v->user->udetails->pic}}" onerror='this.src="/image/1.jpg"' class="avatar avatar-60 photo" height="60" width="60">
 </a>
 
 <div class="comment-meta">
@@ -57,42 +60,8 @@
     <a href="#">
 
             <time datetime="(‘y-m-d h:i:s’,time())">{{$v->created_at}}</time>
-           <div class="like-btn">
-            <span class="like-it"   dianzan="0">{{$v->fabulous}}</span>
-            <div  class="chai"style="background:#fafafa;width: 35.24px;height: 30px;color: #8cd24e;padding-left: 10px;"><img src="/image/chai.jpg" width="30%">&nbsp;{{$v->tread}}</div>
-           </div>
-           <script>
-            
-              
-            $(".like-it").one("click",function(){
-              
-               var js = $(this)
-                       $.ajax({ //一个Ajax过程你看看你你可能酷酷酷酷酷酷酷酷酷酷酷酷
-                       url : "/home/dianzan",
-                       data:{id:{{$v->id}}},//与此php页面h
-                       success: function(json){//如果调用php成功
-                               js.html(json);
-                               alert('赞赞加1哦！')
-                            }
-                       });
-                       return false;
-                  });
-
-             $(".chai").one("click",function(){
-                var js =$(this)
-                $.ajax({
-
-                    url:"/home/chai",
-
-                    data:{id:{{$v->id}}},
-                    success:function(json){
-                      js.html(json);
-                      confirm("你真的要踩人家吗");
-                    }
-                });
-                return false;
-             });
-           </script>
+           
+           
           
 
     </a>
@@ -102,7 +71,39 @@
 
 <div class="comment-body">
 <p>{{$v->content}}</p>
+    
 </div><!-- end of comment-body -->
+    <div class="like-btn">
+      <span class="like-it"   dianzan="0" style="float: left;">{{$v->fabulous}}</span>
+      <div  class="chai" style="background:#fafafa;width: 35.24px;height: 30px;color: #8cd24e;margin-left: 60px"><img src="/image/chai.jpg" width="30%">&nbsp;{{$v->tread}}</div>
+     </div>
+<script>
+           
+              
+            $(".like-it").click(function(){
+               var js = $(this)
+                       $.ajax({ //一个Ajax过程你看看你你可能酷酷酷酷酷酷酷酷酷酷酷酷
+                       url : "/home/dianzan",
+                       data:{id:{{$v->id}}},//与此php页面h
+                       success: function(json){//如果调用php成功
+                               js.html(json);
+                            }
+                       });
+                       return false;
+                  });
+
+             $(".chai").click(function(){
+                var js =$(this)
+                $.ajax({
+                    url:"/home/chai",
+                    data:{id:{{$v->id}}},
+                    success:function(json){
+                      js.html('<img src="/image/chai.jpg" width="30%">&nbsp;'+json);
+                    }
+                });
+              return false;
+            });
+           </script>
 @if(session::get('id')==$problem->user_id)
 @if($v->state==0)
 <button type="button"  class="btn btn-mini 1" id="w" status="{{$v->state}}" shuxing="1">采纳</button>
@@ -112,17 +113,30 @@
 @endif
 <script>
 $("#w").click(function(){
-    
     var a = $(this).attr('shuxing');
-    $.ajax({
-        url:'/home/server',
-        type:'get',
-        data:{panduan:a,rid:{{$v->id}}},
-        success:function(dui){
-            console.log(dui);
-            // window.location.reload();
-        }
-    });
+    if($('#xsz').attr('cfz') != undefined){
+      var cfz = $('#xsz').attr('cfz');
+        $.ajax({
+          url:'/home/server',
+          type:'get',
+          data:{panduan:a,rid:{{$v->id}},cfz:cfz},
+          success:function(dui){
+              window.location.reload();
+              console.log(dui);
+          }
+      });
+    }else{
+        $.ajax({
+          url:'/home/server',
+          type:'get',
+          data:{panduan:a,rid:{{$v->id}}},
+          success:function(dui){
+              window.location.reload();
+              console.log(dui);
+          }
+      }); 
+    }
+    
 });
 </script>
 </article><!-- end of comment -->
@@ -173,7 +187,7 @@ $("#w").click(function(){
 </div>
 
 
-<form action="/reply" method="post" id="commentform">
+<form action="/home/reply" method="post" id="commentform">
 
 <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
 
@@ -191,19 +205,19 @@ $("#w").click(function(){
 {{csrf_field()}}
 </form>
  <script type="text/javascript">
-            var hh=document.getElementById("submit");
-            hh.onclick = function(){
-               
-               var text=document.getElementById("comment").value;//通过id获取需要验证的表单元素的值
-                   if(text==""){//当上面获取的值为空时
-                     alert("请填写您宝贵的回答！");//弹出提示
-                     return false;//返回false（不提交表单）
-                   }else{
-                    return true;//提交表单
-                   }
-            }
-               
-            </script>
+    var hh=document.getElementById("submit");
+    hh.onclick = function(){
+       
+       var text=document.getElementById("comment").value;//通过id获取需要验证的表单元素的值
+           if(text==""){//当上面获取的值为空时
+             alert("请填写您宝贵的回答！");//弹出提示
+             return false;//返回false（不提交表单）
+           }else{
+            return true;//提交表单
+           }
+    }
+     
+</script>
 
 </div>
 
@@ -216,72 +230,43 @@ $("#w").click(function(){
 <!-- start of sidebar -->
 <aside class="span4 page-sidebar">
 
-<section class="widget">
-<div class="support-widget" style="height: 70px">
-    <a href="/home/center">
-        <h3 class="title" style="float: left;">个人中心</h3>
-        <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
-            <img src="{{Session::get('pic')}}" alt="" width="80">
-        </div>
-        
-    </a>
-        
-</div>
-</section>
+      <section class="widget">
+              <div class="support-widget" style="height: 70px">
+                  <a href="/home/center">
+                      <h3 class="title" style="float: left;">个人中心</h3>
+                      <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
+                          <img src="{{Session::get('pic')}}" alt="" width="80">
+                      </div>
+                      
+                  </a>
+                      
+              </div>
+      </section>
 
 
-<section class="widget">
-<h3 class="title">Featured Articles</h3>
-<ul class="articles">
-    <li class="article-entry standard">
-            <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
-            <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-            <span class="like-count">66</span>
-    </li>
-    <li class="article-entry standard">
-            <h4><a href="single.html">WordPress Site Maintenance</a></h4>
-            <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-            <span class="like-count">15</span>
-    </li>
-    <li class="article-entry video">
-            <h4><a href="single.html">Meta Tags in WordPress</a></h4>
-            <span class="article-meta">23 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
-            <span class="like-count">8</span>
-    </li>
-    <li class="article-entry image">
-            <h4><a href="single.html">WordPress in Your Language</a></h4>
-            <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-            <span class="like-count">6</span>
-    </li>
+      <section class="widget">
+              <h3 class="title">广告展示</h3><hr>
+              <div>
+                     @foreach($gggl as $v)
+                          <tr>
+                              
+                              <a href="{{$v['glink']}}">
+                              <td><img src="{{$v['gpic']}}"></td></a>
+                          </tr><hr>
+                     @endforeach
 
-</ul>
-</section>
+              </div>
+      </section>
 
 
-
-<section class="widget"><h3 class="title">Categories</h3>
-<ul>
-    <li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a> </li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet,">Designing in WordPress</a></li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a></li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a></li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a></li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress for Beginners</a></li>
-    <li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress Plugins</a></li>
-</ul>
-</section>
-
-<section class="widget">
-<h3 class="title">Recent Comments</h3>
-<ul id="recentcomments">
-
-    <li class="recentcomments"><a href="#" rel="external nofollow" class="url">John Doe</a> on <a href="#">Integrating WordPress with Your Website</a></li>
-    <li class="recentcomments">saqib sarwar on <a href="#">Integrating WordPress with Your Website</a></li>
-    <li class="recentcomments"><a href="#" rel="external nofollow" class="url">John Doe</a> on <a href="#">Integrating WordPress with Your Website</a></li>
-    <li class="recentcomments"><a href="#" rel="external nofollow" class="url">Mr WordPress</a> on <a href="#">Installing WordPress</a></li>
-</ul>
-</section>
-
+      <section class="widget">
+              <h3 class="title">问题标签</h3>
+              <div class="tagcloud">
+                  @foreach($tags as $v)
+                  <a href="/home/problemlist?tid={{$v->id}}" class="btn btn-mini">{{$v->title}}</a>
+                  @endforeach
+              </div>
+      </section>
 </aside>
 <!-- end of sidebar -->
 </div>

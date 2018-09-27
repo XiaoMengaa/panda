@@ -34,6 +34,9 @@ class HomeProblemController extends Controller
         }else{
             $problem = Problem::orderBy('id', 'desc')->paginate(5);
         }
+        if(request() -> wenti){
+           $problem = Problem::where('title','like','%'.request()->wenti.'%')->get(); 
+        };
     	
         $link = Link::all();
     	return view('home.problem.hindex',compact('problem','tags','link','gggl'));
@@ -60,12 +63,17 @@ class HomeProblemController extends Controller
             }
             
         }
-        if(\session::get('ckwt') == 6){
+
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(34);
+        $problem -> browse = $problem -> browse + 1;
+        $problem -> save();
+        if(\session::get('ckwt') == 5){
             request()->session()->flash('success', '恭喜您获得五积分');
-            return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
+            return view('home.problem.wtzs',compact('problem','id','reply','append','link','gggl','tags'));
         }
 
-    	return view('home.problem.wtzs',compact('problem','id','reply','append','link'));
+    	return view('home.problem.wtzs',compact('problem','id','reply','append','link','gggl','tags'));
     }
 
 
@@ -196,30 +204,32 @@ class HomeProblemController extends Controller
     //采纳判断
     public function caina(Request $request)
     {
-        DB::beginTransaction();
-         if($request->panduan == '1'){
-            $reply = Reply::findOrFail($request -> rid);
-            $reply -> state = 1;
-            if($reply -> save()){
-                $uid = $reply -> user_id;
-                $user = Wealth::where('user_id','=',$uid)->get()->first();
-                $user -> riches = $user -> riches + 10;
-                if($user -> save()){
-                    DB::commit();
-                }else{
-                    DB::rollBack();
+        if($request -> cfz){
+            echo $request -> cfz;
+        }else{
+            DB::beginTransaction();
+             if($request->panduan == '1'){
+                $reply = Reply::findOrFail($request -> rid);
+                $reply -> state = 1;
+                if($reply -> save()){
+                    $uid = $reply -> user_id;
+                    $user = Wealth::where('user_id','=',$uid)->get()->first();
+                    $user -> riches = $user -> riches + 10;
+                    if($user -> save()){
+                        DB::commit();
+                    }else{
+                        DB::rollBack();
+                    }
                 }
-            }
-            
-         }else{
-            rollBack();
-         }
+                
+             }
+        }
+        
     }
        
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
-        
            $reply = Reply::findOrFail($request ->id);
             $reply -> fabulous  =$reply -> fabulous + 1;
           if ($reply ->save())
