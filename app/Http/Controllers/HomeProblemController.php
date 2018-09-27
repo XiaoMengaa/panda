@@ -211,16 +211,18 @@ class HomeProblemController extends Controller
                 $user -> riches = $user -> riches + 10;
                 if($user -> save()){
                     DB::commit();
+        
                 }else{
-                    DB::rollBack();
+                DB::rollBack();
                 }
             }
             
          }else{
-            rollBack();
+            DB::rollBack();
          }
     }
        
+       //赞
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
@@ -238,6 +240,7 @@ class HomeProblemController extends Controller
  
 
     }
+    //踩
     public function chai(request $request)
     {
         DB::beginTransaction();
