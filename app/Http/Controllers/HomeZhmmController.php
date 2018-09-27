@@ -25,7 +25,7 @@ class HomeZhmmController extends Controller
 			return view('home.xmm',compact('user'));
     		
     	}else{
-    		return redirect('/home/login')->with('error','该用户名不存在');
+    		return back()->with('error','该用户名不存在');
 		}
 
       
@@ -40,6 +40,21 @@ class HomeZhmmController extends Controller
    		 $user->save();
    		 return redirect('/home/login')->with('success','密码设置成功');
    	}
+   }
+
+   public function jiumima()
+   {
+      $jiumima = $_POST['v']; 
+      // dd($jiumima);
+      $id = \Session::get('id');
+      $user = User::find($id);
+      $mima = Hash::check($jiumima, $user->password);
+      if($mima){
+        echo '1';
+      }else{
+        echo '0';
+      }
+
    }
  
          

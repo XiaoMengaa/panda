@@ -210,7 +210,7 @@
       </tr>
       <tr>
         <td align="right" class="color555">确认新密码：</td>
-        <td class="color555"><input class="my_info_content_care_table_text" name="pass" type="password">
+        <td class="color555"><input class="my_info_content_care_table_text" name="repassword" type="password">
           <span class="colorCA1E37 margin_left10 font_size12"></span></td>
       </tr>
      
@@ -222,6 +222,112 @@
   </div>
   {{csrf_field()}}
 </form>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+ <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
+                <script>
+                var CPASS = false; 
+                var JIUPASS = false;
+                var CREPASS = false;
+                //密码
+
+                $('input[name=jiupass]').focus(function(){
+                    $(this).addClass('active');
+                    $(this).next().show().html('请输入旧密码');
+                }).blur(function(){
+                    $(this).removeClass('active');
+                    //获取用户的输入值
+                    var v = $(this).val();
+                    // console.log(v);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                      url:'/jiumima',
+                      type:'post',
+                      data:{v:v},
+                      success:function(data){
+                          if(data == 1){
+                            $('input[name=jiupass]').next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
+                            JIUPASS = true;
+                          }else{
+                            $('input[name=jiupass]').next().show().html('旧密码错误');
+                            JIUPASS = false;
+                          }
+                      },
+                      async:false
+                    });
+                })
+
+                $('input[name=password]').focus(function() {
+                    //边框颜色
+                    $(this).addClass('active');
+                    //提示语显示
+                    $(this).next().show().html('6~20非空白字符');
+                }).blur(function() {
+                    $(this).removeClass('active');
+                    //获取用户的输入值
+                    var v = $(this).val();
+                    //正则
+                    var reg = /^\S{6,20}$/;
+
+                    if (!reg.test(v)) {
+                        //边框
+                        $(this).addClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:red ">格式不正确</span>').show();
+                        CPASS = false;
+                    } else {
+                        //边框
+                        $(this).removeClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
+                        CPASS = true;
+
+                    }
+                })
+
+                //确认密码
+                $('input[name=repassword]').focus(function() {
+                    //边框颜色
+                    $(this).addClass('active');
+                    //提示语显示
+                    $(this).next().show().html('再次输入密码');
+                }).blur(function() {
+                    $(this).removeClass('active');
+                    //获取用户的输入值
+                    var v = $(this).val();
+
+                    if (v != $('input[name=password]').val()) {
+                        //边框
+                        $(this).addClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:red ">两次密码不一致</span>').show();
+                        CREPASS = false;
+                    } else {
+                        //边框
+                        $(this).removeClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
+                        CREPASS = true;
+
+                    }
+                })
+                
+                //表单的提交事件
+                $('form').submit(function() {
+                    //触发错误提醒
+                    $('input').trigger('blur');
+                    //判断输入值是否都正确
+                    if (CPASS && CREPASS && JIUPASS) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                </script>
+
 </div>
 
 <div class="col-lg-9"  id="dingbo" style="display:none ;">

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-=======
 use App\Address;
 use App\Advertis;
 use App\Cate;
@@ -15,29 +13,46 @@ use App\Tag;
 use App\Udetails;
 use App\User;
 use App\Wealth;
->>>>>>> 6b6830238c966886f77cce4222fc3309110c33d0
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    //
+    public function register()
     {
-        $this->middleware('auth');
+        return view('home.register');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+        //前台注册
+    public function create(Request $request)
     {
-        return view('home');
+        $user = new User;
+
+        $user -> username = $request->username;
+       
+        $user -> password = Hash::make($request->password);
+        // dd($request->password);
+        DB::beginTransaction();
+
+        if($user -> save()){
+             $w = new Wealth;
+             $w -> user_id = $user -> id;
+             $m = new Udetails;
+             $m -> user_id = $user -> id;
+             if($w -> save() && $m -> save()){
+                DB::commit();
+                return redirect('/home/login')->with('success', '注册成功');
+            }else{
+                DB::rollBack();
+                return back()->with('error','注册失败');
+            }
+            
+        }else{
+            DB::rollBack();
+            return back()->with('error','注册失败');
+        }   
     }
      
        

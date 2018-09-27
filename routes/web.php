@@ -222,5 +222,8 @@ Route::post('/home/xmm','HomeZhmmController@store');
 
 Route::post('/home/mm','HomeZhmmController@update');
 
+//验证旧密码
+Route::post('/jiumima','HomeZhmmController@jiumima');
+
 
 

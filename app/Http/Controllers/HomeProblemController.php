@@ -186,8 +186,10 @@ class HomeProblemController extends Controller
     {
         $user = User::findOrFail(\Session::get('id')); 
         
-        if(Hash::check($request ->jiupass ,$user->password)){
-            if($request->password == $request->pass){
+        if(Hash::check($request ->jiupass ,$user->password))
+        {
+            if($request->password == $request->repassword)
+            {
                 $user->password = Hash::make($request->password);
                 $user->save();
                 Session()->flush();
@@ -308,6 +310,8 @@ class HomeProblemController extends Controller
     {
         
     }
+
+    
 
   
 }
