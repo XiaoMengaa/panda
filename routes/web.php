@@ -55,6 +55,9 @@ Route::group(['middleware'=>'home'],function(){
 	//前台订单路由
 	Route::get('/home/dingdanguanli','HomeController@dingdanguanli');
 
+	//前台分类列表
+	Route::get('/home/cate','HomeController@fenlei');
+
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
 
@@ -135,7 +138,6 @@ Route::post('/admin/fankui/{id}','AdminController@fankuishanchu');
 
 //回答问题资源路由
 Route::resource('/reply','ReplyController');
-
 //后台路由
 Route::get('/admin','AdminController@index');
 
@@ -213,5 +215,17 @@ Route::get('home/wzkg',function(){
 
 //找回密码路由
 Route::get('/home/zhmm','HomeZhmmController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 //新密码
 Route::post('/home/xmm','HomeZhmmController@store');
+
+Route::post('/home/mm','HomeZhmmController@update');
+
+//验证旧密码
+Route::post('/jiumima','HomeZhmmController@jiumima');
+
+
+

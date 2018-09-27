@@ -18,22 +18,22 @@
 						<div class="login_title">
 							修改密码
 						</div>
-						<form action="" method="post">
+						<form action="/home/mm" method="post">
 							
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="设置密码">
+								<input  id= "password" name="password" type="password" placeholder="设置密码">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="repassword" type="password" placeholder="确认密码">
+								<input id="pass" name="pass" type="password" placeholder="确认密码">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
-							
+							<input name="username" type="hidden" value="{{$user->username}}">
 							
 							<div class="form_btn">
-								<button type="button">提交</button>
+								<button >提交</button>
 							</div>
-							
+							{{csrf_field()}}
 						</form>
 						<div class="other_login">
 							<div class="left other_left">

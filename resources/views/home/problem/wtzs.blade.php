@@ -30,7 +30,7 @@
 </article>
 <section id="comments">
 
-<h3 id="comments-title">(3) 回答</h3>
+<h3 id="comments-title">() 回答</h3>
 
 @foreach($reply as $v)
 <ol class="commentlist">
@@ -120,7 +120,7 @@ $("#w").click(function(){
         data:{panduan:a,rid:{{$v->id}}},
         success:function(dui){
             console.log(dui);
-            // window.location.reload();
+             window.location.reload();
         }
     });
 });
@@ -217,10 +217,10 @@ $("#w").click(function(){
 <aside class="span4 page-sidebar">
 
 <section class="widget">
-<div class="support-widget" style="height: 70px">
+<div class="support-widget" style="height: 75px">
     <a href="/home/center">
         <h3 class="title" style="float: left;">个人中心</h3>
-        <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px;">
+        <div style="width: 80px;overflow: hidden;border-radius: 50px;margin-left: 250px; height:80px;">
             <img src="{{Session::get('pic')}}" alt="" width="80">
         </div>
         
