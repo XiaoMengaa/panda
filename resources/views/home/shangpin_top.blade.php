@@ -51,7 +51,7 @@
                         <div class="col-sm-9">
                             <div class="header-top-left" style="float:left;width: 70px;margin-top:14px">
                                 <span>
-                                    <a href="/">首页</a>
+                                    <a href="/">问答首页</a>
                                 </span>
                             </div>
                             <div class="header-top-left" style="float:left;width: 70px;margin-top:14px">
