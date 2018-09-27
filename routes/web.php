@@ -138,7 +138,6 @@ Route::post('/admin/fankui/{id}','AdminController@fankuishanchu');
 
 //回答问题资源路由
 Route::resource('/reply','ReplyController');
-
 //后台路由
 Route::get('/admin','AdminController@index');
 

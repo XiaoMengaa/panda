@@ -209,14 +209,14 @@ class HomeProblemController extends Controller
                 $user -> riches = $user -> riches + 10;
                 if($user -> save()){
                     DB::commit();
-                       //location.assign(location)
+        
                 }else{
-                
+                DB::rollBack();
                 }
             }
             
          }else{
-            rollBack();
+            DB::rollBack();
          }
     }
        
