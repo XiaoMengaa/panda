@@ -186,8 +186,10 @@ class HomeProblemController extends Controller
     {
         $user = User::findOrFail(\Session::get('id')); 
         
-        if(Hash::check($request ->jiupass ,$user->password)){
-            if($request->password == $request->pass){
+        if(Hash::check($request ->jiupass ,$user->password))
+        {
+            if($request->password == $request->repassword)
+            {
                 $user->password = Hash::make($request->password);
                 $user->save();
                 Session()->flush();
@@ -209,16 +211,18 @@ class HomeProblemController extends Controller
                 $user -> riches = $user -> riches + 10;
                 if($user -> save()){
                     DB::commit();
+        
                 }else{
-                    DB::rollBack();
+                DB::rollBack();
                 }
             }
             
          }else{
-            rollBack();
+            DB::rollBack();
          }
     }
        
+       //赞
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
@@ -236,6 +240,7 @@ class HomeProblemController extends Controller
  
 
     }
+    //踩
     public function chai(request $request)
     {
         DB::beginTransaction();
@@ -308,6 +313,8 @@ class HomeProblemController extends Controller
     {
         
     }
+
+    
 
   
 }
