@@ -25,6 +25,10 @@
       <span class="btn btn-mini" id="xsz" cfz="{{$problem -> reward}}" style="background:yellow">悬赏值:{{$problem -> reward}}</span>
     
     @endif
+
+    @if(\Session('id') == $problem -> user_id)
+    <a  href="/home/problemli/{{$problem -> id}}" class="btn btn-mini" id="xsz" cfz="{{$problem -> reward}}" style="background:blue">删除此问题</a>
+    @endif
     
 </div><!-- end of post meta -->
 
@@ -33,7 +37,7 @@
 </article>
 <section id="comments">
 
-<h3 id="comments-title">(3) 回答</h3>
+<h3 id="comments-title">() 回答</h3>
 
 @foreach($reply as $v)
 <ol class="commentlist">
@@ -80,25 +84,27 @@
 <script>
            
               
-            $(".like-it").click(function(){
+            $(".like-it").one('click',function(){
                var js = $(this)
                        $.ajax({ //一个Ajax过程你看看你你可能酷酷酷酷酷酷酷酷酷酷酷酷
                        url : "/home/dianzan",
                        data:{id:{{$v->id}}},//与此php页面h
                        success: function(json){//如果调用php成功
                                js.html(json);
+                               
                             }
                        });
                        return false;
                   });
 
-             $(".chai").click(function(){
+             $(".chai").one('click',function(){
                 var js =$(this)
                 $.ajax({
                     url:"/home/chai",
                     data:{id:{{$v->id}}},
                     success:function(json){
                       js.html('<img src="/image/chai.jpg" width="30%">&nbsp;'+json);
+                      
                     }
                 });
               return false;
@@ -230,6 +236,7 @@ $("#w").click(function(){
 <!-- start of sidebar -->
 <aside class="span4 page-sidebar">
 
+
       <section class="widget">
               <div class="support-widget" style="height: 70px">
                   <a href="/home/center">
@@ -267,6 +274,7 @@ $("#w").click(function(){
                   @endforeach
               </div>
       </section>
+
 </aside>
 <!-- end of sidebar -->
 </div>

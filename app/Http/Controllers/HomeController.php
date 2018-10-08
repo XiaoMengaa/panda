@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Address;
@@ -18,6 +19,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
+
+
+
 class HomeController extends Controller
 {
     //
@@ -26,16 +31,24 @@ class HomeController extends Controller
         return view('home.register');
     }
 
+
+
         //前台注册
     public function create(Request $request)
     {
-     	$user = new User;
+        $user = new User;
+
+
 
         $user -> username = $request->username;
        
         $user -> password = Hash::make($request->password);
         // dd($request->password);
         DB::beginTransaction();
+
+
+
+
 
         if($user -> save()){
              $w = new Wealth;
@@ -58,6 +71,7 @@ class HomeController extends Controller
      
        
 
+
      public function dingdanguanli()
      {  
         // $message=Message::find($id);
@@ -66,10 +80,13 @@ class HomeController extends Controller
         $address=Address::where('message_id','=',$message->id)->get()->first();
         $commoditie=Commodity::findOrFail(request()->id); 
 
+
         // dd($address);
        return view('home.shangcheng.dingdanguanli' ,['message'=>$message,'address'=>$address,'commoditie'=>$commoditie]);
 
+
      }
+
 
      public function index()
      {
@@ -83,6 +100,7 @@ class HomeController extends Controller
         return view('home.index',compact('problem','problem1','tags','link','gggl','cate'));
      }
 
+
      public function tags()
      {
         $a = json_decode(request()->foo);
@@ -90,6 +108,7 @@ class HomeController extends Controller
         $nihao = json_encode($tag);
         echo $nihao;
      }
+
 
      public function dangqian()
      {
@@ -99,6 +118,7 @@ class HomeController extends Controller
         $nihao = json_encode($pro);
         echo $nihao;
      }
+
 
      public function tagstore(Request $request)
      {
@@ -110,6 +130,7 @@ class HomeController extends Controller
             return back()->with('error','保存失败');
         }
         
+
 
      }
 
@@ -150,5 +171,27 @@ class HomeController extends Controller
             return back()->with('error','革命尚未成功,同志仍需努力');
         }
      }
+
+     //分类
+         public function fenlei()
+     {   
+         $link = Link::all();
+         $cate = Cate::paginate();
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(34);
+        return view('home.cate' ,compact('tags','gggl','link','cate'));
+    }
+
+    public function delete($id)
+    {
+        $problem = Problem::findOrFail($id);
+        if($problem->delete()){
+        return redirect('/home/problemlist')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除成功');
+        }
+    }
 }
+
 

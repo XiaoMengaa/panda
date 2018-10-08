@@ -195,7 +195,7 @@
 						<div class="col-md-9 visible-lg visible-md">
 							<nav class="mainmenu">
 								<ul>
-									<li><a href="index.html">首页</a>
+									<li><a href="/home/shangcheng">首页</a>
 										<ul>
 											<li><a href="index.html">Home Version 1</a></li>
 											<li><a href="index-2.html">Home Version 2</a></li>
@@ -286,10 +286,12 @@
 				
 				<div class="row">
 					<div class="col-md-6">
-						<form action="/home/shangcheng/update/{{$message['id']}}?id={{request()->id}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
+						<form action="/home/shangcheng/update/{{$message['id']}}" method="get" class='form form-horizontal validate-form' style='margin-bottom: 0;' />
 						<input type="hidden" name="aid" value="{{$message->address->id}}">
 								<div class="col-md-12 col-xs-12">
 									<div class="checkout-form-list">
+										<input type="hidden" name="nbid" value="{{request()->id}}">
+										
 										<label>收件人姓名{{$message->address['xname']}} <span class="required">*</span></label>										
 										<input placeholder="" type="text" name="name" value="{{$message['name']}}" id="name">
 									</div>

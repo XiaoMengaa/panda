@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:wb="http://open.weibo.com/wb">
 
     <head>
         <meta charset="utf-8">
@@ -8,6 +8,7 @@
         <link rel="shortcut icon" href="/home-login/img/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/home-login/layui/css/layui.css">
         <link rel="stylesheet" href="/home-login/css/login.css">
+        <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
     </head>
 
     <body>
@@ -50,7 +51,7 @@
                     <div class="layui-form-item">
                         <input type="password" id="password" lay-verify="required" maxlength="18" placeholder="请输入密码" autocomplete="off" class="layui-input" name="password">
                     </div>
-
+                    <a href="/admin/wblogin" style="color: cornflowerblue;">微博登录</a>
                     <button class="login_btn layui-btn layui-btn-radius layui-btn-normal" lay-submit lay-filter="登录">登录</button>
                     <strong class="text-white"> <a href="/home/register" style="color: cornflowerblue;">立即注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/home/zhmm" style="color: cornflowerblue;">忘记密码?</a></strong><br>
                     

@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'weibo' => [
+    'client_id' => env('3229232766'),
+    'client_secret' => env('3457397b21deb5b4ecad77052a75319a'),
+    'redirect' => env('http://www.laravel.com/wblogin/callback'),  
+    ],
 
 ];

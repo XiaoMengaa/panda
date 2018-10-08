@@ -321,7 +321,7 @@
 						<div class="col-md-9 visible-lg visible-md">
 							<nav class="mainmenu">
 								<ul>
-									<li><a href="index.html">首页</a>
+									<li><a href="/home/shangcheng">首页</a>
 										<ul>
 											<li><a href="index.html">Home Version 1</a></li>
 											<li><a href="index-2.html">Home Version 2</a></li>
@@ -362,7 +362,7 @@
 							<div class="mobile-menu">
 								<div class="mobile-menu-active">
 									<ul>
-                                        <li><a href="index.html">Home</a>
+                                        <li><a href="/home/shangcheng">Home</a>
                                             <ul>
                                                 <li><a href="index.html">Home Version 1</a></li>
                                                 <li><a href="index-2.html">Home Version 2</a></li>

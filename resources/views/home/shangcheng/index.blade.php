@@ -1,15 +1,14 @@
 @include('home.shangpin_top')
             <div class="header-bottom-area" style="padding:0px">
                 <div class="container">
-                    <div class="row" >
+
                         <div class="col-md-3 col-xs-12">
                             <div class="logo pad-logo final-mrg" >
-                                <img src="/image/panda.jpg" alt="" width="120px" />
+                               <img src="/image/panda.jpg" alt="" width="120px" />
                             </div>
                         </div>
                         <div class="col-md-9 col-xs-12">
                             <div class="header-cart-search-box clearfix">
-                                
                                 <div class="header-search-box">
                                     <form action="/home/shangcheng">
                                         <div class="pos-select-box">
@@ -163,8 +162,7 @@
                                                         <div class="product-action">
                                                             <ul>
                                                                 <li class="cart"><a href="/home/spxx/{{$v['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
-                                                                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                               
+                                                             
                                                             </ul>
                                                         </div>
                                                     </div>

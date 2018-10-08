@@ -45,6 +45,9 @@ class HomeProblemController extends Controller
     {
 
        // $user = User::where('username')->first();
+        $tags = Tag::all();
+        $gggl = Advertis::all();
+        $tags = Tag::paginate(59);
     	$problem = Problem::findOrFail($id);
        // $reply = Reply::all();
         $reply = Reply::where('problem_id','=',$id)->get();
@@ -73,7 +76,9 @@ class HomeProblemController extends Controller
             return view('home.problem.wtzs',compact('problem','id','reply','append','link','gggl','tags'));
         }
 
+
     	return view('home.problem.wtzs',compact('problem','id','reply','append','link','gggl','tags'));
+
     }
 
 
@@ -191,8 +196,10 @@ class HomeProblemController extends Controller
     {
         $user = User::findOrFail(\Session::get('id')); 
         
-        if(Hash::check($request ->jiupass ,$user->password)){
-            if($request->password == $request->pass){
+        if(Hash::check($request ->jiupass ,$user->password))
+        {
+            if($request->password == $request->repassword)
+            {
                 $user->password = Hash::make($request->password);
                 $user->save();
                 Session()->flush();
@@ -205,7 +212,22 @@ class HomeProblemController extends Controller
     public function caina(Request $request)
     {
         if($request -> cfz){
-            echo $request -> cfz;
+            DB::beginTransaction();
+             if($request->panduan == '1'){
+                $reply = Reply::findOrFail($request -> rid);
+                $reply -> state = 1;
+                if($reply -> save()){
+                    $uid = $reply -> user_id;
+                    $user = Wealth::where('user_id','=',$uid)->get()->first();
+                    $user -> riches = $user -> riches + 10;
+                    if($user -> save()){
+                        DB::commit();
+                    }else{
+                        DB::rollBack();
+                    }
+                }
+                
+             }
         }else{
             DB::beginTransaction();
              if($request->panduan == '1'){
@@ -227,6 +249,7 @@ class HomeProblemController extends Controller
         
     }
        
+       //赞
     public function dianzan(request $request)
     {        
         DB::beginTransaction();
@@ -243,6 +266,7 @@ class HomeProblemController extends Controller
  
 
     }
+    //踩
     public function chai(request $request)
     {
         DB::beginTransaction();
@@ -311,10 +335,8 @@ class HomeProblemController extends Controller
         } 
     }
 
-    public function createtag($id)
-    {
-        
-    }
+
+    
 
   
 }

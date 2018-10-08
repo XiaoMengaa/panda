@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Commodity;
+use App\Link;
 use App\Spcate;
 use App\User;
 use App\Wealth;
@@ -17,11 +18,10 @@ class HomeSpController extends Controller
     public function index()
     {
         $sp = Spcate::all();
-        $spb = Commodity::all();
-        $ss = Commodity::orderBy('id','desc') ->where('cname','like', '%'.request()->cname.'%')->get();
-        // dd($ss);
+        $spb = Commodity::orderBy('id','desc') ->where('cname','like', '%'.request()->cname.'%')->get();
+        $link = Link::all();
 
-        return view('home.shangcheng.index',compact('sp','spb','ss'));
+        return view('home.shangcheng.index',compact('sp','spb','link'));
     }
 
     /**
@@ -30,10 +30,11 @@ class HomeSpController extends Controller
      */
     public function shangpin(Request $request,$id)
     { 
+      $link = Link::all();
       $spb = Commodity::where('spcate_id','=',$id)->get();
-       $sp = Spcate::all();
+      $sp = Spcate::all();
    
-      return view('home.shangcheng.spzs',compact('sp','spb'));
+      return view('home.shangcheng.spzs',compact('sp','spb','link'));
     }
 
 
@@ -45,7 +46,8 @@ class HomeSpController extends Controller
       $user = User::findOrFail(\Session::get('id'));
       $spb = Commodity::findOrFail($id);
       $sp = Spcate::all();
+      $link = Link::all();
       $spxx = Commodity::where('spcate_id','=',$spb->spcate_id)->get();
-      return view('home.shangcheng.spxx',compact('sp','spb','spxx','user'));
+      return view('home.shangcheng.spxx',compact('sp','spb','spxx','user','link'));
     }
 }

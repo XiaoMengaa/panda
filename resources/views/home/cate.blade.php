@@ -10,31 +10,45 @@
 
                                 <!-- start of page content -->
                                 <div class="span8 page-content">
-
-                                        <div class="faqs clearfix">
-                                                @foreach($problem as $v)
-                                                <article class="faq-item active">
-                                                        <span class="faq-icon" style="float: left;margin-top: 10px"></span>
-                                                        <h3 style="padding: 0px;margin: 0px;">
-                                                                <a href="/home/problem/{{$v->id}}">{{$v->title}}</a>
-                                                        </h3>
-                                                        <div class="faq-answer">
-                                                                <p>{{$v->content}}</p>
-                                                                <ul>
-                                                                        <li><a title="WordPress" href="http://codex.wordpress.org/WordPress">WordPress</a></li>
-                                                                        <li><a title="WordPress Semantics" href="http://codex.wordpress.org/WordPress_Semantics">WordPress Semantics</a></li>
-                                                                        <li><a title="About WordPress" href="http://codex.wordpress.org/About_WordPress">About WordPress</a></li>
+                                  <section class="widget">
+                                                        <div class="quick-links-widget" id="chongxin">
+                                                                <h3 class="title">问题分类</h3>
+                                                                <ul id="menu-quick-links" class="menu clearfix" >
+                                                                @foreach($cate as $v)
+                                                                <li><a href="/home/problemlist?cid={{$v->id}}">{{$v->cname}}</a></li>
+                                                                @endforeach
+                                                              
                                                                 </ul>
                                                         </div>
-                                                </article>
-                                                @endforeach
-                                        </div>
+                                                </section>
+                                              
+                                    <style type="text/css">
+                                        #chongxin {
+                                          border: 1px solid #d7d9dc;
+                                        padding: 10px 15px 200px;
+                                           }
+                                       #chongxin ul li {
+                                            font-size:9pt;
+                                        background-color:#ACD6FF;
+                                        color:#000000;
+                                        text-decoration:none;
+                                        display: inline;
+                                      border: 1.5px solid #000000;
+                                      overflow: visible;
+                                      width: 11%;
+                                   margin-bottom: 12px;
+                                    
+                                       }
+                                    
+
+                                        
+                                    </style>   
+                                  
+                                  
 
                                 </div>
-                               
-
                                 <!-- end of page content -->
-                 <aside class="span4 page-sidebar">
+               <aside class="span4 page-sidebar">
 
                                                  <section class="widget">
                                                         <div class="support-widget" style="height: 75px">
@@ -56,7 +70,7 @@
                                        @foreach($gggl as $v)
                                             <tr>
                                                 
-                                                <a href="{{$v['glink']}}">
+                                                 <a href="{{$v['glink']}}">
                                                 <td><img src="{{$v['gpic']}}"></td></a>
                                             </tr><hr>
                                        @endforeach
@@ -66,13 +80,12 @@
 
 
                         <section class="widget">
-                                <h3 class="title">问题标签</h3>
+                                <h3 class="title">标签</h3>
                                 <div class="tagcloud">
                                     @foreach($tags as $v)
-                                    <a href="/home/problemlist?tid={{$v->id}}" class="btn btn-mini">{{$v->title}}</a>
+                                    <a href="#" class="btn btn-mini">{{$v->title}}</a>
                                     @endforeach
                                 </div>
-
                         </section>
                 </aside>
 

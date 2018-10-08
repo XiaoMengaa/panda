@@ -151,8 +151,7 @@
                                                         <div class="product-action">
                                                             <ul>
                                                                 <li class="cart"><a href="/home/spxx/{{$v['id']}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>兑换</a></li>
-                                                                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                               
+                                                            
                                                             </ul>
                                                         </div>
                                                     </div>

@@ -1,4 +1,5 @@
 <!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
         <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
         <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
         <!--[if IE 8]>    <html class="lt-ie9" lang="en-US"> <![endif]-->
@@ -16,6 +17,7 @@
                 
 
                 <!-- Style Sheet-->
+                <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
                 <link rel="stylesheet" href="style.css"/>
                 <link rel='stylesheet' id='bootstrap-css-css'  href='/home/css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
                 <link rel='stylesheet' id='responsive-css-css'  href='/home/css/responsive5152.css?ver=1.0' type='text/css' media='all' />
@@ -92,6 +94,7 @@
                                 </div>
                         </header>
                 </div>
+                <wb:share-button addition="number" type="button" language="zh_tw"></wb:share-button>
                 <!-- End of Header -->
 
                 <!-- Start of Search Wrapper -->

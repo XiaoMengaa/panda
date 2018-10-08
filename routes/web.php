@@ -10,8 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/admin/wblogin','LoginController@login');//獲取accessToken
+
+Route::any('/wblogin/callback','LoginController@callback');//回調路由
+
 //前台首页路由
 Route::get('/','HomeController@index');
+
+//前台商城主页路由
+Route::get('/home/shangcheng','HomeSpController@index');
 
 //确认收货前台路由
 Route::get('/home/qrsh','HomeProblemController@qrsh');
@@ -35,13 +43,11 @@ Route::group(['middleware'=>'home'],function(){
 	Route::post('/home/tagproblem/create','HomeController@tagstore');
 
 	//问题标签路由
-	//1
 	Route::get('/home/problemtag/center/{id}','HomeProblemController@createtag');
 	//前台网站配置组
 	Route::group(['middleware'=>'spwzsz'],function(){
 
-	//前台商城主页路由
-	Route::get('/home/shangcheng','HomeSpController@index');
+	
 
 	//前台商品展示路由
 	Route::get('/home/shangpin/{id}','HomeSpController@shangpin');
@@ -60,6 +66,12 @@ Route::group(['middleware'=>'home'],function(){
 
 	//前台订单路由
 	Route::get('/home/dingdanguanli','HomeController@dingdanguanli');
+
+	//前台删除问题路由
+	Route::get('/home/problemli/{pid}','HomeController@delete');
+
+	//前台分类列表
+	Route::get('/home/cate','HomeController@fenlei');
 
 	//反馈后台资源
 	Route::resource('/fankui','FeedBackController');
@@ -141,7 +153,6 @@ Route::post('/admin/fankui/{id}','AdminController@fankuishanchu');
 
 //回答问题资源路由
 Route::resource('/reply','ReplyController');
-
 //后台路由
 Route::get('/admin','AdminController@index');
 
@@ -219,5 +230,17 @@ Route::get('home/wzkg',function(){
 
 //找回密码路由
 Route::get('/home/zhmm','HomeZhmmController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 //新密码
 Route::post('/home/xmm','HomeZhmmController@store');
+
+Route::post('/home/mm','HomeZhmmController@update');
+
+//验证旧密码
+Route::post('/jiumima','HomeZhmmController@jiumima');
+
+
+

@@ -6,54 +6,44 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-6 mb-10">
                             <div class="footer-widget">
-                                <h4>Information</h4>
+                                <h4>它是如何工作的?</h4>
+                                  <div class="textwidget">
+                                    <p>们大多数人每天都用电脑鼠标，却从来没有停下来想想它是怎样工作的，直到有一天它变脏了，而我们又必须学会如何对它进行清洁。
+                                    </p>
+                                    <p>因为有梦，认真过，改变过，努力过,梦想是一个人奋斗的动力，梦想是一个人动力的源泉。幸福和欢乐在于奋斗，而最有价值的是为梦想而奋斗。有梦想，心就有了方向，有了梦想不在为过去而挣扎。 </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 mb-10">
+                            <div class="footer-widget">
+                                <h4>开发者</h4>
+                                  <div id="twitter_update_list">
+                                        <ul>
+                                                <li>樊锰</li>
+                                                <li>贾旭</li>
+                                                <li>韩国玺</li>
+                                                <li>刘金阳</li>
+                                                <li>丁博</li>
+                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-3 col-sm-6 mb-10">
+                            <div class="footer-widget">
+                                <h4>友情链接</h4>
                                 <ul>
-                                    <li><a href="#">Specials</a></li>
-                                    <li><a href="#">New products</a></li>
-                                    <li><a href="#">Best sellers</a></li>
-                                    <li><a href="#">Our stores</a></li>
-                                    <li><a href="#">Sitemap</a></li>
+                                        @foreach($link as $v)
+                                        <li><a href="{{$v->url}}" title="Lorem ipsum dolor sit amet,">{{$v->name}}</a></li>
+                                        @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 mb-10">
+                          <div class="col-md-3 col-sm-6 mb-10">
                             <div class="footer-widget">
-                                <h4>My account</h4>
-                                <ul>
-                                    <li><a href="#">My orders</a></li>
-                                    <li><a href="#">My credit slips</a></li>
-                                    <li><a href="#">My addresses</a></li>
-                                    <li><a href="#">My personal info</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-10">
-                            <div class="footer-widget">
-                                <h4>Categories</h4>
-                                <ul>
-                                    <li><a href="#">women</a></li>
-                                    <li><a href="#">men</a></li>
-                                    <li><a href="#">Jewellery</a></li>
-                                    <li><a href="#">Equipments</a></li>
-                                    <li><a href="#">Watches</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-10">
-                            <div class="footer-widget">
-                                <h4>Contact us</h4>
-                                <div class="footer-contact">
-                                    <p class="address add">
-                                        <span>Adress: 1234 Heaven Stress, Beverly Hill OldYork- United State of Lorem</span>
-                                    </p>
-                                    <p class="phone add">
-                                        <span> (800) 0123 4567 890</span>
-                                        <br>
-                                        <span>(800) 0987 654 321</span>
-                                    </p>
-                                    <p class="email add">
-                                        <a href="mailto:hastech@hastech.company">demo@hastech.company</a>
-                                    </p>
+                                <h4>请扫码关注我</h4>
+                                <div>
+                                        <img src="/image/erweima.png" style="width:60%">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +55,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="copyright">
-                                <p>Copyright &copy; <a href="http://hastech.company/">hastech</a> . All Rights Reserved</p>
+                                <p> 2018年五个青年男女创建的一个小型网站</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
